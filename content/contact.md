@@ -9,4 +9,4 @@ draft: false
 
 You can reach me here:
 - [**GitHub**](https://github.com/JammyJ1mJ1m)
-- [**Twitter**](https://github.com/tonsky/FiraCode) 
+- [**Twitter**](https://twitter.com/JammyJ1mJ1m) 
