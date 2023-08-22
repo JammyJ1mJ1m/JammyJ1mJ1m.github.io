@@ -1,6 +1,6 @@
 baseURL = 'Jammyj1mj1m.github.io'
 languageCode = 'en-us'
-title = 'portfolio'
+title = 'Portfolio'
 theme = 'terminal'
 paginate = 5
 
