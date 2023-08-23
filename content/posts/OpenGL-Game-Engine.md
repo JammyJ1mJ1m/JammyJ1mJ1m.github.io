@@ -1,7 +1,7 @@
 +++
 title = "OpenGL Game Engine"
 date = "2023-08-22T15:18:17+01:00"
-#lastmod: "2023-08-22T15:18:17+01:00"
+
 author = ""
 authorTwitter = "" #do not include @
 cover = ""
