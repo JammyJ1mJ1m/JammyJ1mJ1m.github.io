@@ -1,10 +1,10 @@
 +++
 title = "OpenGL Game Engine"
 date = "2023-08-22T15:18:17+01:00"
-author = ""
+author = "James"
 authorTwitter = "JammyJ1mJ1m" #do not include @
 cover = ""
-tags = ["Dev", ""]
+tags = ["C#","Engine","Dev"]
 keywords = ["", ""]
 description = "A custom game engine being written in C# and OpenTK"
 showFullContent = false
