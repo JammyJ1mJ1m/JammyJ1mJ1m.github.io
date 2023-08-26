@@ -1,12 +1,12 @@
 +++
 title = "Third Year Final Project"
 date = "2023-08-22T15:17:12+01:00"
-author = ""
-authorTwitter = "" #do not include @
+author = "James"
+authorTwitter = "JammyJ1mJ1m" #do not include @
 cover = ""
-tags = ["", ""]
+tags = ["VR", "Multiplayer","Dev"]
 keywords = ["", ""]
-description = ""
+description = "The software project that went alongside my dissertation"
 showFullContent = false
 readingTime = true
 hideComments = false

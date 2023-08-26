@@ -40,10 +40,10 @@ showMenuItems = 2
 showLanguageSelector = false
 
 # set theme to full screen width
-fullWidthTheme = false
+fullWidthTheme = true
 
 # center theme with default width
-centerTheme = false
+centerTheme = true
 
 # if your resource directory contains an image called `cover.(jpg|png|webp)`,
 # then the file will be used as a cover automatically.
@@ -68,11 +68,11 @@ favicon = "favicon.ico"
 
 # whether to show a table of contents
 # can be overridden in a page's front-matter
-# Toc = false # default
+ Toc = true # default
 
 # set title for the table of contents
 # can be overridden in a page's front-matter
-# TocTitle = "Table of Contents" # default
+ TocTitle = "Contents" # default
 
 [languages]
 [languages.en]
