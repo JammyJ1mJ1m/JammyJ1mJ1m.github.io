@@ -1,5 +1,5 @@
 +++
-title = "OpenGL Game Engine"
+title = "OpenTK Game Engine"
 date = "2023-08-22T15:18:17+01:00"
 author = "James"
 authorTwitter = "JammyJ1mJ1m" #do not include @
