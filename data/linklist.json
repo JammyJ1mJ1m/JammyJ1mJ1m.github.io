@@ -1,0 +1,38 @@
+{
+    "Name": "James",
+    "Description": "find me here",
+    "Image": "/img/me.jpeg",
+    "Socials": [
+        {
+            "Link": "https://www.linkedin.com/in/james-winnett-75bb361b7/",
+            "Icon": "/icon/linkedin-color.svg",
+            "AltText": "Linkedin"
+        },
+        {
+            "Link": "https://github.com/JammyJ1mJ1m",
+            "Icon": "/icon/github-color.svg",
+            "AltText": "GitHub"
+        },
+        {
+            "Link": "https://www.youtube.com/channel/UCfo2Z4a95BT5C0AozPfIviw",
+            "Icon": "/icon/youtube-color.svg",
+            "AltText": "Youtube"
+        }
+        
+        
+    ],
+    "List": [
+        {
+            "Type": "text",
+            "Content": "I'm a Games Developer and all round nerd. \n I am currently a masters year student at The University of Hull  \n\nSkills include: C#, C++, OpenGL, DirectX 11",
+            "HtmlClasses": "desktopOnly"
+        },
+        {
+            "Type": "link",
+            "Link": "/posts/opengl-engine/",
+            "Icon": "/img/donut.png",
+            "Content": "Current favourite project",
+            "OpenNewTab": false
+        }
+    ]
+}
