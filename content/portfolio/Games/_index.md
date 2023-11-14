@@ -2,6 +2,6 @@
 title = "Games"
 date = "2020-02-23"
 author = ""
-weight = 2
+weight = 1
 type = "portfolio"
 +++

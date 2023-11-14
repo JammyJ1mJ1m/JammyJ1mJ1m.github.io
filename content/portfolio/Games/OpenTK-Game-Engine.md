@@ -11,7 +11,7 @@ showFullContent = false
 readingTime = true
 hideComments = false
 color = "pink" #color from the theme settings
-portfolioCover = "img/GA2.png"
+portfolioCover = "img/dinky.png"
 +++
 
 A custom game engine being written in C# and OpenTK.

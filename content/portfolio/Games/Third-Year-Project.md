@@ -11,7 +11,7 @@ showFullContent = false
 readingTime = true
 hideComments = false
 color = "red" #color from the theme settings
-portfolioCover = "img/frontTank.png"
+portfolioCover = "img/tank.jpg"
 
 +++
 
