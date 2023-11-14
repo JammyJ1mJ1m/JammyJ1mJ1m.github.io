@@ -5,9 +5,11 @@
     </div>
   {{ end }}
   
+  <!-- -->
   {{ if eq (.Params.Type) "link-list" }}
     {{ partial "link-list.html" . }}
   {{ else }}
+  
     {{ partial "index-post-list.html" . }}
   {{ end }}
   
