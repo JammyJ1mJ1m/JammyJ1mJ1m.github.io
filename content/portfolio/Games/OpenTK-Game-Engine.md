@@ -14,32 +14,12 @@ color = "pink" #color from the theme settings
 portfolioCover = "img/dinky.png"
 +++
 
-A custom game engine being written in C# and OpenTK.
-The engine initially started as part of first semester in my third year and I have been adding and developing it since.
-
-### August 18th '23 - Specular
-**Specular highlights!!**
-
-Specular maps are now a feature for models, a simple yet visually pleasing feature. 
-
-{{< youtube 5ERTlKTcgrQ >}}
-
-Shout out to the axolotl cards 😎
 
 
-### August 15th '23 - Collisions
-At this stage better collision responses had been implemented between Sphere-Sphere and Sphere-AABB.
+#### Reason and technologies used
+A custom game engine being written in C# and OpenTK.  
+The engine initially started as part of first semester in my third year(september 2022), I worked on this fairly   regularly until around august 2023. The main technologies used are C# and OpenTk which is an OpenGl framework.  
+This project allowed me to further expand into a C++ engine using OpenGl as well as to look into DX11.  
+ The engine is an ECS design which allowed for easy integration of new features.
 
-{{< youtube tQ900XtZkK4 >}}
-
-
-### December 15th '22 - Spotlights
-Spotlights had just been introduced and I was fascinated by the effect shown.
-
-{{< youtube 0PmWyh0bnwU >}}
-
-### December 11th '22 - Phong
-A brief look at state of the engine.
-Basic phong lighting with attenuation was introduced.
-
-{{< youtube SYJy9BMxpA4 >}}
+A more detailed look at the engine can be found [Here](https://jammyjimjim.co.uk/posts/opentk-game-engine/)

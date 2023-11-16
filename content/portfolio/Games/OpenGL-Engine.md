@@ -14,5 +14,8 @@ color = "pink" #color from the theme settings
 portfolioCover = "img/donut.png"
 +++
 
-### August 11th '23 - First started 
-Very early stages following the learn Opengl site
+# 🏗️ **Under construction**🏗️
+
+#### Reason and technologies used
+C++, OpenGL  
+A more detailed look can be found [Here](https://jammyjimjim.co.uk/posts/opengl-engine/)
