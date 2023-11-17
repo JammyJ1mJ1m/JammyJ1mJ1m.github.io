@@ -11,7 +11,7 @@ showFullContent = false
 readingTime = true
 hideComments = false
 color = "pink" #color from the theme settings
-portfolioCover = "img/donut.png"
+portfolioCover = "img/openglEngine.png"
 +++
 
 # 🏗️ **Under construction**🏗️
