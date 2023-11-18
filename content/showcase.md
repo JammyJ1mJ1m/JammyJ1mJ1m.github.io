@@ -4,4 +4,7 @@ title: "Showcase"
 draft: false
 ---
 
-# To be filled out
+# 🏗️ **Under construction**🏗️
+
+During second year I completed a 2D graphics module using the html canvas API  
+The site can be found: [Here](/external/graphics.html)
