@@ -16,13 +16,20 @@ function setupCanvas()
 
         var img = new Image();
         img.src = "assets/cookie.png";
+
+        var img2 = new Image();
+        img2.src = "assets/goldCookie.png";
+        
         img.onload = function()
         {
-            for (let index = 0; index < 500; index++) {
+            layout.drawImage(img2, getRandomArbitrary(50, 1180 ),getRandomArbitrary(50, canvas.clientWidth / 2 - 10),50,50);
+            for (let index = 0; index < 50; index++) {
                 
                 layout.drawImage(img, getRandomArbitrary(50, 1180 ),getRandomArbitrary(50, canvas.clientWidth / 2 - 10),50,50);
                 
             }
+            
         }
+        
     }
 }
