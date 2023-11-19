@@ -27,9 +27,9 @@
         },
         {
             "Type": "link",
-            "Link": "/posts/opengl-engine/",
-            "Icon": "/img/donut.png",
-            "Content": "Current favourite project",
+            "Link": "/portfolio/masters-year/rtgandcpp/",
+            "Icon": "/img/DX.png",
+            "Content": "Current project",
             "OpenNewTab": false
         }
     ]
