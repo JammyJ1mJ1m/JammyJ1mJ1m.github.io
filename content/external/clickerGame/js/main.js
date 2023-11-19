@@ -18,9 +18,9 @@ function setupCanvas()
         img.src = "assets/cookie.png";
         img.onload = function()
         {
-            for (let index = 0; index < 50; index++) {
+            for (let index = 0; index < 500; index++) {
                 
-                layout.drawImage(img, getRandomArbitrary(50, 750),getRandomArbitrary(50, 600),50,50);
+                layout.drawImage(img, getRandomArbitrary(50, 1180 ),getRandomArbitrary(50, canvas.clientWidth / 2 - 10),50,50);
                 
             }
         }
