@@ -8,6 +8,9 @@ function setupCanvas() {
     let lastTime, layout, img, img2;
     let tapCount = 0;
     let cookieList = [];
+    let lastClickTime = Date.now();
+
+    let IsClickUp = true;
 
     lastTime = Date.now();
 
@@ -28,17 +31,31 @@ function setupCanvas() {
     }
 
 
-    var body = document.querySelector("body");
-    body.addEventListener("keydown", function (e) {
-        var isInput = ~["TEXTAREA", "INPUT"].indexOf(e.target.tagName);
-        if (e.key === " " && !isInput) {
-            // resetUI();
+    //=======================================================
+    //                    Events
+    //=======================================================
 
+    var body = document.querySelector("body");
+    body.addEventListener("keydown", (event) => {
+        if (IsClickUp) {
             tapCount++;
             createCookie(cookieList);
+            IsClickUp = false;
         }
     });
 
+    body.addEventListener("keyup", (event) => {
+        if (event.key === ' ') {
+            IsClickUp = true;
+            return;
+        }
+    });
+
+    body.addEventListener("mousedown", (event) => {
+        tapCount++;
+        createCookie(cookieList);
+        IsClickUp = false;
+    });
 
     animationLoop();
 
@@ -94,9 +111,9 @@ function setupCanvas() {
         let vec1 = new Vector(0, 0, -50);
 
 
-
         let vec2 = new Vector(randomNum(0, canvas.clientWidth), -50);
-        cookieList.push(new Cookie(vec2, 50, new Vector(0, randomNum(30, 60))));
+        let rng = randomNum(30, 70);
+        cookieList.push(new Cookie(vec2, rng, new Vector(0, rng)));
     }
 
     function drawCookies(deltaTime) {
