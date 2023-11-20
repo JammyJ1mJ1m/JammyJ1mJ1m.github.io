@@ -5,10 +5,12 @@ function onLoad() {
 
 
 function setupCanvas() {
-    let lastTime, layout, img, img2;
+    let lastTime, layout;
     let tapCount = 0;
     let cookieList = [];
     let lastClickTime = Date.now();
+
+    let isDonut = false;
 
     let IsClickUp = true;
 
@@ -16,7 +18,7 @@ function setupCanvas() {
 
     var canvas = document.getElementById("canvas");
     let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 512, new Vector(0, 0));
-    let smallCookie = new Cookie(new Vector(0, 0), 50, new Vector(0, 10));
+   // let smallCookie = new Cookie(new Vector(0, 0), 50, new Vector(0, 10));
 
     if (canvas.getContext) {
         layout = canvas.getContext('2d');
@@ -44,6 +46,22 @@ function setupCanvas() {
         }
     });
 
+    body.addEventListener("keydown", (event) => {
+        if (event.key === "d") {
+            this.isDonut = !this.isDonut;
+            for (let index = 0; index < cookieList.length; index++) {
+            //this.img.src = "assets/dony.png";
+
+
+                cookieList[index].setDonut(this.isDonut);
+                
+            }
+            BigCookie.setDonut(this.isDonut);
+        }
+    });
+
+
+
     body.addEventListener("keyup", (event) => {
         if (event.key === ' ') {
             IsClickUp = true;
@@ -54,7 +72,7 @@ function setupCanvas() {
     body.addEventListener("mousedown", (event) => {
         tapCount++;
         createCookie(cookieList);
-        IsClickUp = false;
+        // IsClickUp = false;
     });
 
     animationLoop();
@@ -113,7 +131,7 @@ function setupCanvas() {
 
         let vec2 = new Vector(randomNum(0, canvas.clientWidth), -50);
         let rng = randomNum(30, 70);
-        cookieList.push(new Cookie(vec2, rng, new Vector(0, rng)));
+        cookieList.push(new Cookie(vec2, rng, new Vector(0, rng),this.isDonut));
     }
 
     function drawCookies(deltaTime) {
