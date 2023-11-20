@@ -136,7 +136,6 @@ function setupCanvas() {
 
     function drawCookies(deltaTime) {
 
-        console.log(tapCount);
         for (let index = 0; index < cookieList.length; index++) {
 
 

@@ -60,7 +60,6 @@ class Cookie {
 
     drawCookie(layout, pDeltaTime) {
         if (this.mVelocity.getY() > 0) {
-            console.log("updateVel")
             let currentVelocity = this.getVelocity().multiply(pDeltaTime);
             let newPosition = this.getPosition().add(currentVelocity);
             this.setPosition(newPosition);
