@@ -4,8 +4,7 @@ function onLoad() {
 }
 
 
-function setupCanvas() 
-{
+function setupCanvas() {
     let lastTime, layout, img, img2;
     let tapCount = 0;
     let cookieList = [];
@@ -34,7 +33,7 @@ function setupCanvas()
         var isInput = ~["TEXTAREA", "INPUT"].indexOf(e.target.tagName);
         if (e.key === " " && !isInput) {
             // resetUI();
-            
+
             tapCount++;
             createCookie(cookieList);
         }
@@ -60,8 +59,7 @@ function setupCanvas()
     }
 
     function draw(pFPS) {
-        layout.clearRect(0, 0, canvas.width, canvas.height);
-        drawCookies(img, img2);
+
         drawText("FPS: " + pFPS, new Vector(10, 25));
         drawText("Cookies: " + cookieList.length, new Vector(10, 45));
     }
@@ -71,42 +69,44 @@ function setupCanvas()
         thisTime = Date.now();
         deltaTime = (thisTime - lastTime) / 1000;
         let fps = Math.round(1 / deltaTime);
+        layout.clearRect(0, 0, canvas.width, canvas.height);
 
+        drawCookies(deltaTime);
         draw(fps);
-
         lastTime = thisTime;
         requestAnimationFrame(animationLoop);
+
+        for (let index = 0; index < cookieList.length; index++) {
+            if (cookieList[index].getPosition().getY() > canvas.clientHeight + 50) {
+                cookieList.splice(index, 1);
+            }
+        }
     }
 
     function randomNum(pMin, pMax) {
         return Math.floor(Math.random() * (pMax - pMin) + pMin);
     }
 
-    function createCookie()
-    {
+    function createCookie() {
         // let smallCookie = new Cookie(new Vector(0, 0), 50, new Vector(0, 10));
 
         let width = canvas.clientWidth - 50;
-        console.log("width: " + width);
+        let vec1 = new Vector(0, 0, -50);
 
-        
 
-        let vec1 = new Vector(0,0, -50);
 
-        console.log("vec1 " +  vec1.getX(), vec1.getY());
-
-       let vec2 = new Vector(randomNum(0, canvas.clientWidth), randomNum(0, canvas.clientHeight))
-        cookieList.push(new Cookie(vec2,50)); 
+        let vec2 = new Vector(randomNum(0, canvas.clientWidth), -50);
+        cookieList.push(new Cookie(vec2, 50, new Vector(0, randomNum(30, 60))));
     }
 
-    function drawCookies(img, img2) {
+    function drawCookies(deltaTime) {
 
         console.log(tapCount);
         for (let index = 0; index < cookieList.length; index++) {
-            
-            console.log(cookieList[index]);
-            cookieList[index].drawCookie(layout);
+
+
+            cookieList[index].drawCookie(layout, deltaTime);
         }
-         BigCookie.drawCookie(layout);
+        BigCookie.drawCookie(layout);
     }
 }

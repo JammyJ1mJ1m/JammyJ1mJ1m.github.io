@@ -2,7 +2,7 @@ class Cookie{
     constructor(pPosition, pScale, pVelocity){
         this.img = new Image();
         this.img.src = "assets/cookie.png";
-console.log("Scale: ", pScale);
+
         let offsetPos = new Vector(pPosition.getX() - pScale /2, pPosition.getY() - pScale /2 );
         this.setPosition(offsetPos);
         this.mOriginalPosition = pPosition;
@@ -10,7 +10,7 @@ console.log("Scale: ", pScale);
 
         this.setScale(pScale);
 
-        // this.setVelocity(pVelocity);
+         this.setVelocity(pVelocity);
         // this.setRootNode(new Group('Cookie'));
 
     }
@@ -42,8 +42,17 @@ console.log("Scale: ", pScale);
         return this.mScale;
     }
 
-    drawCookie(layout)
+    drawCookie(layout, pDeltaTime)
     {
+        if(this.mVelocity.getY() > 0)
+        {
+            console.log("updateVel")
+            let currentVelocity = this.getVelocity().multiply(pDeltaTime);
+            let newPosition = this.getPosition().add(currentVelocity);
+            this.setPosition(newPosition);
+            
+        }
+        
         layout.drawImage(this.img, this.getPosition().getX() , this.getPosition().getY() , this.getScale(),this.getScale());
     }
 }
