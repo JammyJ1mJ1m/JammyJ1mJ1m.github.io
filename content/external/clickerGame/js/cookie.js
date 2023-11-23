@@ -18,7 +18,10 @@ class Cookie {
         this.setScale(pScale);
 
         this.setVelocity(pVelocity);
-        // this.setRootNode(new Group('Cookie'));
+
+        this.mShrinkAmount = 10;
+
+        this.setRootNode(new Group('Cookie'));
 
     }
 
@@ -49,6 +52,49 @@ class Cookie {
         return this.mScale;
     }
 
+
+    //=======================================================
+    //                    Node  stuff
+    //=======================================================
+    getRootNode() {
+        return this.mRootNode;
+    }
+    setRootNode() {
+        let translationNode = new Transform(Matrix.createTranslation(this.getPosition()))
+        this.mRootNode = translationNode;
+    }
+
+    getRotationNode() {
+        return this.mRotationNode;
+    }
+    setRotationNode(pSceneNode) {
+        this.mRotationNode = pSceneNode;
+    }
+
+    getScaleNode() {
+        return this.mScaleNode;
+    }
+    setScaleNode(pSceneNode) {
+        this.mScaleNode = pSceneNode;
+    }
+
+    getScaleRate() {
+        return this.mScaleRate;
+    }
+
+    setScaleRate(pScaleRate) {
+        this.mScaleRate = pScaleRate;
+    }
+     //=======================================================
+    //                    end of nodes
+    //=======================================================
+
+    getShrinkRate()
+    {
+        return this.mShrinkRate = 0.01;
+    }
+
+
     setDonut(booly) {
         if (booly)
             this.img.src = "assets/dony.png";
@@ -56,14 +102,30 @@ class Cookie {
             this.img.src = "assets/cookie.png";
     }
 
-    
+    click() {
+        this.mIsShrinking = true;
+        // this.setScale(this.getScale() - this.mShrinkAmount);
+
+
+        // let offsetPos = new Vector(this.getPosition().getX() + this.mShrinkAmount / 2, this.getPosition().getY() + this.mShrinkAmount / 2);
+        // this.setPosition(offsetPos);
+    }
+
+
 
     drawCookie(layout, pDeltaTime) {
         if (this.mVelocity.getY() > 0) {
             let currentVelocity = this.getVelocity().multiply(pDeltaTime);
             let newPosition = this.getPosition().add(currentVelocity);
             this.setPosition(newPosition);
+        }
 
+        if(this.mIsShrinking)
+        {
+            let newScale = pDeltaTime;
+            console.log(pDeltaTime  );
+            let offsetPos = new Vector(this.getPosition().getX() + this.mShrinkAmount / 2, this.getPosition().getY() + this.mShrinkAmount / 2);
+            this.setPosition(offsetPos);
         }
 
         layout.drawImage(this.img, this.getPosition().getX(), this.getPosition().getY(), this.getScale(), this.getScale());

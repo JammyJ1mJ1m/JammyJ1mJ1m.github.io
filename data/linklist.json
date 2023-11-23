@@ -31,6 +31,13 @@
             "Icon": "/img/DX.png",
             "Content": "Current project",
             "OpenNewTab": false
+        },
+        {
+            "Type": "link",
+            "Link": "/external/clickerGame",
+            "Icon": "/img/cookie.png",
+            "Content": "Cookie clicker game",
+            "OpenNewTab": false
         }
     ]
 }
