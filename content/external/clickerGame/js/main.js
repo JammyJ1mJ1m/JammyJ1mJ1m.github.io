@@ -6,9 +6,13 @@ function setupCanvas() {
     let isDonut = false;
     let IsClickUp = true;
     lastTime = Date.now();
+    let mousePos = new Vector(0, 0);
+    let newDistance = -1;
+
+    let isClickable = false;
 
     var canvas = document.getElementById("canvas");
-    let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 512, new Vector(0, 0));
+    let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 512, new Vector(0, 0), false, layout);
 
     if (canvas.getContext) {
         layout = canvas.getContext('2d');
@@ -19,10 +23,21 @@ function setupCanvas() {
         // img2.src = "assets/goldCookie.png";
     }
 
-
     //=======================================================
     //                    Events
     //=======================================================
+
+
+    let screenLog = document.querySelector("#screen-log");
+    document.addEventListener("mousemove", logKey);
+
+    function logKey(e) {
+        var rect = canvas.getBoundingClientRect();
+
+        mousePos = getMousePos(canvas, e);
+    }
+
+
 
     var body = document.querySelector("body");
     body.addEventListener("keydown", (event) => {
@@ -32,7 +47,6 @@ function setupCanvas() {
             createCookie(cookieList);
             IsClickUp = false;
             BigCookie.click();
-
         }
     });
 
@@ -43,7 +57,6 @@ function setupCanvas() {
                 cookieList[index].setDonut(this.isDonut);
             }
             BigCookie.setDonut(this.isDonut);
-            
         }
     });
 
@@ -55,9 +68,13 @@ function setupCanvas() {
     });
 
     body.addEventListener("mousedown", (event) => {
-        tapCount++;
-        createCookie(cookieList);
-        BigCookie.click();
+        if(isClickable)
+        {
+            tapCount++;
+            createCookie(cookieList);
+            BigCookie.click();
+
+        }
     });
 
     initialiseSceneGraph();
@@ -65,25 +82,39 @@ function setupCanvas() {
     animationLoop();
 
 
-
-
     //=======================================================
     //                    functions 
     //=======================================================
+
+    // returns the distance between a point and a circle
+    function calculateDistance(pMousePos, pBigCookieCenter) {
+        let distX = pMousePos.getX() - pBigCookieCenter.getPosition().getX() - pBigCookieCenter.getScale() / 2;
+        let distY = pMousePos.getY() - pBigCookieCenter.getPosition().getY() - pBigCookieCenter.getScale() / 2;
+        let distance = Math.sqrt((distX * distX) + (distY * distY));
+        newDistance = distance;
+        return distance;
+
+    }
+
+    function getMousePos(canvas, evt) {
+        if (evt != null) {
+
+            var rect = canvas.getBoundingClientRect();
+            return new Vector(evt.clientX - rect.left, evt.clientY - rect.top);
+        }
+
+    }
 
     function initialiseSceneGraph() {
         let rootTransform, originNode, originTranslation, housesNode, house, sun;
         let originVector = new Vector(canvas.clientWidth, canvas.clientHeight, 0);
         originVector = originVector.multiply(0.5);
         let originMatrix = Matrix.createTranslation(originVector);
-    
+
         rootNode = new Group();
         rootTransform = new Transform(originMatrix);
 
         rootNode.addChild(rootTransform);
-
-    
-    
     }
 
 
@@ -101,16 +132,31 @@ function setupCanvas() {
 
         drawCookies(deltaTime);
 
+        layout.beginPath();
+        layout.moveTo(0, canvas.clientHeight / 2);
+        layout.lineTo(canvas.clientWidth, canvas.clientHeight / 2);
+        layout.stroke();
+
+        layout.beginPath();
+        layout.moveTo(canvas.clientWidth / 2, 0);
+        layout.lineTo(canvas.clientWidth / 2, canvas.clientHeight);
+        layout.stroke();
+
         let fps = Math.round(1 / deltaTime);
         drawText("FPS: " + fps, new Vector(10, 25));
         drawText("Cookies: " + cookieList.length, new Vector(10, 45));
+        drawText("MouseX: " + mousePos.getX(), new Vector(10, 65));
+        drawText("MouseY: " + mousePos.getY(), new Vector(10, 85));
+        drawText("dist: " + newDistance, new Vector(10, 105));
+
+
     }
 
     function animationLoop() {
         let thisTime, deltaTime;
         thisTime = Date.now();
         deltaTime = (thisTime - lastTime) / 1000;
-        
+
         draw(deltaTime);
         lastTime = thisTime;
 
@@ -121,6 +167,12 @@ function setupCanvas() {
                 cookieList.splice(index, 1);
             }
         }
+
+        // updates
+        if (calculateDistance(mousePos, BigCookie) < BigCookie.getScale() / 2)
+            isClickable = true;
+        else
+            isClickable = false;
     }
 
     function randomNum(pMin, pMax) {
@@ -130,17 +182,15 @@ function setupCanvas() {
     function createCookie() {
         let pos = new Vector(randomNum(0, canvas.clientWidth), -50);
         let rng = randomNum(30, 70);
-        cookieList.push(new Cookie(pos, rng, new Vector(0, rng),this.isDonut));
+        cookieList.push(new Cookie(pos, rng, new Vector(0, rng), this.isDonut));
     }
 
     function drawCookies(deltaTime) {
 
         for (let index = 0; index < cookieList.length; index++) {
-
-
             cookieList[index].drawCookie(layout, deltaTime);
         }
-        
-        BigCookie.drawCookie(layout,deltaTime);
+
+        BigCookie.drawCookie(layout, deltaTime);
     }
 }

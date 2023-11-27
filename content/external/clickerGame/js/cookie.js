@@ -1,6 +1,10 @@
 class Cookie {
-    constructor(pPosition, pScale, pVelocity, booly) {
+    constructor(pPosition, pScale, pVelocity,booly, canvas) {
         this.img = new Image();
+
+        this.mCanvas = canvas;
+
+        this.mClickTime = -1;
 
         if (booly) {
             this.img.src = "assets/dony.png";
@@ -52,6 +56,10 @@ class Cookie {
         return this.mScale;
     }
 
+    getCenteredPos()
+    {
+        return new Vector( this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
+    }
 
     //=======================================================
     //                    Node  stuff
@@ -85,15 +93,13 @@ class Cookie {
     setScaleRate(pScaleRate) {
         this.mScaleRate = pScaleRate;
     }
-     //=======================================================
+    //=======================================================
     //                    end of nodes
     //=======================================================
 
-    getShrinkRate()
-    {
+    getShrinkRate() {
         return this.mShrinkRate = 0.01;
     }
-
 
     setDonut(booly) {
         if (booly)
@@ -103,8 +109,14 @@ class Cookie {
     }
 
     click() {
-        this.mIsClicked = true;
+        if (!this.mIsClicked) {
+            this.mIsClicked = true;
+            console.log("Clicked");
+            this.setScale(this.getScale() - 10);
+            this.setPosition(new Vector(this.mOriginalPosition.getX() - this.getScale() / 2, this.mOriginalPosition.getY() - this.getScale() / 2))
 
+            this.mClickTime = Date.now();
+        }
     }
 
 
@@ -116,6 +128,12 @@ class Cookie {
             this.setPosition(newPosition);
         }
 
+        if (this.mIsClicked && Date.now() > this.mClickTime + 50) {
+            this.mIsClicked = false;
+            this.mClickTime = -1;
+            this.setScale(this.getScale() + 10);
+            this.setPosition(new Vector(this.mOriginalPosition.getX() - this.getScale() / 2, this.mOriginalPosition.getY() - this.getScale() / 2))
+        }
 
         layout.drawImage(this.img, this.getPosition().getX(), this.getPosition().getY(), this.getScale(), this.getScale());
     }
