@@ -103,12 +103,8 @@ class Cookie {
     }
 
     click() {
-        this.mIsShrinking = true;
-        // this.setScale(this.getScale() - this.mShrinkAmount);
+        this.mIsClicked = true;
 
-
-        // let offsetPos = new Vector(this.getPosition().getX() + this.mShrinkAmount / 2, this.getPosition().getY() + this.mShrinkAmount / 2);
-        // this.setPosition(offsetPos);
     }
 
 
@@ -120,13 +116,6 @@ class Cookie {
             this.setPosition(newPosition);
         }
 
-        if(this.mIsShrinking)
-        {
-            let newScale = pDeltaTime;
-            console.log(pDeltaTime  );
-            let offsetPos = new Vector(this.getPosition().getX() + this.mShrinkAmount / 2, this.getPosition().getY() + this.mShrinkAmount / 2);
-            this.setPosition(offsetPos);
-        }
 
         layout.drawImage(this.img, this.getPosition().getX(), this.getPosition().getY(), this.getScale(), this.getScale());
     }
