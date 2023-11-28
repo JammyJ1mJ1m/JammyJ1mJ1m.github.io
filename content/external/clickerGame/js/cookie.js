@@ -96,7 +96,11 @@ class Cookie {
     //=======================================================
     //                    end of nodes
     //=======================================================
+setGoldcookie()
+{
+    this.img.src = "assets/goldCookie.png";
 
+}
     getShrinkRate() {
         return this.mShrinkRate = 0.01;
     }
