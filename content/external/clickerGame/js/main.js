@@ -1,3 +1,18 @@
+let upgradeManager = new UpgradeManager();
+let MainShop = new Shop();
+
+
+function Test(p)
+{
+    // TODO get the price of the auto from upgrade manager
+    let price = upgradeManager. FindPrice(p);
+
+    if(MainShop.BuyAuto(price))
+    {
+        upgradeManager.AddAuto(p);
+    }
+}
+
 function setupCanvas() {
     let layout;
     let tapCount = 0;
@@ -17,13 +32,8 @@ function setupCanvas() {
     var canvas = document.getElementById("canvas");
     let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 512, new Vector(0, 0), false, layout);
 
-   
 
 
-    for (let index = 0; index < 1; index++) {
-        autoList.push( new Tap(7, 5));   
-        autoList.push( new Tap(10, 1));   
-    }
 
     if (canvas.getContext) {
         layout = canvas.getContext('2d');
@@ -43,7 +53,7 @@ function setupCanvas() {
     body.addEventListener("keydown", (event) => {
         if (IsClickUp && event.key === ' ') {
             console.log("key")
-            tapCount++;
+            MainShop.AddCash(1);
             createCookie(cookieList);
             IsClickUp = false;
             BigCookie.click();
@@ -69,7 +79,7 @@ function setupCanvas() {
 
     body.addEventListener("mousedown", (event) => {
         if (isClickable) {
-            tapCount++;
+            MainShop.AddCash(1);
             createCookie(cookieList);
             BigCookie.click();
         }
@@ -83,6 +93,37 @@ function setupCanvas() {
     //=======================================================
     //                    functions 
     //=======================================================
+
+
+
+    function AddButton(pName) {
+        let buttonDiv = document.getElementById('buttons');
+        let button = document.createElement('BUTTON');
+        button.setAttribute("id",'AutoButton'+pName);
+        button.setAttribute("onClick", "Test("+ "'"+ pName+ "'"+");");
+    
+
+
+        let div = document.createElement('DIV');
+
+        let text = document.createTextNode(pName);
+
+        // appending text to button
+        button.appendChild(text);
+        div.appendChild(button);
+        buttonDiv.appendChild(div);
+        return;
+    }
+
+    function AddAutoButtons() {
+        AddButton("Tapper")
+        AddButton("Grandad")
+        AddButton("Farm")
+        AddButton("Mine")
+        AddButton("Factory")
+    }
+    AddAutoButtons();
+
 
     // returns the distance between a point and a circle
     function calculateDistance(pMousePos, pBigCookieCenter) {
@@ -140,7 +181,7 @@ function setupCanvas() {
         let fps = Math.round(1 / deltaTime);
         // drawText("FPS: " + fps, new Vector(10, 25));
         // document.title = "FPS: " + fps;
-        drawText("Cookies: " + tapCount, new Vector(10, 25));
+        drawText("Cookies: " + MainShop.GetCash(), new Vector(10, 25));
 
         // drawText("MouseX: " + mousePos.getX(), new Vector(10, 65));
         // drawText("MouseY: " + mousePos.getY(), new Vector(10, 85));
@@ -153,12 +194,11 @@ function setupCanvas() {
         else
             isClickable = false;
 
-        autoList.forEach(element => {
+        upgradeManager.GetUpgrades().forEach(element => {
 
             let val = element.RunClick();
-            if(val[1])
-            {
-                tapCount += val[0];
+            if (val[1]) {
+                MainShop.AddCash(val[0]) ;
                 createCookie();
 
             }
@@ -206,11 +246,5 @@ function setupCanvas() {
         }
 
         BigCookie.drawCookie(layout, deltaTime);
-
-        // let a = new Vector(90,0,0);
-        // let b = new Vector(0,0,0);
-        // let f = a.dotProduct(b);
-        // let z = new Vector(0,0);
-
     }
 }

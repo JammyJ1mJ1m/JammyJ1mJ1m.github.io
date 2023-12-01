@@ -3,6 +3,8 @@ class AutoClick{
        this.mMlickRate;
        this.mClickAmount;
        this.mLastClick = Date.now();
+       this.mName;
+       this.mPrice;
     }
 
     GetClickrate(){
@@ -21,10 +23,18 @@ class AutoClick{
         this.mClickAmount = pAmount;
     }
 
+    GetName(){
+        return this.mName;
+    }
+
+    SetName(pName)
+    {
+        this.mName = pName;
+    }
+
 
     RunClick()
     {
-        
         if(Date.now() > this.mLastClick + this.GetClickrate())
         {
             this.mLastClick =  Date.now();

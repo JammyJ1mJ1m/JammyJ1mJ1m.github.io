@@ -27,8 +27,9 @@ class Cookie {
 
         this.setRootNode(new Group('Cookie'));
 
-    }
+}
 
+    
     getPosition() {
         return this.mPosition;
     }

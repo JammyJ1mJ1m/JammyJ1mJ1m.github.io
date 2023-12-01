@@ -3,11 +3,14 @@
     <head>
         <title>Clicker Clone</title>
         <link rel="stylesheet" href="css/main.css" type="text/css" />
-        <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/cookie.js"></script>
-        <script type="text/javascript" src="js/autoClicker.js"></script>
-        <script type="text/javascript" src="js/tap.js"></script>
-        
+        <script type="text/javascript" src="js/autos/autoClicker.js"></script>
+        <script type="text/javascript" src="js/autos/tap.js"></script>
+        <script type="text/javascript" src="js/upgradeManager.js"></script>
+        <script type="text/javascript" src="js/shop.js"></script>
+        <script type="text/javascript" src="js/dictionary.js"></script>
+        <script type="text/javascript" src="js/kvp.js"></script>
+
         <script type="text/javascript" src="js/vector.js"></script>
         <script type="text/javascript" src="js/matrix.js"></script>
 
@@ -18,14 +21,29 @@
         <script type="text/javascript" src="js/graphNodes/groupNode.js"></script>
         <script type="text/javascript" src="js/graphNodes/renderVisitor.js"></script>
 
+        <script type="text/javascript" src="js/main.js"></script>
+
+
           
     </head>
     <body class = "noSelect" onload="setupCanvas();"  style="background-color:#138eaa;">
         
         <h1>Hello Cookie!</h1>
         <h3>WIP cookie clicker clone!</h3>
-        <canvas id="canvas" width="1280" height="720">
-            Your browser does not support the canvas tag
-        </canvas>
+
+
+        <div class="row">
+            <div class="canvas">
+                <canvas id="canvas" width="980" height="720">
+                    Your browser does not support the canvas tag
+                </canvas>
+            </div> 
+
+            <div class="buttons" id="buttons">
+                
+                <h3 class="autos">AutoClickers</h3>
+                <!-- <button type="button">Tapper</button>--> 
+            </div>
+        </div>
     </body>
 </html>

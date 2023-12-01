@@ -15,3 +15,23 @@ canvas {
  }
 
 
+
+
+.row {
+  display: flex;
+}
+
+.buttons {
+  padding-left: 2%;
+  flex: 25%;
+}
+
+.canvas {
+  flex: 50%;
+}
+
+.autos {
+  margin-top: 0%;
+  padding: 0px;
+  font-size: large;
+}
