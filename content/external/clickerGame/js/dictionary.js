@@ -13,4 +13,9 @@ class Dictionary
     {
         return this.mKVPs;
     }
+
+    GetKVP(i)
+    {
+        return this.mKVPs[i];
+    }
 }

@@ -60,22 +60,23 @@ class UpgradeManager {
     }
 
     AddTapper() {
-        this.AddUpgrade(new Tap(10, 1, "Tapper", this.mPriceList.GetValue()));
+        // let price = this.mPriceList.GetKVP(0).GetValue();
+        this.AddUpgrade(new Tap(10, 1, "Tapper", this.mPriceList.GetKVP(0).GetValue()));
     }
 
     AddGrandad() {
-        this.AddUpgrade(new Tap(1, 1, "Grandad", this.mPriceList.GetValue()));
+        this.AddUpgrade(new Tap(1, 1, "Grandad", this.mPriceList.GetKVP(0).GetValue()));
     }
 
     AddFarm() {
-        this.AddUpgrade(new Tap(1, 8, "Farm", this.mPriceList.GetValue()));
+        this.AddUpgrade(new Tap(1, 8, "Farm", this.mPriceList.GetKVP(0).GetValue()));
     }
 
     AddMine() {
-        this.AddUpgrade(new Tap(1, 47, "Mine", this.mPriceList.GetValue()));
+        this.AddUpgrade(new Tap(1, 47, "Mine", this.mPriceList.GetKVP(0).GetValue()));
     }
 
     AddFactory() {
-        this.AddUpgrade(new Tap(1, 260, "Mine", this.mPriceList.GetValue()));
+        this.AddUpgrade(new Tap(1, 260, "Mine", this.mPriceList.GetKVP(0).GetValue()));
     }
 }
