@@ -16,7 +16,7 @@ class Shop{
 
     BuyAuto(pPrice)
     {
-      if(this.mCash > pPrice)
+      if(this.mCash >= pPrice)
       {
         this.mCash -= pPrice;
         return true;

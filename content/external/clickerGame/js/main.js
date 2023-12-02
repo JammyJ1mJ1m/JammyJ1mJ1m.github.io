@@ -100,6 +100,7 @@ function setupCanvas() {
         let buttonDiv = document.getElementById('buttons');
         let button = document.createElement('BUTTON');
         button.setAttribute("id",'AutoButton'+pName);
+        button.setAttribute("class",'AutoButton');
         button.setAttribute("onClick", "Test("+ "'"+ pName+ "'"+");");
     
 
