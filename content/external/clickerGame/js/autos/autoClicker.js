@@ -40,6 +40,6 @@ class AutoClick{
             this.mLastClick =  Date.now();
             return [this.GetClickAmount(),true];
         }
-        return 0;
+        return [-1,false];
     }
 }

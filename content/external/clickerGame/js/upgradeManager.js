@@ -9,7 +9,18 @@ class UpgradeManager {
         this.mPriceList.AddKVP(new KVP("Mine", 12000));
         this.mPriceList.AddKVP(new KVP("Factory", 130000));
 
+// upgrades
+ this.tapper = new Tapper(this.mPriceList.GetKVP(0).GetValue());
+ this.grandad = new Grandad(this.mPriceList.GetKVP(1).GetValue());
+ this.farm = new Farm(this.mPriceList.GetKVP(2).GetValue());
+ this.mine = new Mine(this.mPriceList.GetKVP(3).GetValue());
+ this.factory = new Factory(this.mPriceList.GetKVP(4).GetValue());
 
+ this.AddUpgrade(this.tapper);
+ this.AddUpgrade(this.grandad);
+ this.AddUpgrade(this.farm);
+ this.AddUpgrade(this.mine);
+ this.AddUpgrade(this.factory);
 
         this.currentUpgrade;
 
@@ -25,7 +36,7 @@ class UpgradeManager {
 
         let price = -1;
         this.mPriceList.GetKVPs().forEach(element => {
-            console.log("Tapper: " + element.GetKey() + ", " + element.GetValue());
+           // console.log("Tapper: " + element.GetKey() + ", " + element.GetValue());
             if (element.GetKey() == pName) {
                 price = element.GetValue();
 
@@ -45,6 +56,9 @@ class UpgradeManager {
         else if (pName == "Farm") {
             this.AddFarm();
         }
+        else if (pName == "Mine") {
+            this.AddMine();
+        }
         else if (pName == "Factory") {
             this.AddFactory();
         }
@@ -60,23 +74,35 @@ class UpgradeManager {
     }
 
     AddTapper() {
+
         // let price = this.mPriceList.GetKVP(0).GetValue();
-        this.AddUpgrade(new Tap(10, 1, "Tapper", this.mPriceList.GetKVP(0).GetValue()));
-    }
+        // this.AddUpgrade(new Tap(10, 1, "Tapper", this.mPriceList.GetKVP(0).GetValue()));
+         this.tapper.AddTapper();
+         let t = this.mPriceList.GetKVP(0);//.SetValue(this.tapper.GetPrice());
+         t.SetValue(this.tapper.GetPrice());
+        }
 
-    AddGrandad() {
-        this.AddUpgrade(new Tap(1, 1, "Grandad", this.mPriceList.GetKVP(0).GetValue()));
-    }
+     AddGrandad() {
+        this.grandad.AddTapper();
+        let t = this.mPriceList.GetKVP(1);//.SetValue(this.tapper.GetPrice());
+        t.SetValue(this.grandad.GetPrice());
+     }
 
-    AddFarm() {
-        this.AddUpgrade(new Tap(1, 8, "Farm", this.mPriceList.GetKVP(0).GetValue()));
-    }
+     AddFarm() {
+        this.farm.AddTapper();
+        let t = this.mPriceList.GetKVP(2);//.SetValue(this.tapper.GetPrice());
+        t.SetValue(this.farm.GetPrice());
+     }
 
-    AddMine() {
-        this.AddUpgrade(new Tap(1, 47, "Mine", this.mPriceList.GetKVP(0).GetValue()));
-    }
+     AddMine() {
+        this.mine.AddTapper();
+        let t = this.mPriceList.GetKVP(3);//.SetValue(this.tapper.GetPrice());
+        t.SetValue(this.mine.GetPrice());
+     }
 
-    AddFactory() {
-        this.AddUpgrade(new Tap(1, 260, "Mine", this.mPriceList.GetKVP(0).GetValue()));
-    }
+     AddFactory() { 
+        this.factory.AddTapper();
+        let t = this.mPriceList.GetKVP(4);//.SetValue(this.tapper.GetPrice());
+        t.SetValue(this.factory.GetPrice());
+     }
 }

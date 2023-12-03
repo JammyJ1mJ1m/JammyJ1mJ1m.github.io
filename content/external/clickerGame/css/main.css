@@ -14,15 +14,12 @@ canvas {
   user-select: none;
  }
 
-
-
-
 .row {
   display: flex;
 }
 
 .buttons {
-  padding-left: 2%;
+  padding-left: 10px;
   flex: 25%;
 }
 

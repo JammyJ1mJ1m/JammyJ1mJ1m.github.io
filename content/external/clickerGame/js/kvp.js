@@ -15,6 +15,10 @@ class KVP
     {
         return this.mValue;
     }
+    SetValue(pVal)
+    {
+        this.mValue = pVal;
+    }
 
 
 }

@@ -30,9 +30,9 @@ function setupCanvas() {
     let isClickable = false;
 
     var canvas = document.getElementById("canvas");
-    let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 512, new Vector(0, 0), false, layout);
+    let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 400, new Vector(0, 0), false, layout);
 
-
+let myTapper = new Tapper();
 
 
     if (canvas.getContext) {
@@ -103,14 +103,15 @@ function setupCanvas() {
         button.setAttribute("class",'AutoButton');
         button.setAttribute("onClick", "Test("+ "'"+ pName+ "'"+");");
     
-
-
         let div = document.createElement('DIV');
+        div.setAttribute("id",'AutoDiv'+pName);
 
         let text = document.createTextNode(pName);
+        let text2 = document.createTextNode(" ...Test");
 
         // appending text to button
         button.appendChild(text);
+        button.appendChild(text2);
         div.appendChild(button);
         buttonDiv.appendChild(div);
         return;
@@ -197,12 +198,15 @@ function setupCanvas() {
 
         upgradeManager.GetUpgrades().forEach(element => {
 
-            let val = element.RunClick();
-            if (val[1]) {
-                MainShop.AddCash(val[0]) ;
-                createCookie();
+            let val = element.Run(MainShop);
+            for (let index = 0; index < val; index++) 
+                createCookie()
+            
+           // if (val[1]) {
+                //MainShop.AddCash(val[0]) ;
+                //createCookie();
 
-            }
+            //}
         });
     }
 
