@@ -15,7 +15,7 @@ portfolioCover = "img/ORE.png"
 +++
 
 #### Reason and technologies used
-Unreal engine and Agile methodologies for project management  
+Unity and Agile methodologies for project management  
   
   
 Commercial development practice module.  
