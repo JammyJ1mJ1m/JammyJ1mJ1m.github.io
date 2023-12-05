@@ -14,6 +14,10 @@ color = "red" #color from the theme settings
 portfolioCover = "img/DX.png"
 +++
 
-Dx11 ACW
+
 #### Reason and technologies used
 C++ and Directx11
+
+A joint assessment project between my C++ and real time rendering module.
+
+More information can be found [Here](/posts/dx11assessment/)
