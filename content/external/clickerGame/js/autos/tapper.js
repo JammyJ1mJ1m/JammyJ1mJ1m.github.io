@@ -7,6 +7,9 @@ class Tapper extends Autotapper{
         this.mOriginalPrice = this.mOriginalPrice;
         this.mAmount = 0;
         //this.AddTapper(new Tap(10, 1))
+        this.AddButton()
+        //this.UpdateLabel();
+
     }
 
     AddTapper()
@@ -14,5 +17,6 @@ class Tapper extends Autotapper{
         this.mTappers.push(new Tap(10, 1));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
+        this.UpdateLabel();
     }
 }

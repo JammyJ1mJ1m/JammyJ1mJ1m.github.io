@@ -39,5 +39,24 @@ canvas {
   width: 300px;
   height: 100px;
   font-size: 35px;
+  flex: 50%;
+  align-items: center;
+}
 
+.AutoDiv{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.CostDiv{
+  margin-left: 5%;
+  margin-right: 5%;
+  flex: 50%;
+}
+
+.AmountDiv{
+  flex: 50%;
 }

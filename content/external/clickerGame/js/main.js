@@ -32,7 +32,7 @@ function setupCanvas() {
     var canvas = document.getElementById("canvas");
     let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 400, new Vector(0, 0), false, layout);
 
-let myTapper = new Tapper();
+//let myTapper = new Tapper();
 
 
     if (canvas.getContext) {
@@ -117,14 +117,14 @@ let myTapper = new Tapper();
         return;
     }
 
-    function AddAutoButtons() {
-        AddButton("Tapper")
-        AddButton("Grandad")
-        AddButton("Farm")
-        AddButton("Mine")
-        AddButton("Factory")
-    }
-    AddAutoButtons();
+    // function AddAutoButtons() {
+    //     AddButton("Tapper")
+    //     AddButton("Grandad")
+    //     AddButton("Farm")
+    //     AddButton("Mine")
+    //     AddButton("Factory")
+    // }
+    // AddAutoButtons();
 
 
     // returns the distance between a point and a circle
