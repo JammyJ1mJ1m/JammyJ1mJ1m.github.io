@@ -4,7 +4,7 @@ class Autotapper{
         this.mPrice = 0;
         this.mName = "UndefinedName"
         this.mOriginalPrice = 0;
-        this.mExponent = 1.2;
+        this.mExponent = 1.15;
         this.mAmount = 0;
         this.mTappers = [];
 

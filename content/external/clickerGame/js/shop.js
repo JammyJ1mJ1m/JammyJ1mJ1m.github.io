@@ -2,7 +2,7 @@ class Shop{
 
     constructor() {
         console.log("This is the shop")
-        this.mCash = 1000000000;   
+        this.mCash = 0;   
     }
 
     GetCash()
