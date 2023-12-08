@@ -199,6 +199,7 @@ function setupCanvas() {
         upgradeManager.GetUpgrades().forEach(element => {
 
             let val = element.Run(MainShop);
+
             for (let index = 0; index < val; index++) 
                 createCookie()
             

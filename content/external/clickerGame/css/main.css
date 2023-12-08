@@ -16,7 +16,10 @@ canvas {
 
 .row {
   display: flex;
+  width: 50%;
 }
+
+
 
 .buttons {
   padding-left: 10px;
@@ -26,11 +29,13 @@ canvas {
 .canvas {
   flex: 50%;
 }
-
+.body{
+  font-size: large;
+}
 .autos {
   margin-top: 0%;
   padding: 0px;
-  font-size: large;
+  
 }
 
 .AutoButton{
@@ -39,7 +44,7 @@ canvas {
   width: 300px;
   height: 100px;
   font-size: 35px;
-  flex: 50%;
+  
   align-items: center;
 }
 
@@ -54,9 +59,9 @@ canvas {
 .CostDiv{
   margin-left: 5%;
   margin-right: 5%;
-  flex: 50%;
+  flex: 10%;
 }
 
 .AmountDiv{
-  flex: 50%;
+  flex: 30%;
 }
