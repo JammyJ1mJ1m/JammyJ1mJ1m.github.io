@@ -14,7 +14,7 @@ class Farm extends Autotapper{
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(this.mTiming, this.mAmount));
+        this.mTappers.push(new Tap(1, 8));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();

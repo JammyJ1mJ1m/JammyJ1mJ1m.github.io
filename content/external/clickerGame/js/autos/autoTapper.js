@@ -2,11 +2,11 @@ class Autotapper{
     constructor()
     {
         this.mPrice = 0;
-        this.mName = "UndefinedName"
+        //this.mName = "Undefined Name"
         this.mOriginalPrice = 0;
         this.mExponent = 1.15;
-        this.mAmount = 0;
-        this.mTiming = 0;
+        // this.mAmount = 0;
+        //this.mTiming = 0;
         this.mTappers = [];
 
         this.mCostLabel = 0;
@@ -17,11 +17,18 @@ class Autotapper{
 
     GetCPS()
     {
-        this.mCPS = 0;
+        
+        let am = 0;
+        let t = this.mTiming;
+        let cps = 0;
         this.mTappers.forEach(element => {
-                this.mCPS += element.mClickAmount / element.mClickRate;
+                // this.mCPS += element.mClickAmount / element.mClickRate;
+                am += element.mClickAmount;
+                // t += element.mClickRate;
+                // cps += am;
         });
-        return this.mCPS
+        cps = am / t;
+        return cps;
     }
 
     GetTiming()

@@ -3,7 +3,7 @@ class Tap extends AutoClick{
        super();
        this.SetClickRate(pRate);
        this.SetClickAmount(pAmount);
-       this.mName = pName;
-       this.mPrice = pPrice;
+       // this.mName = pName;
+       // this.mPrice = pPrice;
     }
 }
