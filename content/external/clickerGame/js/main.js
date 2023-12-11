@@ -17,6 +17,7 @@ function setupCanvas() {
     let layout;
     let tapCount = 0;
     let cookieList = [];
+    let cookieList2 = [];
     let autoList = [];
     let lastClickTime = Date.now();
     let isDonut = false;
@@ -82,6 +83,7 @@ function setupCanvas() {
             MainShop.AddCash(1);
             createCookie(cookieList);
             BigCookie.click();
+            createCookie2();
         }
     });
 
@@ -198,13 +200,18 @@ function setupCanvas() {
     }
 
     function update() {
+
+console.log(mousePos);
+
+
         if (calculateDistance(mousePos, BigCookie) < BigCookie.getScale() / 2)
             isClickable = true;
         else
             isClickable = false;
 
-        upgradeManager.GetUpgrades().forEach(element => {
 
+
+        upgradeManager.GetUpgrades().forEach(element => {
             let val = element.Run(MainShop);
 
             for (let index = 0; index < val; index++) 
@@ -234,6 +241,12 @@ function setupCanvas() {
             }
         }
 
+        for (let index = 0; index < cookieList2.length; index++) {
+            if (cookieList2[index].getPosition().getY() > canvas.clientHeight + 50) {
+                cookieList2.splice(index, 1);
+            }
+        }
+
         update();
 
     }
@@ -252,6 +265,14 @@ function setupCanvas() {
         cookieList.push(cookie);
     }
 
+    function createCookie2() {
+        let pos = mousePos;
+        let rng = randomNum(40, 40);
+        let cookie = new Cookie(pos, rng, new Vector(0,70), this.isDonut);
+
+        cookieList2.push(cookie);
+    }
+
     function drawCookies(deltaTime) {
 
         for (let index = 0; index < cookieList.length; index++) {
@@ -259,5 +280,9 @@ function setupCanvas() {
         }
 
         BigCookie.drawCookie(layout, deltaTime);
+
+        for (let index = 0; index < cookieList2.length; index++) {
+            cookieList2[index].drawCookie(layout, deltaTime);
+        }
     }
 }
