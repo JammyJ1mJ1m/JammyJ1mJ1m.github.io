@@ -23,7 +23,5 @@ class Shop{
         // return and call the upgrade manager in parent
       }
       return false;
-    }
-
-    
+    }  
 }

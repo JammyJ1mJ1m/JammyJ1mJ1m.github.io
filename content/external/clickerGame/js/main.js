@@ -156,12 +156,18 @@ function setupCanvas() {
     }
 
 
-    function drawText(pFPS, pPos) {
-        layout.fillStyle = "#ffffff";
+    function drawText(pFPS, pPos, pFont) {
         layout.lineJoin = 'round';
         layout.setTransform(layout);
-        layout.font = "20px Arial";
+        layout.font = pFont;
+        layout.textAlign = "center";
+        
+        layout.fillStyle = "#000000";
+        layout.fillText(pFPS, pPos.getX()+2, pPos.getY()+2);
+        layout.fillStyle = "#ffffff";
         layout.fillText(pFPS, pPos.getX(), pPos.getY());
+
+
     }
 
     function draw(deltaTime) {
@@ -183,8 +189,8 @@ function setupCanvas() {
         let fps = Math.round(1 / deltaTime);
         // drawText("FPS: " + fps, new Vector(10, 25));
         // document.title = "FPS: " + fps;
-        drawText("Cookies: " + MainShop.GetCash(), new Vector(10, 25));
-        drawText("CPS: " + upgradeManager.getCPS() , new Vector(10, 50));
+        drawText("Cookies: " + MainShop.GetCash(), new Vector(canvas.clientWidth / 2, 30),"30px Arial");
+        drawText("CPS: " + upgradeManager.getCPS() , new Vector(canvas.clientWidth / 2 , 65),"20px Arial");
 
         // drawText("MouseX: " + mousePos.getX(), new Vector(10, 65));
         // drawText("MouseY: " + mousePos.getY(), new Vector(10, 85));
