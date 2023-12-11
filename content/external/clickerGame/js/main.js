@@ -184,6 +184,7 @@ function setupCanvas() {
         // drawText("FPS: " + fps, new Vector(10, 25));
         // document.title = "FPS: " + fps;
         drawText("Cookies: " + MainShop.GetCash(), new Vector(10, 25));
+        drawText("CPS: " + upgradeManager.getCPS() , new Vector(10, 50));
 
         // drawText("MouseX: " + mousePos.getX(), new Vector(10, 65));
         // drawText("MouseY: " + mousePos.getY(), new Vector(10, 85));

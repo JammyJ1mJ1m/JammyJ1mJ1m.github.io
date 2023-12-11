@@ -6,12 +6,32 @@ class Autotapper{
         this.mOriginalPrice = 0;
         this.mExponent = 1.15;
         this.mAmount = 0;
+        this.mTiming = 0;
         this.mTappers = [];
 
         this.mCostLabel = 0;
         this.mAmountLabel = 0;
         this.mCostDiv = 0;
         this.mAmountDiv = 0;
+    }
+
+    GetCPS()
+    {
+        this.mCPS = 0;
+        this.mTappers.forEach(element => {
+                this.mCPS += element.mClickAmount / element.mClickRate;
+        });
+        return this.mCPS
+    }
+
+    GetTiming()
+    {
+        return this.mTiming;
+    }
+
+    GetAmount()
+    {
+        return this.mAmount;
     }
 
     GetPrice()

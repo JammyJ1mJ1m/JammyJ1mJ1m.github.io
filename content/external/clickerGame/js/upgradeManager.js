@@ -2,6 +2,8 @@ class UpgradeManager {
     constructor() {
         this.mUpgradeList = [];
 
+        this.mCPS = 0;
+
         this.mPriceList = new Dictionary();
         this.mPriceList.AddKVP(new KVP("Tapper", 15));
         this.mPriceList.AddKVP(new KVP("Grandad", 100));
@@ -16,13 +18,11 @@ class UpgradeManager {
  this.mine = new Mine(this.mPriceList.GetKVP(3).GetValue());
  this.factory = new Factory(this.mPriceList.GetKVP(4).GetValue());
 
- this.AddUpgrade(this.tapper);
+  this.AddUpgrade(this.tapper);
  this.AddUpgrade(this.grandad);
  this.AddUpgrade(this.farm);
  this.AddUpgrade(this.mine);
  this.AddUpgrade(this.factory);
-
-        this.currentUpgrade;
 
     }
 
@@ -64,7 +64,14 @@ class UpgradeManager {
         }
 
     }
-
+getCPS()
+{
+    this.mCPS = 0;
+    this.mUpgradeList.forEach(element => {
+        this.mCPS += element.GetCPS();
+    });
+    return this.mCPS;
+}
     AddUpgrade(pUpgrade) {
         this.mUpgradeList.push(pUpgrade);
     }
