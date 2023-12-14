@@ -18,6 +18,8 @@ olderPosts = "Older posts"
 missingContentMessage = "Page not found..."
 missingBackButtonLabel = "Back to home page"
 
+enableGitInfo = true
+
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
@@ -25,7 +27,6 @@ publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
 [params]
 
-enableGitInfo = true
 # dir name of your main content (default is `content/posts`).
 # the list of set content will show up on your index page (baseurl).
 contentTypeName = "posts"
