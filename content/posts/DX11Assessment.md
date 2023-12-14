@@ -44,3 +44,7 @@ Each room is its area, floor, walls and ceiling their own individual models. Thi
 The design of the walls and floor aren't finalised yet, however somehting fairly monotone is my general idea as it won't take the attention away from whatever will eventually be showcased in the room. 
 
 Start on some UML diagrams and mockup room layout
+
+{{< figure src="https://i.imgur.com/GFbBO49.png" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
+
+{{< figure src="https://i.imgur.com/8Eh5u2I.png" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
