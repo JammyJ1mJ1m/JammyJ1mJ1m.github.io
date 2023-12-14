@@ -40,13 +40,13 @@ My initial thoughts were to have each of the rooms connected via a small corrido
 After thinking about the layout for a little while I deciced that i'll keep it a lot simpler and just have 4 rooms next to each other with a door way.
 
 {{< figure src="https://i.imgur.com/oU5hYwx.png" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
-Each room is its area, floor, walls and ceiling their own individual models. This allows me to create the one area, deuplicate it and rotate it for the other 3 rooms. 
-The design of the walls and floor aren't finalised yet, however somehting fairly monotone is my general idea as it won't take the attention away from whatever will eventually be showcased in the room. 
+Each room has its own area, floor, walls and celing. This allows me to create the one room, duplicate it and rotate it for the other 3 rooms. 
+The texture design of the walls and floor aren't finalised yet, however something fairly monotone is my general idea as it won't take the attention away from whatever will eventually be showcased in the room. 
 
 
 ### UML
 Shown below is the first diagram I have created relating to the light setup that I would like to implement.
-Light is an abstract class that contains some common data members that all light types will use as well as a virtual run method.
+Light is an abstract class that contains some common data members that all light types will use as well as a virtual run method. All the other light types will ovveride the run method with their own logic. 
 
 {{< figure src="https://i.imgur.com/GFbBO49.png" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
 **Directional light**
