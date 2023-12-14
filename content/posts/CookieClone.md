@@ -1,12 +1,12 @@
 +++
 title = "Cookie Clicker Clone"
 date = "2023-12-05T16:58:03Z"
-author = ""
+author = "James"
 authorTwitter = "" #do not include @
 cover = ""
 tags = ["Cookie"]
 keywords = ["", ""]
-description = ""
+description = "A simple cookier clicker clone"
 showFullContent = false
 readingTime = false
 hideComments = false

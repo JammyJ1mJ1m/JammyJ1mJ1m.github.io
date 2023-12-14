@@ -1,13 +1,13 @@
 +++
 title = "DirectX11 ACW"
 date = "2023-11-24T10:43:59Z"
-lastmod = "2023-11-24T10:43:59Z"
-author = ""
+lastmod = "2023-12-13T10:43:59Z"
+author = "James"
 authorTwitter = "" #do not include @
 cover = ""
-tags = ["DX11"]
+tags = ["DX11","C++"]
 keywords = ["", ""]
-description = ""
+description = "A real time renderer using D3D11"
 showFullContent = false
 readingTime = false
 hideComments = false
