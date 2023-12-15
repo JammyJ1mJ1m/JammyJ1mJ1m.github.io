@@ -21,7 +21,7 @@ portfolioCover = "img/tank.jpg"
 
 | Language    | Technologies|
 | ----------- | ----------- |
-| C#          |Unity, VR       |
+| C#          |Unity, VR    |
 
 
 
