@@ -2,13 +2,11 @@ let upgradeManager = new UpgradeManager();
 let MainShop = new Shop();
 
 
-function Test(p)
-{
+function Test(p) {
     // TODO get the price of the auto from upgrade manager
-    let price = upgradeManager. FindPrice(p);
+    let price = upgradeManager.FindPrice(p);
 
-    if(MainShop.BuyAuto(price))
-    {
+    if (MainShop.BuyAuto(price)) {
         upgradeManager.AddAuto(p);
     }
 }
@@ -17,7 +15,7 @@ function setupCanvas() {
     let layout;
     let tapCount = 0;
     let cookieList = [];
-    let cookieList2 = [];
+    let tappedCookies = [];
     let autoList = [];
     let lastClickTime = Date.now();
     let isDonut = false;
@@ -33,7 +31,7 @@ function setupCanvas() {
     var canvas = document.getElementById("canvas");
     let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 400, new Vector(0, 0), false, layout);
 
-//let myTapper = new Tapper();
+    //let myTapper = new Tapper();
 
 
     if (canvas.getContext) {
@@ -53,7 +51,7 @@ function setupCanvas() {
     var body = document.querySelector("body");
     body.addEventListener("keydown", (event) => {
         if (IsClickUp && event.key === ' ') {
-            console.log("key")
+            // console.log("key")
             MainShop.AddCash(1);
             createCookie(cookieList);
             IsClickUp = false;
@@ -83,7 +81,7 @@ function setupCanvas() {
             MainShop.AddCash(1);
             createCookie(cookieList);
             BigCookie.click();
-            createCookie2();
+            createTapCookie();
         }
     });
 
@@ -101,12 +99,12 @@ function setupCanvas() {
     function AddButton(pName) {
         let buttonDiv = document.getElementById('buttons');
         let button = document.createElement('BUTTON');
-        button.setAttribute("id",'AutoButton'+pName);
-        button.setAttribute("class",'AutoButton');
-        button.setAttribute("onClick", "Test("+ "'"+ pName+ "'"+");");
-    
+        button.setAttribute("id", 'AutoButton' + pName);
+        button.setAttribute("class", 'AutoButton');
+        button.setAttribute("onClick", "Test(" + "'" + pName + "'" + ");");
+
         let div = document.createElement('DIV');
-        div.setAttribute("id",'AutoDiv'+pName);
+        div.setAttribute("id", 'AutoDiv' + pName);
 
         let text = document.createTextNode(pName);
         let text2 = document.createTextNode(" ...Test");
@@ -163,9 +161,9 @@ function setupCanvas() {
         layout.setTransform(layout);
         layout.font = pFont;
         layout.textAlign = "center";
-        
+
         layout.fillStyle = "#000000";
-        layout.fillText(pFPS, pPos.getX()+2, pPos.getY()+2);
+        layout.fillText(pFPS, pPos.getX() + 2, pPos.getY() + 2);
         layout.fillStyle = "#ffffff";
         layout.fillText(pFPS, pPos.getX(), pPos.getY());
 
@@ -191,8 +189,8 @@ function setupCanvas() {
         let fps = Math.round(1 / deltaTime);
         // drawText("FPS: " + fps, new Vector(10, 25));
         // document.title = "FPS: " + fps;
-        drawText("Cookies: " + MainShop.GetCash(), new Vector(canvas.clientWidth / 2, 30),"30px Arial");
-        drawText("CPS: " + upgradeManager.getCPS() , new Vector(canvas.clientWidth / 2 , 65),"20px Arial");
+        drawText("Cookies: " + MainShop.GetCash(), new Vector(canvas.clientWidth / 2, 30), "30px Arial");
+        drawText("CPS: " + upgradeManager.getCPS(), new Vector(canvas.clientWidth / 2, 65), "20px Arial");
 
         // drawText("MouseX: " + mousePos.getX(), new Vector(10, 65));
         // drawText("MouseY: " + mousePos.getY(), new Vector(10, 85));
@@ -201,7 +199,7 @@ function setupCanvas() {
 
     function update() {
 
-console.log(mousePos);
+       // console.log(mousePos);
 
 
         if (calculateDistance(mousePos, BigCookie) < BigCookie.getScale() / 2)
@@ -214,12 +212,12 @@ console.log(mousePos);
         upgradeManager.GetUpgrades().forEach(element => {
             let val = element.Run(MainShop);
 
-            for (let index = 0; index < val; index++) 
+            for (let index = 0; index < val; index++)
                 createCookie()
-            
-           // if (val[1]) {
-                //MainShop.AddCash(val[0]) ;
-                //createCookie();
+
+            // if (val[1]) {
+            //MainShop.AddCash(val[0]) ;
+            //createCookie();
 
             //}
         });
@@ -241,9 +239,9 @@ console.log(mousePos);
             }
         }
 
-        for (let index = 0; index < cookieList2.length; index++) {
-            if (cookieList2[index].getPosition().getY() > canvas.clientHeight + 50) {
-                cookieList2.splice(index, 1);
+        for (let index = 0; index < tappedCookies.length; index++) {
+            if (tappedCookies[index].getPosition().getY() > canvas.clientHeight + 50) {
+                tappedCookies.splice(index, 1);
             }
         }
 
@@ -265,12 +263,18 @@ console.log(mousePos);
         cookieList.push(cookie);
     }
 
-    function createCookie2() {
-        let pos = mousePos;
+    function createTapCookie() {
         let rng = randomNum(40, 40);
-        let cookie = new Cookie(pos, rng, new Vector(0,70), this.isDonut);
 
-        cookieList2.push(cookie);
+        let offset = 10;
+        let pos = new Vector(randomNum(mousePos.getX() - offset, mousePos.getX() + offset),
+                            randomNum(mousePos.getY() - offset, mousePos.getY() + offset)
+        );
+
+        // console.log("MousePos: " + mousePos.getX() +","+ mousePos.getY() + " | " + "Pos: " + pos.getX() +","+ pos.getY());
+
+        let cookie = new TapCookie(pos, rng, new Vector(0, 70), false ,2);
+        tappedCookies.push(cookie);
     }
 
     function drawCookies(deltaTime) {
@@ -281,8 +285,8 @@ console.log(mousePos);
 
         BigCookie.drawCookie(layout, deltaTime);
 
-        for (let index = 0; index < cookieList2.length; index++) {
-            cookieList2[index].drawCookie(layout, deltaTime);
+        for (let index = 0; index < tappedCookies.length; index++) {
+            tappedCookies[index].Run(layout, deltaTime);
         }
     }
 }

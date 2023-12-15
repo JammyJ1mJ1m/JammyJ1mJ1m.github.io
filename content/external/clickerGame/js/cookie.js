@@ -1,8 +1,8 @@
 class Cookie {
-    constructor(pPosition, pScale, pVelocity,booly, canvas) {
+    constructor(pPosition, pScale, pVelocity,booly) {
         this.img = new Image();
 
-        this.mCanvas = canvas;
+        
 
         this.mClickTime = -1;
 
@@ -116,7 +116,7 @@ setGoldcookie()
     click() {
         if (!this.mIsClicked) {
             this.mIsClicked = true;
-            console.log("Clicked");
+            // console.log("Clicked");
             this.setScale(this.getScale() - 10);
             this.setPosition(new Vector(this.mOriginalPosition.getX() - this.getScale() / 2, this.mOriginalPosition.getY() - this.getScale() / 2))
 
@@ -139,7 +139,8 @@ setGoldcookie()
             this.setScale(this.getScale() + 10);
             this.setPosition(new Vector(this.mOriginalPosition.getX() - this.getScale() / 2, this.mOriginalPosition.getY() - this.getScale() / 2))
         }
-
+        
         layout.drawImage(this.img, this.getPosition().getX(), this.getPosition().getY(), this.getScale(), this.getScale());
+        
     }
 }
