@@ -4,7 +4,7 @@ date = "2023-08-22T15:17:12+01:00"
 author = "James"
 authorTwitter = "JammyJ1mJ1m" #do not include @
 cover = ""
-tags = ["C#", "VR", "Multiplayer","Uni" ]
+tags = ["C#", "VR","Uni" ]
 keywords = ["", ""]
 description = "The software project that went alongside my dissertation"
 showFullContent = false
@@ -18,11 +18,17 @@ portfolioCover = "img/tank.jpg"
 # VeRy Troublesome tanks
 
 #### Reason and technologies used
+
+| Language    | Technologies|
+| ----------- | ----------- |
+| C#          |Unity, VR       |
+
+
+
+
 This project was the final software piece that went alongside my dissertation.  
 The game is a VR port of the original game called: [Troublesome tanks](https://www.youtube.com/watch?v=GafLNMRZxGI).
 The idea was to provide a more immersive and fun take on the original game.
-
-The engine used is Unity and language used is C#
 
 
 #### Game brief:

@@ -15,12 +15,15 @@ portfolioCover = "img/pathfinding.png"
 
 +++
 
-# A*
+
 
 #### Reason and technologies used
+| Language    | Technologies|
+| ----------- | ----------- |
+| C#          | A*          |
+
 Completed as the final assignment for my Game AI module in second year.
 
-Language used is C#. 
 
 The project has a bot (green circle) and a goal(red circle), the bot will calculate an A* route from bot position to goal position on the 2D grid.
 

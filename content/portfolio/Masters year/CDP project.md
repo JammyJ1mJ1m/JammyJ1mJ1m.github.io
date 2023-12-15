@@ -14,8 +14,10 @@ color = "red" #color from the theme settings
 portfolioCover = "img/ORE.png"
 +++
 
-#### Reason and technologies used
-Unity and Agile methodologies for project management  
+#### Reason and technologies used  
+| Language    | Technologies|
+| ----------- | ----------- |
+| C#          |Agile, Unity |
   
   
 Commercial development practice module.  

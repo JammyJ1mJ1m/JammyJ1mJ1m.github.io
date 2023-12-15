@@ -18,7 +18,9 @@ published = false
 # 🏗️ **Under construction**🏗️
 
 #### Reason and technologies used
-C++, OpenGL  
 
+| Language    | Technologies|
+| ----------- | ----------- |
+| C++          |OpenGL    |
 
 A more detailed look can be found [Here](https://jammyjimjim.co.uk/posts/opengl-engine/)

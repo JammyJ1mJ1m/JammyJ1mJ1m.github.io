@@ -7,7 +7,7 @@ authorTwitter = "" #do not include @
 cover = ""
 tags = ["DX11","C++"]
 keywords = ["", ""]
-description = "A real time renderer using D3D11"
+description = "A real time renderer using DirectX11"
 showFullContent = false
 readingTime = false
 hideComments = false
@@ -30,6 +30,7 @@ Computer graphics gallery consisting of 4 rooms each with a different exhibit
 * At least one of the exhibits should consist of multiple dynamic 3D objects where the various animation effects can be demonstrated
 
 ## **13/12/2023**
+
 
 ### Gallery rooms
 Started the day off in Blender creating some models to use as the gallery rooms.

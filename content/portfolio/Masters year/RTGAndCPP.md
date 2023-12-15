@@ -12,11 +12,14 @@ readingTime = true
 hideComments = false
 color = "red" #color from the theme settings
 portfolioCover = "img/DX.png"
+published = true
 +++
 
 
 #### Reason and technologies used
-C++ and Directx11
+| Language    | Technologies|
+| ----------- | ----------- |
+| C++          |DirectX11   |
 
 A joint assessment project between my C++ and real time rendering module.
 
