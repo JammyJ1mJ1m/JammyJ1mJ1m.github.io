@@ -35,16 +35,18 @@ canvas {
 .autos {
   margin-top: 0%;
   padding: 0px;
-  
 }
 
 .AutoButton{
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px;
+  padding: 5px;
+  
   width: 300px;
   height: 100px;
   font-size: 35px;
   align-items: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .AutoDiv{
@@ -52,15 +54,16 @@ canvas {
   align-items: center;
   font-size: 20px;
   font-weight: bold;
-
 }
 
 .CostDiv{
-  margin-left: 5%;
-  margin-right: 5%;
-  flex: 10%;
+  margin: 5px;
+  padding: 5px;
+  flex: 50%;
 }
 
 .AmountDiv{
+  margin: 5px;
+  padding: 5px;
   flex: 30%;
 }
