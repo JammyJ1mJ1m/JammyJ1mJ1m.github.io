@@ -9,8 +9,8 @@ class TapCookie extends Cookie {
     {
         let decrement = 1 / this.mOpacityRate * pDelta;
         this.mOpacity -= decrement;
-        if (this.mOpacity < 0.01)
-            this.mOpacity = 0.01;
+        if (this.mOpacity < 0.0)
+            this.mOpacity = 0.0;
     }
 
     Run(layout, pDeltaTime) 
