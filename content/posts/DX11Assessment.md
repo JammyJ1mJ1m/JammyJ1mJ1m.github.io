@@ -72,3 +72,14 @@ There is also a seperate class that contains a sampler state, this is its own en
 The reason for this being that the majority, if not all of my textures will be sampled in the same way.
 
 {{< figure src="https://i.imgur.com/8Eh5u2I.png" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
+
+## **20/12/2023**
+Today I created a quick mock up of what I would like my four gallery rooms to look like. 
+
+Starting in the far left, the teapot room. One teapot will have gourad lighting appplied (vertex lighting) and the other teapot will have phong lighting applied(per pixel).  
+Next is the room with lots of dynamic spheres, these will fall from the ceiling into the floor all while being illumiated by three point lights of different colours.  
+The nect room is animated, I will have three suzanne models with different transformation animations applied, translation, scale and rotation.  
+The final room is empty as it is left to whatever I want to add to it, I haven't decided on what to add yet.
+
+{{< figure src="https://i.imgur.com/mr7bm5C.gif" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
+Although it's not shown here, the actual scene will have a ceiling.
