@@ -83,3 +83,9 @@ The final room is empty as it is left to whatever I want to add to it, I haven't
 
 {{< figure src="https://i.imgur.com/mr7bm5C.gif" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
 Although it's not shown here, the actual scene will have a ceiling.
+
+
+## **3/01/2024**
+It's been a while since the last update. Today after some tedious issues I have managed to implement normal maps for models. This video highlights the new additions. Parralax is next on the list of things to implement.
+{{< youtube hxTX2S0eETs >}}
+
