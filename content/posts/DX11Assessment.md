@@ -89,3 +89,11 @@ Although it's not shown here, the actual scene will have a ceiling.
 It's been a while since the last update. Today after some tedious issues I have managed to implement normal maps for models. This video highlights the new additions. Parralax is next on the list of things to implement.
 {{< youtube hxTX2S0eETs >}}
 
+## **4/01/2024**
+Reviewing yesterday's progress, I have decided that it would be wise to change the way I am handling my materials in order to allow different models to have different textures.
+The new system works great and still allows for normal maps. This clip shows the floor having a texture and a normal map wheras the floor appears to just be a shiny floor texture.
+
+{{< youtube rpYW0YU6qmg >}}
+
+
+
