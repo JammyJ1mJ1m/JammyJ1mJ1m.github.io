@@ -95,5 +95,11 @@ The new system works great and still allows for normal maps. This clip shows the
 
 {{< youtube rpYW0YU6qmg >}}
 
+## **5/01/2024**
+Another day, another update. I should probably condense these down into weekly updates?
+Anyway. Multiple lights working with normal maps! 😎
+Each light is its own object and they are stored inside a light manager which, as you can imagine, manages the lights. The manager reads the light data and sends it to the shader where the magic happens. This video highlights the progress. 
+{{< youtube P5Qa6W84cMo >}}
+
 
 
