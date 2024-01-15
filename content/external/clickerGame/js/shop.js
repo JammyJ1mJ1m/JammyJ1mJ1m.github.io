@@ -1,7 +1,12 @@
 class Shop{
 
     constructor() {
+<<<<<<< Updated upstream
         this.mCash = 0;   
+=======
+        console.log("This is the shop")
+        this.mCash = 99999999;   
+>>>>>>> Stashed changes
     }
 
     GetCash()
