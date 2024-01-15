@@ -30,7 +30,7 @@ function setupCanvas() {
 
     var canvas = document.getElementById("canvas");
     let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 400, new Vector(0, 0), false, layout);
-
+    let cheatCode = '';
     //let myTapper = new Tapper();
 
 
@@ -67,6 +67,12 @@ function setupCanvas() {
             }
             BigCookie.setDonut(this.isDonut);
         }
+
+        if(event.key === "m")
+        {
+            cheatCode = 'm';
+        }
+
     });
 
     body.addEventListener("keyup", (event) => {
@@ -199,7 +205,11 @@ function setupCanvas() {
 
     function update() {
 
-       // console.log(mousePos);
+        if(cheatCode == 'm')
+        {
+            MainShop.AddCash(9999999999);
+        }
+        // console.log(mousePos);
 
 
         if (calculateDistance(mousePos, BigCookie) < BigCookie.getScale() / 2)
@@ -268,12 +278,12 @@ function setupCanvas() {
 
         let offset = 10;
         let pos = new Vector(randomNum(mousePos.getX() - offset, mousePos.getX() + offset),
-                            randomNum(mousePos.getY() - offset, mousePos.getY() + offset)
+            randomNum(mousePos.getY() - offset, mousePos.getY() + offset)
         );
 
         // console.log("MousePos: " + mousePos.getX() +","+ mousePos.getY() + " | " + "Pos: " + pos.getX() +","+ pos.getY());
 
-        let cookie = new TapCookie(pos, rng, new Vector(0, 70), false ,2);
+        let cookie = new TapCookie(pos, rng, new Vector(0, 70), false, 2);
         tappedCookies.push(cookie);
     }
 

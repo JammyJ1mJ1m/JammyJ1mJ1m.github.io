@@ -12,12 +12,43 @@ class UpgradeManager {
         this.factory = new Factory(130000);
         this.bank = new Bank(1400000);
 
+        this.pyramid = new Pyramid(20000000); 
+        this.witchTower = new WitchTower(330000000); 
+        this.rocket = new Rocket(5100000000); 
+        this.potionsLab = new PotionsLab(75000000000); 
+        this.portal = new Portal(1000000000000); 
+        this.timeTravel = new TimeTravel(14000000000000);
+        
+        this.condenser = new Condenser(170000000000000);
+        this.quantumGlass = new QuantumGlass(2100000000000000);
+        this.clover = new Clover(21000000000);
+        this.fractal = new Fractal(150000000000);
+        this.code = new Code(1100000000000);
+        this.universe = new Universe(8300000000000);
+        this.thirdEye = new Thirdeye(64000000000000);
+        this.player = new Player(510000000000000);
+
         this.AddUpgrade(this.tapper);
         this.AddUpgrade(this.grandad);
         this.AddUpgrade(this.farm);
         this.AddUpgrade(this.mine);
         this.AddUpgrade(this.factory);
         this.AddUpgrade(this.bank);
+
+        this.AddUpgrade(this.pyramid);
+        this.AddUpgrade(this.witchTower);
+        this.AddUpgrade(this.rocket);
+        this.AddUpgrade(this.potionsLab);
+        this.AddUpgrade(this.portal);
+        this.AddUpgrade(this.timeTravel);
+        this.AddUpgrade(this.condenser);
+        this.AddUpgrade(this.quantumGlass);
+        this.AddUpgrade(this.clover);
+        this.AddUpgrade(this.fractal);
+        this.AddUpgrade(this.code);
+        this.AddUpgrade(this.universe);
+        this.AddUpgrade(this.thirdEye);
+        this.AddUpgrade(this.player);
     }
 
     FindPrice(pName) {
