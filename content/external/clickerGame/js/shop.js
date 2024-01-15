@@ -1,6 +1,6 @@
 class Shop {
   constructor() {
-    this.mCash = 170000000000000;
+    this.mCash = 0;
 
   }
 
