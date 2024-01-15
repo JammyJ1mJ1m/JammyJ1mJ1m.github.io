@@ -3,7 +3,7 @@ class Clover extends Autotapper{
     {
         super();
         this.mPrice = this.SetPrice(pPrice);
-        this.mName = "clover";
+        this.mName = "Clover";
         this.mOriginalPrice = this.mOriginalPrice;
         this.mAmount = 1400;
         this.mTiming = 1;

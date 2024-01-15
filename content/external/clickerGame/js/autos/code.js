@@ -14,7 +14,7 @@ class Code extends Autotapper{
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(1, 21000000000));
+        this.mTappers.push(new Tap(1, 1100000000000));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();

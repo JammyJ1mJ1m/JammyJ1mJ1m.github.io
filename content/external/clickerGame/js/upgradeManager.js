@@ -18,15 +18,15 @@ class UpgradeManager {
         this.potionsLab = new PotionsLab(75000000000); 
         this.portal = new Portal(1000000000000); 
         this.timeTravel = new TimeTravel(14000000000000);
-        
         this.condenser = new Condenser(170000000000000);
+
         this.quantumGlass = new QuantumGlass(2100000000000000);
-        this.clover = new Clover(21000000000);
-        this.fractal = new Fractal(150000000000);
-        this.code = new Code(1100000000000);
-        this.universe = new Universe(8300000000000);
-        this.thirdEye = new Thirdeye(64000000000000);
-        this.player = new Player(510000000000000);
+        this.clover = new Clover(26000000000000000);
+        this.fractal = new Fractal(310000000000000000);
+        this.code = new Code(71000000000000000000);
+        this.universe = new Universe(12000000000000000000000);
+        this.thirdEye = new Thirdeye(19000000000000000000000000);
+        this.player = new Player(5400000000000000000000000000);
 
         this.AddUpgrade(this.tapper);
         this.AddUpgrade(this.grandad);
