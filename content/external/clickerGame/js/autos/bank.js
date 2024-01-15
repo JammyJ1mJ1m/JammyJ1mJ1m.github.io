@@ -1,5 +1,4 @@
 class Bank extends Autotapper{
-<<<<<<< Updated upstream
     constructor(pPrice)
     {
         super();
@@ -21,27 +20,3 @@ class Bank extends Autotapper{
         this.UpdateLabel();
     }
 }
-=======
-        constructor(pPrice)
-        {
-            super();
-            this.mPrice = this.SetPrice(pPrice);
-            this.mName = "Bank";
-            this.mOriginalPrice = this.mOriginalPrice;
-            this.mAmount = 1;
-            this.mTiming = 1;
-    
-            //this.AddTapper(new Tap(10, 1))
-            this.AddButton()
-    
-        }
-    
-        AddTapper()
-        {
-            this.mTappers.push(new Tap(1, 1400));
-            this.mAmount = this.mTappers.length;
-            this.IncreasePrice();
-            this.UpdateLabel();
-        }
-    }
->>>>>>> Stashed changes
