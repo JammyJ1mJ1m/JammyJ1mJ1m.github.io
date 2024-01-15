@@ -7,26 +7,26 @@ class UpgradeManager {
         // upgrades
         this.tapper = new Tapper(15);
         this.grandad = new Grandad(100);
-        this.farm = new Farm(1100);
-        this.mine = new Mine(12000);
-        this.factory = new Factory(130000);
-        this.bank = new Bank(1400000);
+        this.farm = new Farm(1_100);
+        this.mine = new Mine(12_000);
+        this.factory = new Factory(130_000);
+        this.bank = new Bank(1_400_000);
 
-        this.pyramid = new Pyramid(20000000); 
-        this.witchTower = new WitchTower(330000000); 
-        this.rocket = new Rocket(5100000000); 
-        this.potionsLab = new PotionsLab(75000000000); 
-        this.portal = new Portal(1000000000000); 
-        this.timeTravel = new TimeTravel(14000000000000);
-        this.condenser = new Condenser(170000000000000);
+        this.pyramid = new Pyramid(20_000_000); 
+        this.witchTower = new WitchTower(330_000_000); 
+        this.rocket = new Rocket(5_100_000_000); 
+        this.potionsLab = new PotionsLab(75_000_000_000); 
+        this.portal = new Portal(1_000_000_000_000); 
+        this.timeTravel = new TimeTravel(14_000_000_000_000);
+        this.condenser = new Condenser(170_000_000_000_000);
 
-        this.quantumGlass = new QuantumGlass(2100000000000000);
-        this.clover = new Clover(26000000000000000);
-        this.fractal = new Fractal(310000000000000000);
-        this.code = new Code(71000000000000000000);
-        this.universe = new Universe(12000000000000000000000);
-        this.thirdEye = new Thirdeye(19000000000000000000000000);
-        this.player = new Player(5400000000000000000000000000);
+        this.quantumGlass = new QuantumGlass(2_100_000_000_000_000);
+        this.clover = new Clover(26_000_000_000_000_000);
+        this.fractal = new Fractal(310_000_000_000_000_000);
+        this.code = new Code(71_000_000_000_000_000_000);
+        this.universe = new Universe(12_000_000_000_000_000_000_000);
+        this.thirdEye = new Thirdeye(1_900_000_000_000_000_000_000_000);
+        this.player = new Player(540_000_000_000_000_000_000_000_000);
 
         this.AddUpgrade(this.tapper);
         this.AddUpgrade(this.grandad);
