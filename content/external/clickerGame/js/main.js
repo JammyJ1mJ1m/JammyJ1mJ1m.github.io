@@ -46,7 +46,19 @@ function Load() {
 /// formats a large number with a 
 function formatLargeNumber(number) {
     const units = {
-        Centillion: 60,
+        veryLongNumber:102,
+        duotrigintillion:99,
+        untrigintillion:96,
+        trigintillion:93,
+        novemvigintillion:90,
+        octovigintillion:87,
+        septenvigintillion:84,
+        sexvigintillion:81,
+        quinvigintillion:78,
+        quattuorvigintillion:75,
+        trevigintillion:72,
+        duovigintillion:69,
+        unvigintillion:66,
         Vigintillion: 63,
         Novemdecillion: 60,
         Octodecillion: 57,

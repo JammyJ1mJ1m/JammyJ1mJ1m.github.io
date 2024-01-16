@@ -142,7 +142,12 @@ class Autotapper {
 
     Save(pFile)
     {
-        pFile += (this.mName + ':' + this.mTappers.length + ';');
+        if(this.mTappers.length != 0)
+        {
+
+            pFile += (this.mName + ':' + this.mTappers.length + ';');
+            return pFile;
+        }
         return pFile;
     }
 }
