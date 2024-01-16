@@ -1,77 +1,83 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Clicker Clone</title>
-        <link rel="stylesheet" href="css/main.css" type="text/css" />
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-    </head>
-    <body class = "noSelect" onload="setupCanvas();"  style="background-color:#138eaa;">
-        
-        <h1>Hello Cookie!</h1>
-        <h3>WIP cookie clicker clone!</h3>
+
+<head>
+    <title>Clicker Clone</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+
+<body class="noSelect" onload="setupCanvas();" style="background-color:#138eaa;">
+
+    <h1>Hello Cookie!</h1>
+    <h3>WIP cookie clicker clone!</h3>
 
 
-        <div class="row">
-            <div class="canvas">
-                <canvas id="canvas" width="720" height="720">
-                    Your browser does not support the canvas tag
-                </canvas>
-            </div> 
-            <div class="buttons" id="buttons">
-                
-                <h3 class="autos">AutoClickers</h3>
-                <!-- <button type="button">Tapper</button>--> 
-            </div>
-
-            
+    <div class="row">
+        <div class="canvas" id="mainGame">
+            <canvas id="canvas" width="720" height="720">
+                Your browser does not support the canvas tag
+            </canvas>
+            <button onclick="Save()">save</button>
+            <a href="#" id="download">Download</a>
+            <button onclick="Load()">load</button>
         </div>
-        <div class="row">
-            
+        <div class="buttons" id="buttons">
+
+            <h3 class="autos">AutoClickers</h3>
+            <!-- <button type="button">Tapper</button>-->
         </div>
 
 
-        <script type="text/javascript" src="js/cookie.js"></script>
-        <script type="text/javascript" src="js/tapCookie.js"></script>
+    </div>
+    <div class="row">
 
-        <script type="text/javascript" src="js/autos/autoClicker.js"></script>
-        <script type="text/javascript" src="js/autos/tap.js"></script>
-        <script type="text/javascript" src="js/upgradeManager.js"></script>
-        <script type="text/javascript" src="js/shop.js"></script>
-        <script type="text/javascript" src="js/dictionary.js"></script>
-        <script type="text/javascript" src="js/kvp.js"></script>
+    </div>
 
 
-        <script type="text/javascript" src="js/autos/autoTapper.js"></script>
-        <script type="text/javascript" src="js/autos/tapper.js"></script>
-        <script type="text/javascript" src="js/autos/grandad.js"></script>
-        <script type="text/javascript" src="js/autos/farm.js"></script>
-        <script type="text/javascript" src="js/autos/mine.js"></script>
-        <script type="text/javascript" src="js/autos/factory.js"></script>
-        <script type="text/javascript" src="js/autos/bank.js"></script>
-        <script type="text/javascript" src="js/autos/Pyramid.js"></script>
-        <script type="text/javascript" src="js/autos/WitchTower.js"></script>
-        <script type="text/javascript" src="js/autos/rocket.js"></script>
-        <script type="text/javascript" src="js/autos/potionsLab.js"></script>
-        <script type="text/javascript" src="js/autos/portal.js"></script>
-        <script type="text/javascript" src="js/autos/timeTravel.js"></script>
-        <script type="text/javascript" src="js/autos/condenser.js"></script>
-        <script type="text/javascript" src="js/autos/quantumGlass.js"></script>
-        <script type="text/javascript" src="js/autos/Clover.js"></script>
-        <script type="text/javascript" src="js/autos/fractal.js"></script>
-        <script type="text/javascript" src="js/autos/code.js"></script>
-        <script type="text/javascript" src="js/autos/universe.js"></script>
-        <script type="text/javascript" src="js/autos/thirdEye.js"></script>
-        <script type="text/javascript" src="js/autos/player.js"></script>
+    <script type="text/javascript" src="js/cookie.js"></script>
+    <script type="text/javascript" src="js/tapCookie.js"></script>
 
-        <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/autos/autoClicker.js"></script>
+    <script type="text/javascript" src="js/autos/tap.js"></script>
+    <script type="text/javascript" src="js/upgradeManager.js"></script>
+    <script type="text/javascript" src="js/shop.js"></script>
+    <script type="text/javascript" src="js/dictionary.js"></script>
+    <script type="text/javascript" src="js/kvp.js"></script>
 
-        <script type="text/javascript" src="js/vector.js"></script>
-        <script type="text/javascript" src="js/matrix.js"></script>
 
-        <script type="text/javascript" src="js/graphNodes/graphNode.js"></script>
-        <script type="text/javascript" src="js/graphNodes/geometryNode.js"></script>
-        <script type="text/javascript" src="js/graphNodes/groupNode.js"></script>
-        <script type="text/javascript" src="js/graphNodes/transformNode.js"></script>
-        <script type="text/javascript" src="js/graphNodes/renderVisitor.js"></script> 
-    </body>
+    <script type="text/javascript" src="js/autos/autoTapper.js"></script>
+    <script type="text/javascript" src="js/autos/tapper.js"></script>
+    <script type="text/javascript" src="js/autos/grandad.js"></script>
+    <script type="text/javascript" src="js/autos/farm.js"></script>
+    <script type="text/javascript" src="js/autos/mine.js"></script>
+    <script type="text/javascript" src="js/autos/factory.js"></script>
+    <script type="text/javascript" src="js/autos/bank.js"></script>
+    <script type="text/javascript" src="js/autos/Pyramid.js"></script>
+    <script type="text/javascript" src="js/autos/WitchTower.js"></script>
+    <script type="text/javascript" src="js/autos/rocket.js"></script>
+    <script type="text/javascript" src="js/autos/potionsLab.js"></script>
+    <script type="text/javascript" src="js/autos/portal.js"></script>
+    <script type="text/javascript" src="js/autos/timeTravel.js"></script>
+    <script type="text/javascript" src="js/autos/condenser.js"></script>
+    <script type="text/javascript" src="js/autos/quantumGlass.js"></script>
+    <script type="text/javascript" src="js/autos/Clover.js"></script>
+    <script type="text/javascript" src="js/autos/fractal.js"></script>
+    <script type="text/javascript" src="js/autos/code.js"></script>
+    <script type="text/javascript" src="js/autos/universe.js"></script>
+    <script type="text/javascript" src="js/autos/thirdEye.js"></script>
+    <script type="text/javascript" src="js/autos/player.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/javascript" src="js/vector.js"></script>
+    <script type="text/javascript" src="js/matrix.js"></script>
+
+    <script type="text/javascript" src="js/graphNodes/graphNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/geometryNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/groupNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/transformNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/renderVisitor.js"></script>
+</body>
+
 </html>

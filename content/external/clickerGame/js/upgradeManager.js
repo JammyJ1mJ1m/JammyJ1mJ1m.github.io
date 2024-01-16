@@ -82,4 +82,12 @@ class UpgradeManager {
     GetUpgrades() {
         return this.mUpgradeList;
     }
+    
+    Save(pFile)
+    {
+        this.mUpgradeList.forEach(element => {
+            pFile = element.Save(pFile);
+        });
+        return pFile;
+    }
 }

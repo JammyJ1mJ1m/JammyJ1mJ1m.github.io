@@ -10,6 +10,30 @@ function Test(p) {
         upgradeManager.AddAuto(p);
     }
 }
+function Save() {
+    let saveContent = 'cash:' + MainShop.GetCash() + ';';
+    saveContent = upgradeManager.Save(saveContent);
+
+    var fileName = "CookieSave.txt";
+    var myFile = new Blob([saveContent], { type: 'text/plain' });
+
+    window.URL = window.URL || window.webkitURL;
+    var dlBtn = document.getElementById("download");
+
+    dlBtn.setAttribute("href", window.URL.createObjectURL(myFile));
+    dlBtn.setAttribute("download", fileName);
+
+}
+
+function Load() {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "text");
+    x.setAttribute("value", "Please paste the contents of the save file!");
+    
+document.getElementById('mainGame').appendChild(x);
+    
+    //document.body.appendChild(x);
+}
 
 /// formats a large number with a 
 function formatLargeNumber(number) {
@@ -95,8 +119,8 @@ function setupCanvas() {
         layout = canvas.getContext('2d');
     }
 
-    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
-
+    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    let x = document.cookie;
     //=======================================================
     //                    Events
     //=======================================================

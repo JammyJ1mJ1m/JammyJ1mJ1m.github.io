@@ -128,4 +128,10 @@ class Autotapper {
         // run the clickers
 
     }
+
+    Save(pFile)
+    {
+        pFile += (this.mName + ':' + this.mTappers.length + ';');
+        return pFile;
+    }
 }
