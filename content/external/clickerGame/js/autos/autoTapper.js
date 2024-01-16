@@ -14,6 +14,11 @@ class Autotapper {
         this.mAmountDiv = 0;
     }
 
+    formatCompactNumber(number) {
+        const formatter = Intl.NumberFormat("en", { notation: "compact" });
+        return formatter.format(number);
+    }
+
     GetCPS() {
         let am = 0;
         let t = this.mTiming;
@@ -55,6 +60,7 @@ class Autotapper {
         this.mPrice = Math.ceil(this.mOriginalPrice * Math.pow(this.mExponent, this.mAmount));
     }
 
+
     AddButton() {
 
         let buttonDiv = document.getElementById('buttons');
@@ -74,7 +80,7 @@ class Autotapper {
         button.appendChild(text);
         //button.appendChild(text2);
         div.appendChild(button);
-        // add cost 
+        // add cost
         // add amount
         this.mCostLabel = document.createTextNode("Cost: " + this.mPrice);
         this.mAmountLabel = document.createTextNode("Amount: " + this.mTappers.length);
@@ -82,7 +88,10 @@ class Autotapper {
         this.mCostDiv = document.createElement('DIV')
         this.mCostDiv.setAttribute("class", 'CostDiv');
 
-        this.mCostDiv.innerText = "Cost: " + this.mPrice;
+        const formatter = Intl.NumberFormat('en', { notation: 'compact' });
+        const numberToDisplay = formatter.format(this.mPrice);
+
+        this.mCostDiv.innerText = "Cost: " + formatLargeNumber(this.mPrice);
         div.appendChild(this.mCostDiv);
 
         this.mAmountDiv = document.createElement('DIV')
@@ -99,7 +108,7 @@ class Autotapper {
     }
 
     UpdateLabel() {
-        this.mCostDiv.innerText = "Cost: " + this.mPrice;
+        this.mCostDiv.innerText = "Cost: " + formatLargeNumber(this.mPrice);
         this.mAmountDiv.innerText = "Amount: " + this.mTappers.length;
     }
 

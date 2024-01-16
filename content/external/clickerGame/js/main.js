@@ -11,6 +11,63 @@ function Test(p) {
     }
 }
 
+/// formats a large number with a 
+function formatLargeNumber(number) {
+    const units = {
+        Centillion: 60,
+        Vigintillion: 63,
+        Novemdecillion: 60,
+        Octodecillion: 57,
+        Septendecillion: 54,
+        Sexdecillion: 51,
+        Quindecillion: 48,
+        Quattuordecillion: 45,
+        Tredecillion: 42,
+        Duodecillion: 39,
+        Undecillion: 36,
+        Decillion: 33,
+        Nonillion: 30,
+        Octillion: 27,
+        septillion: 24,
+        quintillion: 21,
+        sextillion: 18,
+        quadrillion: 15,
+        trillion: 12,
+        billion: 9,
+        million: 6,
+        thousand: 3,
+        none: 0,
+    };
+
+
+    let unit;
+    for (unit in units) {
+        if (Math.abs(number) >= 10 ** units[unit]) {
+            break;
+        }
+    }
+
+    if (unit != 'none' && unit != 'thousand') {
+        const unitValue = Math.pow(10, units[unit]);
+        const wholeNumber = Math.floor(Math.abs(number) / unitValue);
+        const fractionalPart = Math.abs(number) % unitValue;
+
+        const formattedNumber = wholeNumber.toLocaleString("en-US");
+
+        if (fractionalPart > 0) {
+            const formattedFraction = Math.floor(fractionalPart / (unitValue / 1000)).toLocaleString("en-US", {
+                maximumFractionDigits: 1,
+            });
+            return `${formattedNumber}.${formattedFraction} ${unit}`;
+        } else {
+            return `${formattedNumber} ${unit}`;
+        }
+    }
+    else {
+        return number.toLocaleString();
+    }
+}
+
 function setupCanvas() {
     let layout;
     let tapCount = 0;
@@ -37,6 +94,8 @@ function setupCanvas() {
     if (canvas.getContext) {
         layout = canvas.getContext('2d');
     }
+
+    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
 
     //=======================================================
     //                    Events
@@ -68,8 +127,7 @@ function setupCanvas() {
             BigCookie.setDonut(this.isDonut);
         }
 
-        if(event.key === "m")
-        {
+        if (event.key === "m") {
             cheatCode = 'm';
         }
 
@@ -195,8 +253,8 @@ function setupCanvas() {
         let fps = Math.round(1 / deltaTime);
         // drawText("FPS: " + fps, new Vector(10, 25));
         // document.title = "FPS: " + fps;
-        drawText("Cookies: " + MainShop.GetCash(), new Vector(canvas.clientWidth / 2, 30), "30px Arial");
-        drawText("CPS: " + upgradeManager.getCPS(), new Vector(canvas.clientWidth / 2, 65), "20px Arial");
+        drawText("Cookies: " + formatLargeNumber(MainShop.GetCash()), new Vector(canvas.clientWidth / 2, 30), "30px Arial");
+        drawText("CPS: " + formatLargeNumber(upgradeManager.getCPS()), new Vector(canvas.clientWidth / 2, 65), "20px Arial");
 
         // drawText("MouseX: " + mousePos.getX(), new Vector(10, 65));
         // drawText("MouseY: " + mousePos.getY(), new Vector(10, 85));
@@ -205,9 +263,8 @@ function setupCanvas() {
 
     function update() {
 
-        if(cheatCode == 'm')
-        {
-            MainShop.AddCash(9999999999);
+        if (cheatCode == 'm') {
+            MainShop.AddCash(0);
         }
         // console.log(mousePos);
 
