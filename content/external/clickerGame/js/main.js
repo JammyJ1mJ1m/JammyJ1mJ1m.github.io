@@ -26,12 +26,20 @@ function Save() {
 }
 
 function Load() {
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "text");
-    x.setAttribute("value", "Please paste the contents of the save file!");
-    
-document.getElementById('mainGame').appendChild(x);
-    
+    let input = document.getElementById("loadInput");
+    let inputData = input.value;
+    if (inputData == '') {
+        alert("Cannot load data");
+        return;
+    }
+
+
+    const argsArr = inputData.split(";");
+    const cash = argsArr[0].split(":")[1];
+    MainShop.SetCash(+cash);
+   
+    upgradeManager.Load(argsArr)
+
     //document.body.appendChild(x);
 }
 

@@ -1,9 +1,12 @@
 class Shop {
   constructor() {
-    this.mCash = 999999999990;
+    this.mCash = 0;
 
   }
-
+SetCash(pCash)
+{
+  this.mCash = pCash;
+}
   GetCash() {
     return this.mCash;
   }

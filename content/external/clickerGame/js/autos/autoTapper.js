@@ -60,6 +60,10 @@ class Autotapper {
         this.mPrice = Math.ceil(this.mOriginalPrice * Math.pow(this.mExponent, this.mAmount));
     }
 
+    DeleteLabels()
+    {
+        document.getElementById('AutoDiv').remove();
+    }
 
     AddButton() {
 
@@ -86,6 +90,8 @@ class Autotapper {
         this.mAmountLabel = document.createTextNode("Amount: " + this.mTappers.length);
 
         this.mCostDiv = document.createElement('DIV')
+        this.mCostDiv.setAttribute("id", 'AutoCost' + this.mName);
+
         this.mCostDiv.setAttribute("class", 'CostDiv');
 
         const formatter = Intl.NumberFormat('en', { notation: 'compact' });
@@ -95,6 +101,8 @@ class Autotapper {
         div.appendChild(this.mCostDiv);
 
         this.mAmountDiv = document.createElement('DIV')
+        this.mAmountDiv.setAttribute("id", 'AutoAmount' + this.mName);
+
         this.mAmountDiv.setAttribute("class", 'AmountDiv');
 
         this.mAmountDiv.innerText = "Amount: " + this.mTappers.length;
@@ -108,6 +116,9 @@ class Autotapper {
     }
 
     UpdateLabel() {
+        this.mCostDiv = document.getElementById('AutoCost' + this.mName); 
+        this.mAmountDiv = document.getElementById('AutoAmount' + this.mName);
+
         this.mCostDiv.innerText = "Cost: " + formatLargeNumber(this.mPrice);
         this.mAmountDiv.innerText = "Amount: " + this.mTappers.length;
     }

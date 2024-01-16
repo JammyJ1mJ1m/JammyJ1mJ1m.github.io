@@ -5,6 +5,35 @@ class UpgradeManager {
         this.mCPS = 0;
 
         // upgrades
+        this.tapper ;
+        this.grandad ;
+        this.farm ;
+        this.mine ;
+        this.factory;
+        this.bank ;
+
+        this.pyramid ;
+        this.witchTower ;
+        this.rocket ;
+        this.potionsLab ;
+        this.portal ;
+        this.timeTravel ;
+        this.condenser ;
+
+        this.quantumGlass ;
+        this.clover ;
+        this.fractal ;
+        this.code ;
+        this.universe ;
+        this.thirdEye ;
+        this.player ;
+
+        this.AddAllupgrades();
+    }
+
+    AddAllupgrades() {
+        this.deleteAllAutos();
+
         this.tapper = new Tapper(15);
         this.grandad = new Grandad(100);
         this.farm = new Farm(1_100);
@@ -12,11 +41,11 @@ class UpgradeManager {
         this.factory = new Factory(130_000);
         this.bank = new Bank(1_400_000);
 
-        this.pyramid = new Pyramid(20_000_000); 
-        this.witchTower = new WitchTower(330_000_000); 
-        this.rocket = new Rocket(5_100_000_000); 
-        this.potionsLab = new PotionsLab(75_000_000_000); 
-        this.portal = new Portal(1_000_000_000_000); 
+        this.pyramid = new Pyramid(20_000_000);
+        this.witchTower = new WitchTower(330_000_000);
+        this.rocket = new Rocket(5_100_000_000);
+        this.potionsLab = new PotionsLab(75_000_000_000);
+        this.portal = new Portal(1_000_000_000_000);
         this.timeTravel = new TimeTravel(14_000_000_000_000);
         this.condenser = new Condenser(170_000_000_000_000);
 
@@ -51,6 +80,13 @@ class UpgradeManager {
         this.AddUpgrade(this.player);
     }
 
+    deleteAllAutos() {
+        this.mUpgradeList.forEach(element => {
+            element.DeleteLabels();
+        });
+        this.mUpgradeList = [];
+    }
+
     FindPrice(pName) {
         let price = -1;
         this.mUpgradeList.forEach(element => {
@@ -65,6 +101,7 @@ class UpgradeManager {
         this.mUpgradeList.forEach(element => {
             if (element.GetName() == pName) {
                 element.AddTapper();
+                return;
             }
         });
     }
@@ -82,12 +119,28 @@ class UpgradeManager {
     GetUpgrades() {
         return this.mUpgradeList;
     }
-    
-    Save(pFile)
-    {
+
+    Save(pFile) {
         this.mUpgradeList.forEach(element => {
             pFile = element.Save(pFile);
         });
         return pFile;
+    }
+
+    Load(pFile) {
+        this.AddAllupgrades();
+        for (let i = 1; i < pFile.length; i++) {
+
+            const name = pFile[i].split(":")[0];
+            const amount = +pFile[i].split(":")[1];
+            if (amount != 0) {
+
+                for (let index = 0; index < amount; index++) {
+                    this.AddAuto(name)
+
+                }
+            }
+
+        }
     }
 }
