@@ -113,6 +113,17 @@ function formatLargeNumber(number) {
 }
 
 function setupCanvas() {
+
+
+    const myDiv = document.querySelector('#buttons');
+
+// add a click event listener to the div
+myDiv.addEventListener('click', function() {
+  // specify the action to take when the div is clicked
+  console.log('Div was clicked!');
+});
+
+
     let layout;
     let tapCount = 0;
     let cookieList = [];
