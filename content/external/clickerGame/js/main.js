@@ -1,6 +1,19 @@
 let upgradeManager = new UpgradeManager();
 let MainShop = new Shop();
 
+function checkTapperClick()
+{
+upgradeManager.GetUpgrades().forEach(element => {
+
+    if(element.GetClickState())
+    {
+        element.SetClickState(false);
+        console.log('trying to buy an upgrade')
+        Test(element.GetName());
+        
+    }
+});
+}
 
 function Test(p) {
     // TODO get the price of the auto from upgrade manager
@@ -113,15 +126,6 @@ function formatLargeNumber(number) {
 }
 
 function setupCanvas() {
-
-
-    const myDiv = document.querySelector('#buttons');
-
-// add a click event listener to the div
-myDiv.addEventListener('click', function() {
-  // specify the action to take when the div is clicked
-  console.log('Div was clicked!');
-});
 
 
     let layout;
@@ -317,6 +321,8 @@ myDiv.addEventListener('click', function() {
     }
 
     function update() {
+
+        checkTapperClick();
 
         if (cheatCode == 'm') {
             MainShop.AddCash(0);

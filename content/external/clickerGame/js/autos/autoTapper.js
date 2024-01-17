@@ -12,12 +12,17 @@ class Autotapper {
         this.mAmountLabel = 0;
         this.mCostDiv = 0;
         this.mAmountDiv = 0;
+        this.mContainerDiv = 0;
+        this.mIsClicked = false;
     }
 
     formatCompactNumber(number) {
         const formatter = Intl.NumberFormat("en", { notation: "compact" });
         return formatter.format(number);
     }
+
+    GetClickState() { return this.mIsClicked; }
+    SetClickState(pState) {  this.mIsClicked = pState; }
 
     GetCPS() {
         let am = 0;
@@ -60,25 +65,29 @@ class Autotapper {
         this.mPrice = Math.ceil(this.mOriginalPrice * Math.pow(this.mExponent, this.mAmount));
     }
 
-    DeleteLabels()
-    {
+    DeleteLabels() {
         document.getElementById('AutoDiv').remove();
     }
 
     AddButton() {
 
         let buttonDiv = document.getElementById('buttons');
-        let button = document.createElement('BUTTON');
+        let button = document.createElement('DIV');
         button.setAttribute("id", 'AutoButton' + this.mName);
         button.setAttribute("class", 'AutoButton');
-        button.setAttribute("onClick", "Test(" + "'" + this.mName + "'" + ");");
+
 
         let div = document.createElement('DIV');
-        div.setAttribute("id", 'AutoDiv');
+        div.setAttribute("id", 'AutoDiv' + this.mName);
         div.setAttribute("class", 'AutoDiv');
 
         let text = document.createTextNode(this.mName);
-        // let text2 = document.createTextNode(" ...Test");
+
+
+        div.addEventListener("click", this.ClickButton.bind(this));
+        div.nameParam = this.mName;
+
+
 
         // appending text to button
         button.appendChild(text);
@@ -115,8 +124,16 @@ class Autotapper {
 
     }
 
+    ClickButton(event) {
+
+        event.containerDivParam = document.getElementById('AutoDiv' + event.currentTarget.nameParam);
+        this.mIsClicked = true;
+        
+    }
+
+
     UpdateLabel() {
-        this.mCostDiv = document.getElementById('AutoCost' + this.mName); 
+        this.mCostDiv = document.getElementById('AutoCost' + this.mName);
         this.mAmountDiv = document.getElementById('AutoAmount' + this.mName);
 
         this.mCostDiv.innerText = "Cost: " + formatLargeNumber(this.mPrice);
@@ -140,10 +157,8 @@ class Autotapper {
 
     }
 
-    Save(pFile)
-    {
-        if(this.mTappers.length != 0)
-        {
+    Save(pFile) {
+        if (this.mTappers.length != 0) {
 
             pFile += (this.mName + ':' + this.mTappers.length + ';');
             return pFile;

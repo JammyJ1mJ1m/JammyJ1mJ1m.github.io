@@ -24,6 +24,10 @@ canvas {
   user-select: none;
  }
 
+ body{
+  overflow: hidden;
+ }
+
 .row {
   /* display: flex; */
   width: 50%;
@@ -45,6 +49,7 @@ canvas {
 }
 .body{
   font-size: large;
+  
 }
 .autos {
   margin-top: 0%;
@@ -55,19 +60,23 @@ canvas {
   margin: 5px;
   padding: 5px;
   
-  width: 300px;
-  height: 100px;
+
   font-size: 35px;
   align-items: center;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
+
 }
 
 .AutoDiv{
-  display: flex;
+ 
   align-items: center;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 10px;
+	
+  background-color: rgba(255, 255, 255, 0.15);
+
+
 }
 
 .CostDiv{
