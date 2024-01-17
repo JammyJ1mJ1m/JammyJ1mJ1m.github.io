@@ -8,6 +8,8 @@ class Factory extends Autotapper{
         this.mAmount = 260;
         this.mTiming = 1;
         //this.AddTapper(new Tap(10, 1))
+        this.SetIconX(0);
+        this.SetIconY(-300);
         this.AddButton()
 
     }
