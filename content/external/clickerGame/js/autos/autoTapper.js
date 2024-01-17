@@ -74,7 +74,8 @@ class Autotapper {
     }
 
     DeleteLabels() {
-        document.getElementById('ProductDiv').remove();
+        let element = document.getElementById('ProductDiv'+ this.mName);
+        element.remove();
     }
 
     AddButton() {
