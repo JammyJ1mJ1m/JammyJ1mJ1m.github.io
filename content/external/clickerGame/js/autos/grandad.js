@@ -8,7 +8,10 @@ class Grandad extends Autotapper{
         this.mAmount = 1;
         this.mTiming = 1;
         //this.AddTapper(new Tap(10, 1))
+        this.SetIconX(0);
+        this.SetIconY(-120);
         this.AddButton()
+        
 
     }
 

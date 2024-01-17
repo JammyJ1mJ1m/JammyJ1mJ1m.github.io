@@ -8,6 +8,8 @@ class Tapper extends Autotapper{
         this.mAmount = 1;
         this.mTiming = 10;
         //this.AddTapper(new Tap(10, 1))
+        this.SetIconX(0);
+        this.SetIconY(-60);
         this.AddButton()
         //this.UpdateLabel();
 

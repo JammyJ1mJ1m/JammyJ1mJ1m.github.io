@@ -14,7 +14,21 @@ class Autotapper {
         this.mAmountDiv = 0;
         this.mContainerDiv = 0;
         this.mIsClicked = false;
+        this.mIconX;
+        this.mIconY;
     }
+
+    SetIconX(pX)
+    {
+        this.mIconX = pX;
+    }
+    
+
+    SetIconY(pY)
+    {    
+        this.mIconY = pY;
+    }
+    
 
     formatCompactNumber(number) {
         const formatter = Intl.NumberFormat("en", { notation: "compact" });
@@ -22,7 +36,7 @@ class Autotapper {
     }
 
     GetClickState() { return this.mIsClicked; }
-    SetClickState(pState) {  this.mIsClicked = pState; }
+    SetClickState(pState) { this.mIsClicked = pState; }
 
     GetCPS() {
         let am = 0;
@@ -54,72 +68,79 @@ class Autotapper {
         return this.GetPrice();
     }
 
-    // AddTapper(pTapper)
-    // {
-    //     this.mTappers.push(pTapper);
-    //     this.mAmount = this.mTappers.length;
-    //     this.IncreasePrice();
-    // }
 
     IncreasePrice() {
         this.mPrice = Math.ceil(this.mOriginalPrice * Math.pow(this.mExponent, this.mAmount));
     }
 
     DeleteLabels() {
-        document.getElementById('AutoDiv').remove();
+        document.getElementById('ProductDiv').remove();
     }
 
     AddButton() {
+        // this is the main shop div that contains all of the tappers
+        let masterDiv = document.getElementById('buttons');
 
-        let buttonDiv = document.getElementById('buttons');
-        let button = document.createElement('DIV');
-        button.setAttribute("id", 'AutoButton' + this.mName);
-        button.setAttribute("class", 'AutoButton');
+        // main container / product div
+        let productDiv = document.createElement('DIV');
+        productDiv.setAttribute("id", 'ProductDiv' + this.mName);
+        productDiv.setAttribute("class", 'ProductDiv');
+        productDiv.addEventListener("click", this.ClickButton.bind(this));
+        productDiv.nameParam = this.mName;
+
+        // icon div
+        let iconDiv = document.createElement('DIV');
+        iconDiv.setAttribute("id", 'IconDiv' + this.mName);
+        iconDiv.setAttribute("class", 'IconDiv');
+        iconDiv.setAttribute("style", "background-position:" + (+this.mIconX) + "px " + (+this.mIconY) + "px;")
 
 
-        let div = document.createElement('DIV');
-        div.setAttribute("id", 'AutoDiv' + this.mName);
-        div.setAttribute("class", 'AutoDiv');
+        // container div
+        let containerDiv = document.createElement('DIV');
+        containerDiv.setAttribute("id", 'ContainerDiv' + this.mName);
+        containerDiv.setAttribute("class", 'ContainerDiv');
+
+
+        // name div
+        let nameDiv = document.createElement('DIV');
+        nameDiv.setAttribute("id", 'ProductName' + this.mName);
+        nameDiv.setAttribute("class", 'ProductName');
 
         let text = document.createTextNode(this.mName);
 
-
-        div.addEventListener("click", this.ClickButton.bind(this));
-        div.nameParam = this.mName;
-
-
-
         // appending text to button
-        button.appendChild(text);
+        nameDiv.appendChild(text);
         //button.appendChild(text2);
-        div.appendChild(button);
+        containerDiv.appendChild(nameDiv);
         // add cost
         // add amount
         this.mCostLabel = document.createTextNode("Cost: " + this.mPrice);
         this.mAmountLabel = document.createTextNode("Amount: " + this.mTappers.length);
 
+
+        // cost div
         this.mCostDiv = document.createElement('DIV')
         this.mCostDiv.setAttribute("id", 'AutoCost' + this.mName);
-
         this.mCostDiv.setAttribute("class", 'CostDiv');
 
         const formatter = Intl.NumberFormat('en', { notation: 'compact' });
         const numberToDisplay = formatter.format(this.mPrice);
 
-        this.mCostDiv.innerText = "Cost: " + formatLargeNumber(this.mPrice);
-        div.appendChild(this.mCostDiv);
+        this.mCostDiv.innerText = formatLargeNumber(this.mPrice);
+        containerDiv.appendChild(this.mCostDiv);
 
         this.mAmountDiv = document.createElement('DIV')
         this.mAmountDiv.setAttribute("id", 'AutoAmount' + this.mName);
 
         this.mAmountDiv.setAttribute("class", 'AmountDiv');
 
-        this.mAmountDiv.innerText = "Amount: " + this.mTappers.length;
-        div.appendChild(this.mAmountDiv);
+        this.mAmountDiv.innerText = this.mTappers.length;
+        containerDiv.appendChild(this.mAmountDiv);
         //div.appendChild(this.mAmountLabel);
+        productDiv.appendChild(iconDiv);
+        productDiv.appendChild(containerDiv);
 
-
-        buttonDiv.appendChild(div);
+        masterDiv.appendChild(productDiv);
         return;
 
     }
@@ -128,7 +149,7 @@ class Autotapper {
 
         event.containerDivParam = document.getElementById('AutoDiv' + event.currentTarget.nameParam);
         this.mIsClicked = true;
-        
+
     }
 
 
@@ -136,8 +157,8 @@ class Autotapper {
         this.mCostDiv = document.getElementById('AutoCost' + this.mName);
         this.mAmountDiv = document.getElementById('AutoAmount' + this.mName);
 
-        this.mCostDiv.innerText = "Cost: " + formatLargeNumber(this.mPrice);
-        this.mAmountDiv.innerText = "Amount: " + this.mTappers.length;
+        this.mCostDiv.innerText = formatLargeNumber(this.mPrice);
+        this.mAmountDiv.innerText = this.mTappers.length;
     }
 
     Run(pShop) {
