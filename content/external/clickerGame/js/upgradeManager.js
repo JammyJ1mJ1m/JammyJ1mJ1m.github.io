@@ -39,18 +39,19 @@ class UpgradeManager {
         this.farm = new Farm(1_100);
         this.mine = new Mine(12_000);
         this.factory = new Factory(130_000);
-        this.bank = new Bank(1_400_000);
 
+        this.bank = new Bank(1_400_000);
         this.pyramid = new Pyramid(20_000_000);
         this.witchTower = new WitchTower(330_000_000);
         this.rocket = new Rocket(5_100_000_000);
         this.potionsLab = new PotionsLab(75_000_000_000);
+
         this.portal = new Portal(1_000_000_000_000);
         this.timeTravel = new TimeTravel(14_000_000_000_000);
         this.condenser = new Condenser(170_000_000_000_000);
-
         this.quantumGlass = new QuantumGlass(2_100_000_000_000_000);
         this.clover = new Clover(26_000_000_000_000_000);
+        
         this.fractal = new Fractal(310_000_000_000_000_000);
         this.code = new Code(71_000_000_000_000_000_000);
         this.universe = new Universe(12_000_000_000_000_000_000_000);

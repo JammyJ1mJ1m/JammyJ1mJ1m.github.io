@@ -1,8 +1,9 @@
 class Tapper extends Autotapper{
-    constructor(pPrice)
+    constructor()
     {
         super();
-        this.mPrice = this.SetPrice(pPrice);
+        
+        this.mPrice = this.SetPrice(15);
         this.mName = "Tapper";
         this.mOriginalPrice = this.mOriginalPrice;
         this.mAmount = 1;
@@ -11,13 +12,13 @@ class Tapper extends Autotapper{
         this.SetIconX(0);
         this.SetIconY(-60);
         this.AddButton()
-        //this.UpdateLabel();
+        
 
     }
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(10, 1));
+        this.mTappers.push(new Tap(this.mTiming , this.mAmount));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();

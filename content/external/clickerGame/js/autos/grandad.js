@@ -1,8 +1,8 @@
 class Grandad extends Autotapper{
-    constructor(pPrice)
+    constructor()
     {
         super();
-        this.mPrice = this.SetPrice(pPrice);
+        this.mPrice = this.SetPrice(100);
         this.mName = "Grandad";
         this.mOriginalPrice = this.mOriginalPrice;
         this.mAmount = 1;
@@ -17,7 +17,7 @@ class Grandad extends Autotapper{
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(1, 1));
+        this.mTappers.push(new Tap(this.mTiming, this.mAmount));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();

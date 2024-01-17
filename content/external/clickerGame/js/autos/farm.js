@@ -1,8 +1,9 @@
 class Farm extends Autotapper{
-    constructor(pPrice)
+    constructor()
     {
         super();
-        this.mPrice = this.SetPrice(pPrice);
+        
+        this.mPrice = this.SetPrice(1_100);
         this.mName = "Farm";
         this.mOriginalPrice = this.mOriginalPrice;
         this.mAmount = 8;
@@ -16,7 +17,7 @@ class Farm extends Autotapper{
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(1, 8));
+        this.mTappers.push(new Tap(this.mTiming, this.mAmount));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();

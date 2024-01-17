@@ -1,8 +1,9 @@
 class Factory extends Autotapper{
-    constructor(pPrice)
+    constructor()
     {
         super();
-        this.mPrice = this.SetPrice(pPrice);
+       // this.mPrice = this.SetPrice(pPrice);
+        this.mPrice = this.SetPrice(130_000);
         this.mName = "Factory";
         this.mOriginalPrice = this.mOriginalPrice;
         this.mAmount = 260;
@@ -16,7 +17,7 @@ class Factory extends Autotapper{
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(1, 260));
+        this.mTappers.push(new Tap(this.mTiming, this.mAmount));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();

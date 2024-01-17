@@ -1,11 +1,12 @@
 class Portal extends Autotapper{
-    constructor(pPrice)
+    constructor()
     {
         super();
-        this.mPrice = this.SetPrice(pPrice);
+        
+        this.mPrice = this.SetPrice(1_000_000_000_000);
         this.mName = "Portal";
         this.mOriginalPrice = this.mOriginalPrice;
-        this.mAmount = 1400;
+        this.mAmount = 10000000;
         this.mTiming = 1;
         
         this.SetIconX(0);
@@ -16,7 +17,7 @@ class Portal extends Autotapper{
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(1, 10000000));
+        this.mTappers.push(new Tap(this.mTiming, this.mAmount));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();

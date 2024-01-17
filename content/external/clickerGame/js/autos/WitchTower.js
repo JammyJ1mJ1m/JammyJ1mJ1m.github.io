@@ -1,11 +1,12 @@
 class WitchTower extends Autotapper{
-    constructor(pPrice)
+    constructor()
     {
         super();
-        this.mPrice = this.SetPrice(pPrice);
+        
+        this.mPrice = this.SetPrice(330_000_000);
         this.mName = "Witch Tower";
         this.mOriginalPrice = this.mOriginalPrice;
-        this.mAmount = 1400;
+        this.mAmount = 44000;
         this.mTiming = 1;
         
         this.SetIconX(0);
@@ -16,7 +17,7 @@ class WitchTower extends Autotapper{
 
     AddTapper()
     {
-        this.mTappers.push(new Tap(1, 44000));
+        this.mTappers.push(new Tap(this.mTiming, this.mAmount));
         this.mAmount = this.mTappers.length;
         this.IncreasePrice();
         this.UpdateLabel();
