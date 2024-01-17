@@ -7,7 +7,7 @@ class WitchTower extends Autotapper{
         this.mOriginalPrice = this.mOriginalPrice;
         this.mAmount = 1400;
         this.mTiming = 1;
-        //this.AddTapper(new Tap(10, 1))
+        
         this.SetIconX(0);
         this.SetIconY(-480);
         this.AddButton()

@@ -9,7 +9,7 @@ class Mine extends Autotapper{
         this.mTiming = 1;
         this.SetIconX(0);
         this.SetIconY(-240);
-        //this.AddTapper(new Tap(10, 1))
+        
         this.AddButton()
 
     }
