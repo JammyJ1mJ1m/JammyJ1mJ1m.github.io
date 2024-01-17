@@ -7,21 +7,23 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 
-<body class="noSelect" onload="setupCanvas();" style="background-color:#138eaa;">
+<body class="noSelect" onload="setupCanvas();" > <!-- style="background-color:#138eaa;" -->
 
-    <h1>Hello Cookie!</h1>
-    <h3>WIP cookie clicker clone!</h3>
+    <header id="Header">
+        <h1>Hello Cookie!</h1>
+        <h3>WIP cookie clicker clone!</h3>
 
+        <button onclick="Save()">save</button>
+        <a href="#" id="download">Download</a>
+        <button onclick="Load()">load</button>
+        <input id="loadInput" type="text" placeholder="Please paste the contents of your save file!"></input>
+    </header>
 
     <div class="row">
         <div class="canvas" id="mainGame">
             <canvas id="canvas" width="720" height="720">
                 Your browser does not support the canvas tag
             </canvas>
-            <button onclick="Save()">save</button>
-            <a href="#" id="download">Download</a>
-            <button onclick="Load()">load</button>
-            <input id="loadInput" type="text" placeholder="Please paste the contents of your save file!"></input>
         </div>
         <div class="buttons" id="buttons">
 
