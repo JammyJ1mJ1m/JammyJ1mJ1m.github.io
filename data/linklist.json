@@ -41,6 +41,13 @@
         },
         {
             "Type": "link",
+            "Link": "/external/CubedGame",
+            "Icon": "/img/CubedLogo.png",
+            "Content": "CUBED Game",
+            "OpenNewTab": false
+        },
+        {
+            "Type": "link",
             "Link": "/posts/cookieclone/",
             "Icon": "/icon/envelope2.png",
             "Content": "Latest blog post",
