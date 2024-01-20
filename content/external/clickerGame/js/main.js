@@ -46,10 +46,12 @@ function Load() {
         return;
     }
 
-
     const argsArr = inputData.split(";");
     const cash = argsArr[0].split(":")[1];
-    MainShop.SetCash(+cash);
+    if(cash != null)
+    {
+        MainShop.SetCash(+cash);
+    }
    
     upgradeManager.Load(argsArr)
 
