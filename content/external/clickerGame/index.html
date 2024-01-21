@@ -5,9 +5,10 @@
     <title>Clicker Clone</title>
     <link rel="stylesheet" href="css/main.css" type="text/css" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    
 </head>
 
-<body class="noSelect" onload="setupCanvas();" > <!-- style="background-color:#138eaa;" -->
+<body class="noSelect" onload="setupCanvas();"> <!-- style="background-color:#138eaa;" -->
 
     <header id="Header">
         <h1>Hello Cookie!</h1>
@@ -19,24 +20,33 @@
         <input id="loadInput" type="text" placeholder="Please paste the contents of your save file!"></input>
     </header>
 
-    <div class="row">
+    <div class="leftSection">
         <div class="canvas" id="mainGame">
             <canvas id="canvas" width="720" height="720">
                 Your browser does not support the canvas tag
             </canvas>
         </div>
-        <div class="buttons" id="buttons">
 
-            <h3 class="autos">AutoClickers</h3>
-            <!-- <button type="button">Tapper</button>-->
+
+    </div>
+    <div class="middleSection">
+
+        <div >
+            
         </div>
-
-
     </div>
-    <div class="row">
+    <div class="rightSection">
 
+        <div class="shop" id="buttons">
+           
+        </div>
     </div>
 
+
+
+    
+</body>
+<footer>
 
     <script type="text/javascript" src="js/cookie.js"></script>
     <script type="text/javascript" src="js/tapCookie.js"></script>
@@ -81,6 +91,6 @@
     <script type="text/javascript" src="js/graphNodes/groupNode.js"></script>
     <script type="text/javascript" src="js/graphNodes/transformNode.js"></script>
     <script type="text/javascript" src="js/graphNodes/renderVisitor.js"></script>
-</body>
+</footer>
 
 </html>

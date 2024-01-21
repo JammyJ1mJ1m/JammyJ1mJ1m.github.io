@@ -2,7 +2,7 @@ class Factory extends Autotapper{
     constructor()
     {
         super();
-       // this.mPrice = this.SetPrice(pPrice);
+
         this.mPrice = this.SetPrice(130_000);
         this.mName = "Factory";
         this.mOriginalPrice = this.mOriginalPrice;
