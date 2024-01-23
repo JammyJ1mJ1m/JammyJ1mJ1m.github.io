@@ -127,6 +127,7 @@ body {
   font-weight: bold;
   border-radius: 10px;
   background-image: url(buttonBG.png);
+  scale: 1;
 }
 
 .ContainerDiv {
@@ -195,13 +196,23 @@ body {
 */
 }
 
-
+.Game{
+  top: 50px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+}
 #Header {
   left: 0%;
   right: 0%;
-  height: 3%;
+  height: 32px;
   top: 0;
   width: 100%;
+  background-image: url("noiseBG.png");
+  background-size: contain;
   background-color: #333;
   color: #fff;
   margin-top: 0%;
@@ -213,29 +224,26 @@ body {
 }
 
 .Title {
-  display: block;
-  position: absolute;
+  display: inline-block;
+  
+  position: relative;
+  color: #138eaa;
 
-  left: 0%;
-  top: 0%;
 
 }
 
 .Description {
-  display: block;
-  position: absolute;
+  display: inline-block;
+ 
+  position: relative;
 
-  left: 15%;
-  top: 0%;
 
 }
 
 .saveStuff {
-  display: block;
-  position: absolute;
-  right: 0px;
+  display: inline-block;
+  position: relative;
 
-  top: 0%;
   /*
   border: solid 1px rgb(161, 255, 161);
 */
@@ -249,12 +257,16 @@ a {
 footer {
   left: 0%;
   right: 0%;
-  height: 3%;
+  height: 32px;
   bottom: 0;
   width: 100%;
+  background-image: url("noiseBG.png")  ;
+  background-size: contain;
+
+
   background-color: #333;
   color: #fff;
-  margin-top: 10px;
+  margin-top: 0%;
   text-align: center;
   position: absolute;
   text-align: center;
