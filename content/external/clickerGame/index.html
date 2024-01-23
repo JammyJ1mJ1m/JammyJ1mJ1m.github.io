@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Clicker Clone</title>
     <link rel="stylesheet" href="css/main.css" type="text/css" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -11,13 +13,15 @@
 <body class="noSelect" onload="setupCanvas();"> <!-- style="background-color:#138eaa;" -->
 
     <header id="Header">
-        <h1>Hello Cookie!</h1>
-        <h3>WIP cookie clicker clone!</h3>
+        <div class="Title">Hello Cookie!</div>
+        <div class="Description">WIP cookie clicker clone!</div>
 
-        <button onclick="Save()">save</button>
-        <a onclick="Save()" href="#" id="download">Download</a>
-        <button onclick="Load()">load</button>
-        <input id="loadInput" type="text" placeholder="Please paste the contents of your save file!"></input>
+        <div class="saveStuff">
+            <button onclick="Save()">save</button>
+            <a onclick="Save()" href="#" id="download">Download</a>
+            <button onclick="Load()">load</button>
+            <input id="loadInput" type="text" placeholder="Please paste the contents of your save file!"></input>
+        </div>
     </header>
 
     <div class="leftSection">
