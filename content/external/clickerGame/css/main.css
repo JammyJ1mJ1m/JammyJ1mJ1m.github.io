@@ -10,7 +10,7 @@ html {
   font-family: 'Century Gothic', sans-serif;
 }
 
-canvas {
+#canvas {
   position: absolute;
 
   outline: black 3px solid;

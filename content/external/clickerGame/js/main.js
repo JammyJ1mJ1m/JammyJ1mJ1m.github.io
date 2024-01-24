@@ -1,18 +1,16 @@
 let upgradeManager = new UpgradeManager();
 let MainShop = new Shop();
 
-function checkTapperClick()
-{
-upgradeManager.GetUpgrades().forEach(element => {
+function checkTapperClick() {
+    upgradeManager.GetUpgrades().forEach(element => {
 
-    if(element.GetClickState())
-    {
-        element.SetClickState(false);
-        console.log('trying to buy an upgrade')
-        Test(element.GetName());
-        
-    }
-});
+        if (element.GetClickState()) {
+            element.SetClickState(false);
+            console.log('trying to buy an upgrade')
+            Test(element.GetName());
+
+        }
+    });
 }
 
 function Test(p) {
@@ -48,11 +46,10 @@ function Load() {
 
     const argsArr = inputData.split(";");
     const cash = argsArr[0].split(":")[1];
-    if(cash != null)
-    {
+    if (cash != null) {
         MainShop.SetCash(+cash);
     }
-   
+
     upgradeManager.Load(argsArr)
 
     //document.body.appendChild(x);
@@ -61,19 +58,19 @@ function Load() {
 /// formats a large number with a 
 function formatLargeNumber(number) {
     const units = {
-        veryLongNumber:102,
-        duotrigintillion:99,
-        untrigintillion:96,
-        trigintillion:93,
-        novemvigintillion:90,
-        octovigintillion:87,
-        septenvigintillion:84,
-        sexvigintillion:81,
-        quinvigintillion:78,
-        quattuorvigintillion:75,
-        trevigintillion:72,
-        duovigintillion:69,
-        unvigintillion:66,
+        veryLongNumber: 102,
+        duotrigintillion: 99,
+        untrigintillion: 96,
+        trigintillion: 93,
+        novemvigintillion: 90,
+        octovigintillion: 87,
+        septenvigintillion: 84,
+        sexvigintillion: 81,
+        quinvigintillion: 78,
+        quattuorvigintillion: 75,
+        trevigintillion: 72,
+        duovigintillion: 69,
+        unvigintillion: 66,
         Vigintillion: 63,
         Novemdecillion: 60,
         Octodecillion: 57,
@@ -127,7 +124,24 @@ function formatLargeNumber(number) {
     }
 }
 
+function isMobile() {
+    return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+}
+
 function setupCanvas() {
+
+    let cookieSize = 400;
+    let canvasWidth = 720;
+    let canvasHeight = 1080;
+
+    if (isMobile()) {
+        cookieSize = 100;
+        canvasWidth = 220;
+        canvasHeight = 580;
+
+        //alert("This is a mobile device.");
+    }
+
 
 
     let layout;
@@ -147,7 +161,9 @@ function setupCanvas() {
     let isClickable = false;
 
     var canvas = document.getElementById("canvas");
-    let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), 400, new Vector(0, 0), false, layout);
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), cookieSize, new Vector(0, 0), false, layout);
     let cheatCode = '';
     //let myTapper = new Tapper();
 
@@ -156,8 +172,7 @@ function setupCanvas() {
         layout = canvas.getContext('2d');
     }
 
-    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
-    let x = document.cookie;
+
     //=======================================================
     //                    Events
     //=======================================================
