@@ -132,7 +132,7 @@ function setupCanvas() {
 
     let cookieSize = 400;
     let canvasWidth = 720;
-    let canvasHeight = 1080;
+    let canvasHeight = 880;
 
     if (isMobile()) {
         cookieSize = 100;
