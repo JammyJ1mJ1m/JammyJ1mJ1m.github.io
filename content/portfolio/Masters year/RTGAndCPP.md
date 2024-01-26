@@ -23,4 +23,8 @@ published = true
 
 A joint assessment project between my C++ and real time rendering module.
 
+A final showcase video can be found here:
+{{< youtube BeZAlWUrvjw >}}
+
+
 More information can be found [Here](/posts/dx11assessment/)

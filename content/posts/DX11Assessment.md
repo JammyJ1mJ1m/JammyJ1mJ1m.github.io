@@ -79,12 +79,17 @@ Today I created a quick mock up of what I would like my four gallery rooms to lo
 Starting in the far left, the teapot room. One teapot will have gourad lighting appplied (vertex lighting) and the other teapot will have phong lighting applied(per pixel).  
 Next is the room with lots of dynamic spheres, these will fall from the ceiling into the floor all while being illumiated by three point lights of different colours.  
 The nect room is animated, I will have three suzanne models with different transformation animations applied, translation, scale and rotation.  
-The final room is empty as it is left to whatever I want to add to it, I haven't decided on what to add yet.
-
-{{< figure src="https://i.imgur.com/mr7bm5C.gif" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
+The final room is empty as it is left to whatever I want to add to it, I haven't decided on what to add yet.  
 Although it's not shown here, the actual scene will have a ceiling.
 
+{{< figure src="https://i.imgur.com/mr7bm5C.gif" alt="Fig1" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
 
+## **11/01/2024**
+# Submission day
+Shown below is what I produced for my final assignment for the two modules, "C++ programming and design" and "real-time graphics". Unlike as previously mentioned this scene does not have a ceiling. 
+{{< youtube BeZAlWUrvjw >}}
+
+<!--
 ## **3/01/2024**
 It's been a while since the last update. Today after some tedious issues I have managed to implement normal maps for models. This video highlights the new additions. Parralax is next on the list of things to implement.
 {{< youtube hxTX2S0eETs >}}
@@ -96,10 +101,8 @@ The new system works great and still allows for normal maps. This clip shows the
 {{< youtube rpYW0YU6qmg >}}
 
 ## **5/01/2024**
-Another day, another update. I should probably condense these down into weekly updates?
+ Another day, another update. I should probably condense these down into weekly updates?
 Anyway. Multiple lights working with normal maps! 😎
 Each light is its own object and they are stored inside a light manager which, as you can imagine, manages the lights. The manager reads the light data and sends it to the shader where the magic happens. This video highlights the progress. 
 {{< youtube P5Qa6W84cMo >}}
-
-
-
+-->
