@@ -1,7 +1,7 @@
 class Alien {
     constructor(pPosition, pIndex) {
         this.mPosition = pPosition;
-        this.mScale = 50;
+        this.mScale = 40;
         this.mVelocity = new Vector(0, 0);
 
         this.img = new Image();
