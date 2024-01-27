@@ -25,6 +25,8 @@ function randomNum(pMin, pMax) {
 function setupCanvas() {
     let canvasWidth = 720;
     let canvasHeight = 880;
+    let enemyManager = new EnemyManager();
+    enemyManager.SetupEnemies();
     
     if (isMobile()) {
         
@@ -45,7 +47,7 @@ function setupCanvas() {
     if (canvas.getContext) {
         layout = canvas.getContext('2d');
     }
-    let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
+    //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
 
 
     //=======================================================
@@ -148,7 +150,7 @@ layout.beginPath();
         layout.lineTo(canvas.clientWidth / 2, canvas.clientHeight);
         layout.stroke();
 
-        Alien1.Draw(layout);
+        enemyManager.DrawEnemies(layout);
     }
 
     // handle physics updates
