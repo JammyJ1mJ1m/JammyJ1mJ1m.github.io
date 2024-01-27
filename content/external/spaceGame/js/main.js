@@ -39,6 +39,7 @@ function setupCanvas() {
     let lastTime = Date.now();
     let mousePos = new Vector(0, 0);
     IsClickUp = true;
+    IsRightUP = true;
     
     let canvas = document.getElementById("canvas");
     canvas.width = canvasWidth;
@@ -48,7 +49,8 @@ function setupCanvas() {
         layout = canvas.getContext('2d');
     }
     //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
-
+    let player = new Player(new Vector(canvas.clientWidth / 2, 800));
+    
 
     //=======================================================
     //                    Events
@@ -117,6 +119,7 @@ function setupCanvas() {
         rootTransform = new Transform(originMatrix);
 
         rootNode.addChild(rootTransform);
+        rootTransform.addChild(enemyManager.GetRootNode())
     }
 
 
@@ -151,6 +154,8 @@ layout.beginPath();
         layout.stroke();
 
         enemyManager.DrawEnemies(layout);
+        player.Draw(layout, deltaTime);
+        
     }
 
     // handle physics updates

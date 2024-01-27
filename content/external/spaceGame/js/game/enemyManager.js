@@ -4,20 +4,24 @@ class EnemyManager {
         //this.SetupEnemies();
     }
     SetupEnemies() {
+
+        this.mRootPosition = new Vector(50,50)
+
         let offsetX = 60;
         let offsetY = 60;
 
-        let xPos = 50;
-        let yPos = 50;
+        let xPos = this.mRootPosition.getX() + 40;
+        let yPos = this.mRootPosition.getX() + 50;
         for (let y = 0; y < 4; y++) {
             for (let x = 0; x < 8; x++) {
-                
-                this.mEnemies.push( new Alien(new Vector(xPos + offsetX, yPos + offsetY), y));
+                let alien = new Alien(new Vector(xPos + offsetX, yPos + offsetY), y);
+
+                this.mEnemies.push( alien);
                 xPos += offsetX;
                 
             }
             yPos += offsetY;
-            xPos = 50;
+            xPos = this.mRootPosition.getX() + 40;
 
         }
     }
@@ -26,6 +30,11 @@ class EnemyManager {
         this.mEnemies.forEach(alien => {
             alien.Draw(pLayout);
         });
+    }
+
+    GetRootNode()
+    {
+        return this.mEnemiesParentNode;
     }
 
 

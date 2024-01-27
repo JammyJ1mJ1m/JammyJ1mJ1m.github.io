@@ -20,8 +20,8 @@ class Alien {
                 this.img.src = "assets/Alien_3.png";
                 break;
         }
-
     }
+
 
     getPosition() {
         return this.mPosition;
