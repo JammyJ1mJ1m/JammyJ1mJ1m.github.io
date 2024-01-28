@@ -8,6 +8,7 @@ class Player {
 
 
         this.img.src = "assets/player.png";
+        this.mProjectiles = [];
 
     }
 
@@ -55,6 +56,11 @@ class Player {
                 this.setVelocity(new Vector(80,0));
                 // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
             }
+            if (IsShootUp && event.key === ' ') {
+                IsShootUp = false;
+                this.mProjectiles.push(new Projectile(this.getPosition()));
+                // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
+            }
         });
 
         body.addEventListener("keyup", (event) => {
@@ -70,6 +76,10 @@ class Player {
                
                 return;
             }
+            if (event.key === ' ') {
+                IsShootUp = true;              
+                return;
+            }
         });
 
         let currentVelocity = this.getVelocity().multiply(deltaTime);
@@ -78,6 +88,8 @@ class Player {
 
         
         layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
-
+this.mProjectiles.forEach(element => {
+    element.Draw(layout,deltaTime);
+});
     }
 }

@@ -40,6 +40,7 @@ function setupCanvas() {
     let mousePos = new Vector(0, 0);
     IsClickUp = true;
     IsRightUP = true;
+    IsShootUp = true;
     
     let canvas = document.getElementById("canvas");
     canvas.width = canvasWidth;
