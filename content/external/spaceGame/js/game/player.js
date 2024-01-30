@@ -12,6 +12,7 @@ class Player {
 
     }
 
+    GetProjectile() { if(this.mProjectiles.length > 0) {return this.mProjectiles[0]} }
     getPosition() {
         return this.mPosition;
     }
@@ -46,38 +47,41 @@ class Player {
 
         let body = document.querySelector("body");
         body.addEventListener("keydown", (event) => {
-            if (IsClickUp && event.key === 'a') {   
+            if (IsClickUp && event.key === 'a') {
                 IsClickUp = false;
-                this.setVelocity(new Vector(-80,0));
+                this.setVelocity(new Vector(-80, 0));
                 // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
             }
             if (IsRightUP && event.key === 'd') {
                 IsRightUP = false;
-                this.setVelocity(new Vector(80,0));
+                this.setVelocity(new Vector(80, 0));
                 // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
             }
             if (IsShootUp && event.key === ' ') {
-                IsShootUp = false;
-                this.mProjectiles.push(new Projectile(this.getPosition()));
-                // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
+                if(this.mProjectiles.length ==0)
+                {
+                    IsShootUp = false;
+                    this.mProjectiles.push(new Projectile(this.getPosition()));
+                    // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
+                }
             }
         });
 
         body.addEventListener("keyup", (event) => {
             if (event.key === 'a') {
                 IsClickUp = true;
-                this.setVelocity(new Vector(0,0));
-               
+                this.setVelocity(new Vector(0, 0));
+
                 return;
             }
             if (event.key === 'd') {
                 IsRightUP = true;
-                this.setVelocity(new Vector(0,0));
-               
+                this.setVelocity(new Vector(0, 0));
+
                 return;
             }
             if (event.key === ' ') {
-                IsShootUp = true;              
+                IsShootUp = true;
                 return;
             }
         });
@@ -86,10 +90,14 @@ class Player {
         let newPosition = this.getPosition().add(currentVelocity);
         this.setPosition(newPosition);
 
-        
+        if (this.mProjectiles.length >0) {
+            if (this.mProjectiles[0].getPosition().getY() <= -20) {
+                this.mProjectiles.pop(this.mProjectiles[0]);
+            }
+        }
         layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
-this.mProjectiles.forEach(element => {
-    element.Draw(layout,deltaTime);
-});
+        this.mProjectiles.forEach(element => {
+            element.Draw(layout, deltaTime);
+        });
     }
 }

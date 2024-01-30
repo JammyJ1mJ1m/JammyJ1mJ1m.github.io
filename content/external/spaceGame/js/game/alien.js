@@ -5,6 +5,7 @@ class Alien {
         this.mVelocity = new Vector(0, 0);
 
         this.img = new Image();
+        this.mHitRadius = 40;
 
         switch (pIndex) {
             case 0:
@@ -22,6 +23,7 @@ class Alien {
         }
     }
 
+    GetRadius() { return this.mHitRadius; }
 
     getPosition() {
         return this.mPosition;
@@ -53,8 +55,23 @@ class Alien {
     getCenteredPos() {
         return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
-    Draw(layout) {
-        layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
 
+    DrawRadius() {
+        const canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            const ctx = canvas.getContext("2d");
+
+            ctx.strokeStyle = '#ff0000';
+            ctx.beginPath();
+            ctx.arc(this.getPosition().getX(), this.getPosition().getY(), this.GetRadius(), 0, Math.PI * 2, true); // Outer circle
+            ctx.stroke();
+        }
+    }
+
+
+    Draw(layout) {
+        this.DrawRadius();
+
+        layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
     }
 }

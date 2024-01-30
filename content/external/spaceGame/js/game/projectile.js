@@ -8,11 +8,15 @@ class Projectile {
         
         this.img.src = "assets/projectile.png";
 this.mVelocity = new Vector(0,-60);
+this.mHitRadius = 10;
+
 
         
           
         
     }
+
+    GetRadius() { return this.mHitRadius; }
 
     getPosition() {
         return this.mPosition;
@@ -44,12 +48,24 @@ this.mVelocity = new Vector(0,-60);
     getCenteredPos() {
         return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
+
+    DrawRadius() {
+        const canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            const ctx = canvas.getContext("2d");
+
+            ctx.beginPath();
+            ctx.arc(this.getPosition().getX(), this.getPosition().getY(), this.GetRadius(), 0, Math.PI * 2, true); // Outer circle
+            ctx.stroke();
+        }
+    }
+
     Draw(layout, deltaTime) {
 
         let currentVelocity = this.getVelocity().multiply(deltaTime);
         let newPosition = this.getPosition().add(currentVelocity);
         this.setPosition(newPosition);
-
+        this.DrawRadius();
         layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
 
     }

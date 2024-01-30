@@ -51,6 +51,7 @@ function setupCanvas() {
     }
     //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
     let player = new Player(new Vector(canvas.clientWidth / 2, 800));
+    let colisionManager = new ColisionManager(enemyManager, player);
     
 
     //=======================================================
@@ -162,7 +163,7 @@ layout.beginPath();
     // handle physics updates
     function update() {
         //console.log(mousePos);
-
+        colisionManager.CalculateCollisions();
     }
 
     // main render loop
