@@ -7,8 +7,9 @@ class Projectile {
         this.img = new Image();
         
         this.img.src = "assets/projectile.png";
-this.mVelocity = new Vector(0,-60);
-this.mHitRadius = 10;
+this.mVelocity = new Vector(0,-120);
+this.mHitRadius = 5;
+this.mIsDead = false;
 
 
         
@@ -60,13 +61,24 @@ this.mHitRadius = 10;
         }
     }
 
-    Draw(layout, deltaTime) {
+    ProjectileHit()
+    {
+        this.mIsDead = true;
+    }
+    GetActiveStat()
+    {
+        return this.mIsDead;
+    }
 
-        let currentVelocity = this.getVelocity().multiply(deltaTime);
-        let newPosition = this.getPosition().add(currentVelocity);
-        this.setPosition(newPosition);
-        this.DrawRadius();
-        layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
+    Draw(layout, deltaTime) {
+        if( !this.mIsDead)
+        {   
+            let currentVelocity = this.getVelocity().multiply(deltaTime);
+            let newPosition = this.getPosition().add(currentVelocity);
+            this.setPosition(newPosition);
+            this.DrawRadius();
+            layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
+        }
 
     }
 }

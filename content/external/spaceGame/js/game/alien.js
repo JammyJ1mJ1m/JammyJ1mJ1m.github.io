@@ -5,7 +5,8 @@ class Alien {
         this.mVelocity = new Vector(0, 0);
 
         this.img = new Image();
-        this.mHitRadius = 40;
+        this.mHitRadius = 20;
+        this.mIsDead = false;
 
         switch (pIndex) {
             case 0:
@@ -68,10 +69,20 @@ class Alien {
         }
     }
 
+    KillAlien()
+    {
+        this.mIsDead = true;
+    }
+    GetIsDead()
+    {
+        return this.mIsDead;
+    }
 
     Draw(layout) {
-        this.DrawRadius();
-
-        layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
+        if( !this.mIsDead)
+        {
+            this.DrawRadius();
+            layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
+        }
     }
 }

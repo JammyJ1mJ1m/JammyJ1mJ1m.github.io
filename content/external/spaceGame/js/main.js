@@ -3,7 +3,7 @@ function calculateDistance(pMousePos, pBigCookieCenter) {
     let distX = pMousePos.getX() - pBigCookieCenter.getPosition().getX() - pBigCookieCenter.getScale() / 2;
     let distY = pMousePos.getY() - pBigCookieCenter.getPosition().getY() - pBigCookieCenter.getScale() / 2;
     let distance = Math.sqrt((distX * distX) + (distY * distY));
-    
+
     return distance;
 }
 
@@ -27,32 +27,34 @@ function setupCanvas() {
     let canvasHeight = 880;
     let enemyManager = new EnemyManager();
     enemyManager.SetupEnemies();
-    
+
     if (isMobile()) {
-        
+
         canvasWidth = 220;
         canvasHeight = 580;
     }
-    
+
     let layout;
-    
+
     let lastTime = Date.now();
     let mousePos = new Vector(0, 0);
     IsClickUp = true;
     IsRightUP = true;
     IsShootUp = true;
-    
+    IsDebugKeyUp = true;
+
     let canvas = document.getElementById("canvas");
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
-    
+
     if (canvas.getContext) {
         layout = canvas.getContext('2d');
     }
     //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
     let player = new Player(new Vector(canvas.clientWidth / 2, 800));
     let colisionManager = new ColisionManager(enemyManager, player);
-    
+    let debugManager = new DebugManager();
+
 
     //=======================================================
     //                    Events
@@ -99,7 +101,7 @@ function setupCanvas() {
         }
     });
     */
-    
+
     initialiseSceneGraph();
 
     animationLoop();
@@ -109,7 +111,7 @@ function setupCanvas() {
     //                    functions 
     //=======================================================
 
-    
+
 
     function initialiseSceneGraph() {
         let rootTransform, originNode, originTranslation, housesNode, house, sun;
@@ -145,7 +147,7 @@ function setupCanvas() {
         layout.fillRect(0, 0, canvas.width, canvas.height);
         let fps = Math.round(1 / deltaTime);
         //drawText("FPS: " + fps, new Vector(60, 25),"30px Arial");
-layout.beginPath();
+        layout.beginPath();
         layout.moveTo(0, canvas.clientHeight / 2);
         layout.lineTo(canvas.clientWidth, canvas.clientHeight / 2);
         layout.stroke();
@@ -157,7 +159,8 @@ layout.beginPath();
 
         enemyManager.DrawEnemies(layout);
         player.Draw(layout, deltaTime);
-        
+        debugManager.Draw(player, enemyManager);
+
     }
 
     // handle physics updates

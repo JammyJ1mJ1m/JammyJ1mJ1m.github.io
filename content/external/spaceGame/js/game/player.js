@@ -43,8 +43,9 @@ class Player {
     getCenteredPos() {
         return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
-    Draw(layout, deltaTime) {
-
+    
+    PollInput()
+    {
         let body = document.querySelector("body");
         body.addEventListener("keydown", (event) => {
             if (IsClickUp && event.key === 'a') {
@@ -85,6 +86,15 @@ class Player {
                 return;
             }
         });
+    }
+
+    Draw(layout, deltaTime) {
+
+        this.PollInput();
+        if(this.mProjectiles.length >0 && this.mProjectiles[0].GetActiveStat())
+        {
+            this.mProjectiles.pop(this.mProjectiles[0]);
+        }
 
         let currentVelocity = this.getVelocity().multiply(deltaTime);
         let newPosition = this.getPosition().add(currentVelocity);

@@ -12,8 +12,8 @@ class EnemyManager {
 
         let xPos = this.mRootPosition.getX() + 40;
         let yPos = this.mRootPosition.getX() + 50;
-        for (let y = 0; y < 1; y++) {
-            for (let x = 0; x < 1; x++) {
+        for (let y = 0; y < 4; y++) {
+            for (let x = 0; x < 8; x++) {
                 let alien = new Alien(new Vector(xPos + offsetX, yPos + offsetY), y);
 
                 this.mEnemies.push( alien);
