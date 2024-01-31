@@ -1,15 +1,12 @@
 class Alien {
     constructor(pPosition, pIndex) {
         this.mPosition = pPosition;
-        this.setScale (new Vector(40,40,0));
+        this.mScale = 40;
         this.mVelocity = new Vector(0, 0);
 
         this.img = new Image();
         this.mHitRadius = 20;
         this.mIsDead = false;
-
-        this.setRootNode(new Group('Alien root Node ' + pIndex));
-        //this.createSceneGraphNodes();
 
         switch (pIndex) {
             case 0:
@@ -25,28 +22,6 @@ class Alien {
                 this.img.src = "assets/Alien_3.png";
                 break;
         }
-    }
-
-    getRootNode() {
-        return this.mRootNode;
-    }
-    setRootNode(pSceneNode) {
-        let translationNode = new Transform(Matrix.createTranslation(this.getPosition()))
-        this.mRootNode = translationNode;
-    }
-
-    getRotationNode() {
-        return this.mRotationNode;
-    }
-    setRotationNode(pSceneNode) {
-        this.mRotationNode = pSceneNode;
-    }
-
-    getScaleNode() {
-        return this.mScaleNode;
-    }
-    setScaleNode(pSceneNode) {
-        this.mScaleNode = pSceneNode;
     }
 
     GetRadius() { return this.mHitRadius; }
@@ -77,42 +52,10 @@ class Alien {
     getScale() {
         return this.mScale;
     }
-    getRotation() {
-        return this.mRotation;
-    }
-
-    setRotation(pRotation) {
-        this.mRotation = pRotation;
-    }
 
     getCenteredPos() {
         return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
-
-
-
-    createSceneGraphNodes() {
-        let translationNode, rotationNode, scaleNode, ObjectNode;
-
-        translationNode = this.getRootNode();
-        ObjectNode = new Group('Alien parent node');
-
-        rotationNode = new Transform(Matrix.createRotation(this.getRotation()));
-        this.setRotationNode(rotationNode);
-        scaleNode = new Transform(Matrix.createScale(this.getScale()));
-        this.setScaleNode(scaleNode);
-
-
-        translationNode.addChild(rotationNode);
-        rotationNode.addChild(scaleNode);
-        scaleNode.addChild(ObjectNode);
-
-       ObjectNode.addChild(this.img);
-        return translationNode;
-    }
-
-
-
 
     DrawRadius() {
         const canvas = document.getElementById("canvas");

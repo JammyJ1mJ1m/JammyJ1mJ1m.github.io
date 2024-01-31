@@ -22,9 +22,6 @@ class RenderVisitor {
         if (pNode.getType() === 'Geometry') {
             this.visitGeometry(pNode);
         }
-        if (pNode.getType() === 'Image') {
-            this.visitImage(pNode);
-        }
     }
 
     visitGroup(pNode) {
@@ -56,11 +53,6 @@ class RenderVisitor {
         }
     }
 
-    visitImage(pNode) {
-        this.peek().setTransform(this.getContext());
-        this.drawImage(pNode);
-    }
-
     pop() {
         this.mStack.pop();
     }
@@ -83,13 +75,13 @@ class RenderVisitor {
         this.mStack.push(newTransform);
     }
 
-    canvasDrawStart(pPolygon) {
+    canvasDrawStart(pPolygon) { 
         this.getContext().fillStyle = pPolygon.getFillColour();
         this.getContext().fillStyle = pPolygon.getStrokeColour();
         this.getContext().beginPath();
     }
 
-    canvasDrawEnd() {
+    canvasDrawEnd() { 
         this.getContext().closePath();
         this.getContext().fill();
         this.getContext().stroke();
@@ -118,30 +110,31 @@ class RenderVisitor {
     drawCircle(pPolygon) {
         this.canvasDrawStart(pPolygon);
 
-
+        
         let pCircleSize = pPolygon.mVectors[0];
         let pSides = pPolygon.mVectors[1];
 
 
         let anglePerSegment = Math.PI * 2 / pSides;
-        for (let i = 0; i <= pSides; i = i + 1) {
-            let angle = anglePerSegment * i;
-            let x = pCircleSize * Math.cos(angle);
-            let y = pCircleSize * Math.sin(angle);
-            if (i == 0) {
-                this.getContext().moveTo(x, y);
+            for (let i = 0; i <= pSides; i = i + 1) {
+                let angle = anglePerSegment * i;
+                let x = pCircleSize * Math.cos(angle);
+                let y = pCircleSize * Math.sin(angle);
+                if (i == 0) {
+                    this.getContext().moveTo(x, y);
+                }
+                else {
+                    this.getContext().lineTo(x, y);
+                }
             }
-            else {
-                this.getContext().lineTo(x, y);
-            }
-        }
 
         this.getContext().arc(pPolygon.mVectors[0], pPolygon.mVectors[1], pPolygon.mVectors[2], pPolygon.mVectors[3], pPolygon.mVectors[4], pPolygon.mVectors[5]);
 
         this.canvasDrawEnd();
     }
 
-    drawImage(pNode) {
-        pNode.Draw();
+    drawImage()
+    {
+
     }
 }
