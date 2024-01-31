@@ -9,11 +9,13 @@ class EnemyManager {
 
         let offsetX = 60;
         let offsetY = 60;
+        let row = 4;
+        let columns = 8;
 
         let xPos = this.mRootPosition.getX() + 40;
         let yPos = this.mRootPosition.getX() + 50;
-        for (let y = 0; y < 4; y++) {
-            for (let x = 0; x < 8; x++) {
+        for (let y = 0; y < row; y++) {
+            for (let x = 0; x < columns; x++) {
                 let alien = new Alien(new Vector(xPos + offsetX, yPos + offsetY), y);
 
                 this.mEnemies.push( alien);
@@ -27,9 +29,9 @@ class EnemyManager {
     }
     GetEnemies() { return this.mEnemies; }
 
-    DrawEnemies(pLayout) {
+    DrawEnemies(pLayout,deltaTime) {
         this.mEnemies.forEach(alien => {
-            alien.Draw(pLayout);
+            alien.Draw(pLayout,deltaTime);
         });
     }
 

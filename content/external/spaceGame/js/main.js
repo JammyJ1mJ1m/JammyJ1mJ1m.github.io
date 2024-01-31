@@ -30,8 +30,8 @@ function setupCanvas() {
 
     if (isMobile()) {
 
-        canvasWidth = 220;
-        canvasHeight = 580;
+        canvasWidth = 720;
+        canvasHeight = 880;
     }
 
     let layout;
@@ -157,7 +157,7 @@ function setupCanvas() {
         layout.lineTo(canvas.clientWidth / 2, canvas.clientHeight);
         layout.stroke();
 
-        enemyManager.DrawEnemies(layout);
+        enemyManager.DrawEnemies(layout, deltaTime);
         player.Draw(layout, deltaTime);
         debugManager.Draw(player, enemyManager);
 

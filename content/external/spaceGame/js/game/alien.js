@@ -1,12 +1,14 @@
 class Alien {
     constructor(pPosition, pIndex) {
         this.mPosition = pPosition;
+        this.mOriginalPosition = pPosition;
         this.mScale = 40;
-        this.mVelocity = new Vector(0, 0);
+        this.mVelocity = new Vector(30, 3);
 
         this.img = new Image();
         this.mHitRadius = 20;
         this.mIsDead = false;
+        this.mMoveAmountX = 100;
 
         switch (pIndex) {
             case 0:
@@ -78,9 +80,29 @@ class Alien {
         return this.mIsDead;
     }
 
-    Draw(layout) {
+    TranslateAlien(deltaTime)
+    {
+        if(this.getPosition().getX() >= this.mOriginalPosition.getX() + this.mMoveAmountX || this.getPosition().getX() <= this.mOriginalPosition.getX() - this.mMoveAmountX )
+        {
+            this.setVelocity( new Vector(this.getVelocity().getX() * -1,this.getVelocity().getY()) );
+        }
+
+        
+
+        console.log("pos" + this.getPosition().getX());
+        console.log("OG pos" + this.mOriginalPosition.getX());
+
+        let currentVelocity = this.getVelocity().multiply(deltaTime);
+        let newPosition = this.getPosition().add(currentVelocity);
+        this.setPosition(newPosition);
+
+       
+    }
+
+    Draw(layout,deltaTime) {
         if( !this.mIsDead)
         {
+            this.TranslateAlien(deltaTime);
             this.DrawRadius();
             layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
         }
