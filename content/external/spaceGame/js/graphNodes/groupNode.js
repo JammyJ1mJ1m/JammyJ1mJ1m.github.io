@@ -1,5 +1,5 @@
 class Group extends GraphNode{
-    constructor(pName = 'placeholder') {
+    constructor(pName) {
         super();
         this.mName = pName;
         this.setType('Group');

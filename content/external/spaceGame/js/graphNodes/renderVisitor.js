@@ -142,6 +142,6 @@ class RenderVisitor {
     }
 
     drawImage(pNode) {
-        pNode.Draw();
+        pNode.mImage.Draw(this.getContext());
     }
 }
