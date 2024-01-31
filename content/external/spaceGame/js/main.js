@@ -27,33 +27,49 @@ function setupCanvas() {
     let canvasHeight = 880;
     let enemyManager = new EnemyManager();
     enemyManager.SetupEnemies();
-
+    
+    
     if (isMobile()) {
-
+        
         canvasWidth = 220;
         canvasHeight = 580;
     }
-
+    
     let layout;
-
+    
     let lastTime = Date.now();
     let mousePos = new Vector(0, 0);
     IsClickUp = true;
     IsRightUP = true;
     IsShootUp = true;
     IsDebugKeyUp = true;
-
+    
     let canvas = document.getElementById("canvas");
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
-
+    
     if (canvas.getContext) {
         layout = canvas.getContext('2d');
     }
     //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
     let player = new Player(new Vector(canvas.clientWidth / 2, 800));
     let colisionManager = new ColisionManager(enemyManager, player);
-    let debugManager = new DebugManager();
+
+
+    //=======================================================
+    //              render node stuff
+    //=======================================================
+    let visitor = new RenderVisitor(layout);
+
+    let originVector = new Vector(canvasWidth, canvasHeight, 0);
+    originVector = originVector.multiply(0.5);
+    let originMatrix = Matrix.createTranslation(originVector);
+
+    rootNode = new Group();
+    let rootTransform = new Transform(originMatrix);
+
+    rootNode.addChild(rootTransform);
+    rootTransform.addChild(enemyManager.GetRootNode());
 
 
     //=======================================================
@@ -159,7 +175,11 @@ function setupCanvas() {
 
         enemyManager.DrawEnemies(layout);
         player.Draw(layout, deltaTime);
-        debugManager.Draw(player, enemyManager);
+
+        //let visitor = new RenderVisitor(mainContext);
+
+        rootNode.accept(visitor);
+      
 
     }
 
