@@ -25,7 +25,8 @@ function randomNum(pMin, pMax) {
 function setupCanvas() {
     let canvasWidth = 720;
     let canvasHeight = 880;
-   
+    let enemyManager = new EnemyManager();
+    enemyManager.SetupEnemies();
     
     
     if (isMobile()) {
@@ -52,7 +53,6 @@ function setupCanvas() {
     }
     //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
     let player = new Player(new Vector(canvas.clientWidth / 2, 800));
-    let enemyManager = new EnemyManager();
     let colisionManager = new ColisionManager(enemyManager, player);
 
 
@@ -61,17 +61,16 @@ function setupCanvas() {
     //=======================================================
     let visitor = new RenderVisitor(layout);
 
-    let originVector = new Vector(0, 0, 0);
-    //originVector = originVector.multiply(0.5);
+    let originVector = new Vector(canvasWidth, canvasHeight, 0);
+    originVector = originVector.multiply(0.5);
     let originMatrix = Matrix.createTranslation(originVector);
 
-    let rootNode = new Group("Main root node");
+    rootNode = new Group();
     let rootTransform = new Transform(originMatrix);
 
     rootNode.addChild(rootTransform);
-    // rootTransform.addChild(enemyManager.GetRootNode());
+    rootTransform.addChild(enemyManager.GetRootNode());
 
-    enemyManager.SetupEnemies(rootTransform);
 
     //=======================================================
     //                    Events
@@ -119,7 +118,9 @@ function setupCanvas() {
     });
     */
 
-   
+    initialiseSceneGraph();
+
+    animationLoop();
 
 
     //=======================================================
@@ -172,12 +173,12 @@ function setupCanvas() {
         layout.lineTo(canvas.clientWidth / 2, canvas.clientHeight);
         layout.stroke();
 
-        //enemyManager.DrawEnemies(layout);
+        enemyManager.DrawEnemies(layout);
         player.Draw(layout, deltaTime);
 
-        //et visitor = new RenderVisitor(mainContext);
+        //let visitor = new RenderVisitor(mainContext);
 
-         // rootNode.accept(visitor);
+        rootNode.accept(visitor);
       
 
     }
@@ -200,7 +201,4 @@ function setupCanvas() {
         requestAnimationFrame(animationLoop);
         update();
     }
-    // initialiseSceneGraph();
-
-    animationLoop();
 }

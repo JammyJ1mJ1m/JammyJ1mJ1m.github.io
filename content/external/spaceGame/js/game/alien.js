@@ -7,7 +7,6 @@ class Alien {
         this.img = new Image();
         this.mHitRadius = 20;
         this.mIsDead = false;
-        this.mName = "Alien "+pIndex;
 
         this.setRootNode(new Group('Alien root Node ' + pIndex));
         //this.createSceneGraphNodes();
@@ -93,22 +92,23 @@ class Alien {
 
 
     createSceneGraphNodes() {
-        let wallNode, translationNode, rotationNode, scaleNode, polygon, imageNode;
+        let translationNode, rotationNode, scaleNode, ObjectNode;
 
-        wallNode = new Group(this.mName);
-        
-        imageNode = new ImageNode(this);
+        translationNode = this.getRootNode();
+        ObjectNode = new Group('Alien parent node');
 
-        translationNode = new Transform(Matrix.createTranslation(this.getPosition()));
-        rotationNode = new Transform(Matrix.createRotation(0));
+        rotationNode = new Transform(Matrix.createRotation(this.getRotation()));
+        this.setRotationNode(rotationNode);
         scaleNode = new Transform(Matrix.createScale(this.getScale()));
+        this.setScaleNode(scaleNode);
 
-        translationNode.addChild(imageNode);
-        rotationNode.addChild(translationNode);
-        scaleNode.addChild(rotationNode);
 
-        wallNode.addChild(scaleNode);
-        return wallNode;
+        translationNode.addChild(rotationNode);
+        rotationNode.addChild(scaleNode);
+        scaleNode.addChild(ObjectNode);
+
+       ObjectNode.addChild(this.img);
+        return translationNode;
     }
 
 
