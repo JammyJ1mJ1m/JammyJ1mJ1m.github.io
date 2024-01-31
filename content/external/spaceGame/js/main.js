@@ -167,6 +167,16 @@ function setupCanvas() {
     function update() {
         //console.log(mousePos);
         colisionManager.CalculateCollisions();
+
+        // handles game win/lose state
+        if(enemyManager.GetGameState())
+        {
+            drawText("Game Over!",new Vector(canvas.width / 2, canvas.height / 2), 'italic 60pt Arial')
+        }
+        if(player.GetEnemiesHit() == enemyManager.getTotalEnemies())
+        {
+            drawText("Game Won!",new Vector(canvas.width / 2, canvas.height / 2), 'italic 60pt Arial')
+        }
     }
 
     // main render loop
@@ -181,4 +191,8 @@ function setupCanvas() {
         requestAnimationFrame(animationLoop);
         update();
     }
+
+    function getGlobalVar(bar) {
+        return window[bar];
+      }
 }

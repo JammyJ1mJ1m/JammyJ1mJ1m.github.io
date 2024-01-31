@@ -3,12 +3,14 @@ class Alien {
         this.mPosition = pPosition;
         this.mOriginalPosition = pPosition;
         this.mScale = 40;
-        this.mVelocity = new Vector(30, 3);
+        this.mVelocity = new Vector(30, 5);
 
         this.img = new Image();
         this.mHitRadius = 20;
         this.mIsDead = false;
         this.mMoveAmountX = 100;
+
+        this.mGameOverBounds = 750;
 
         switch (pIndex) {
             case 0:
@@ -71,40 +73,40 @@ class Alien {
         }
     }
 
-    KillAlien()
-    {
+    KillAlien() {
         this.mIsDead = true;
     }
-    GetIsDead()
-    {
+    GetIsDead() {
         return this.mIsDead;
     }
 
-    TranslateAlien(deltaTime)
-    {
-        if(this.getPosition().getX() >= this.mOriginalPosition.getX() + this.mMoveAmountX || this.getPosition().getX() <= this.mOriginalPosition.getX() - this.mMoveAmountX )
-        {
-            this.setVelocity( new Vector(this.getVelocity().getX() * -1,this.getVelocity().getY()) );
+    TranslateAlien(deltaTime) {
+        if (this.getPosition().getX() >= this.mOriginalPosition.getX() + this.mMoveAmountX || this.getPosition().getX() <= this.mOriginalPosition.getX() - this.mMoveAmountX) {
+            this.setVelocity(new Vector(this.getVelocity().getX() * -1, this.getVelocity().getY()));
         }
 
-        
+        if (this.getPosition().getY() > this.mGameOverBounds) {
+            // console.log("GameOver");
+            this.setVelocity(new Vector(0,0));
+            return true;
 
-        console.log("pos" + this.getPosition().getX());
-        console.log("OG pos" + this.mOriginalPosition.getX());
+        }
 
         let currentVelocity = this.getVelocity().multiply(deltaTime);
         let newPosition = this.getPosition().add(currentVelocity);
         this.setPosition(newPosition);
+        return false;
 
-       
+
     }
 
-    Draw(layout,deltaTime) {
-        if( !this.mIsDead)
-        {
-            this.TranslateAlien(deltaTime);
+    Draw(layout, deltaTime) {
+        let gameState;
+        if (!this.mIsDead) {
+            gameState = this.TranslateAlien(deltaTime);
             this.DrawRadius();
             layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
         }
+        return gameState;
     }
 }

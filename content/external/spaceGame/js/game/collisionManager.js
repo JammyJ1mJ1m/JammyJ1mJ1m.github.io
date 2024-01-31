@@ -20,6 +20,7 @@ class ColisionManager {
                     if (distance <= alien.GetRadius() + projectile.GetRadius()) {
                         alien.KillAlien();
                         projectile.ProjectileHit();
+                        this.mPlayer.ConfirmAlienHit();
                     }
                 }
             });

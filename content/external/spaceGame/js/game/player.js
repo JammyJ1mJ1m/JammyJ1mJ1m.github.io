@@ -9,6 +9,7 @@ class Player {
 
         this.img.src = "assets/player.png";
         this.mProjectiles = [];
+        this.mEnemiesHit = 0;
 
     }
 
@@ -43,6 +44,14 @@ class Player {
     getCenteredPos() {
         return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
+
+    ConfirmAlienHit()
+    {
+        this.mEnemiesHit++;
+    }
+
+    GetEnemiesHit() { return this.mEnemiesHit; }
+    
     
     PollInput()
     {
