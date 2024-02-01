@@ -37,7 +37,7 @@ class EnemyManager {
     DrawEnemies(pLayout, deltaTime) {
 
         this.mEnemies.forEach(alien => {
-            this.mGameState = alien.Draw(pLayout, deltaTime);
+            this.mGameState = alien.Draw(pLayout, deltaTime,this.mGameState);
         });
     }
 
