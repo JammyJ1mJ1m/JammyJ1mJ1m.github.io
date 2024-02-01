@@ -6,6 +6,30 @@ class ColisionManager {
     }
 
     CalculateBarrierCollisions() {
+
+        let enemyBullets = this.mEnemyManager.GetEnemyBullets();
+        if (enemyBullets.length != 0) {
+            enemyBullets.forEach(bullet => {
+                if (!bullet.GetActiveStat()) {
+
+                    this.mBarriers.forEach(element => {
+                        let pieces = element.GetPieces();
+                        pieces.forEach(piece => {
+                            piece.getPosition();
+                            if (!piece.GetIsDead()) {
+
+                                if (this.CalculateCircleCircle(piece, bullet)) {
+                                    piece.TakeLife();
+                                    bullet.ProjectileHit();
+                                }
+                            }
+                        });
+                    });
+                }
+            });
+        }
+
+        // player projectile vs barriers
         var projectile = this.mPlayer.GetProjectile();
         if (projectile != null) {
 
@@ -13,7 +37,6 @@ class ColisionManager {
                 let pieces = element.GetPieces();
                 pieces.forEach(piece => {
                     piece.getPosition();
-
                     if (!piece.GetIsDead()) {
 
                         if (this.CalculateCircleCircle(piece, projectile)) {

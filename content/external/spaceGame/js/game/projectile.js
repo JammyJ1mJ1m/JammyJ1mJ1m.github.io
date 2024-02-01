@@ -1,5 +1,5 @@
 class Projectile {
-    constructor(pPosition, pIndex) {
+    constructor(pPosition, pVelocity) {
         this.mPosition = pPosition;
         this.mScale = 40;
         this.mVelocity = new Vector(0, 0);
@@ -7,7 +7,7 @@ class Projectile {
         this.img = new Image();
         
         this.img.src = "assets/projectile.png";
-this.mVelocity = new Vector(0,-120);
+this.mVelocity = pVelocity;
 this.mHitRadius = 5;
 this.mIsDead = false;
 

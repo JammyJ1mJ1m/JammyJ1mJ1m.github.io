@@ -6,6 +6,7 @@ class EnemyManager {
         this.row = 4;
         this.columns = 8;
         this.mTotalEnemies = this.row * this.columns;
+        this.mEnemyBullets = [];
     }
     SetupEnemies() {
 
@@ -31,8 +32,19 @@ class EnemyManager {
         }
     }
     GetEnemies() { return this.mEnemies; }
+    GetEnemyBullets() { return this.mEnemyBullets; }
     GetGameState() { return this.mGameState; }
     getTotalEnemies() { return this.mTotalEnemies; }
+
+    ProcessAlienShooting()
+    {
+        this.mEnemies.forEach(element => {
+            if(element.ProcessBulletChoice())
+            {
+                this.mEnemyBullets.push(new Projectile(element.getPosition(),new Vector(0,120)));
+            }
+        });
+    }
 
     DrawEnemies(pLayout, deltaTime) {
 
@@ -43,6 +55,12 @@ class EnemyManager {
             });
         }
         else{
+            this.ProcessAlienShooting();
+
+            this.mEnemyBullets.forEach(bullet => {
+                bullet.Draw(pLayout,deltaTime);
+            })
+
             this.mEnemies.forEach(alien => {
                 this.mGameState = alien.Draw(pLayout, deltaTime);
             });

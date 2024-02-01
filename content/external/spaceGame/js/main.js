@@ -155,7 +155,7 @@ function setupCanvas() {
         layout.fillStyle = '#111';
         layout.fillRect(0, 0, canvas.width, canvas.height);
         let fps = Math.round(1 / deltaTime);
-        //drawText("FPS: " + fps, new Vector(60, 25),"30px Arial");
+        drawText("FPS: " + fps, new Vector(60, 25),"30px Arial");
         // layout.beginPath();
         // layout.moveTo(0, canvas.clientHeight / 2);
         // layout.lineTo(canvas.clientWidth, canvas.clientHeight / 2);

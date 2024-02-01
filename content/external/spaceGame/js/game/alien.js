@@ -12,6 +12,11 @@ class Alien {
 
         this.mGameOverBounds = 750;
 
+        this.mLastBulletShotTime = Date.now();
+
+        // time interval in milliseconds
+        this.mLastBulletShotInterval = 2000;
+
         switch (pIndex) {
             case 0:
                 this.img.src = "assets/Alien_1.png";
@@ -78,6 +83,38 @@ class Alien {
     }
     GetIsDead() {
         return this.mIsDead;
+    }
+
+
+    /**
+     * Gets a random int
+     * @param {*} pMin - Min range for number gen
+     * @param {*} pMax - Max range for number gen
+     * @returns A random int within the min/max range
+     */
+     randomNum(pMin, pMax) {
+        let num;
+        num = Math.floor(Math.random() * (pMax - pMin) + pMin);
+        return num;
+    }
+
+    ShootBullet()
+    {
+        return true;
+    }
+
+    ProcessBulletChoice()
+    {
+
+        if( Date.now() >  this.mLastBulletShotTime +  this.mLastBulletShotInterval )
+        {
+            let rng = randomNum(0,2000)
+            if(rng == 1)
+            {
+                return this.ShootBullet()
+            }
+        }
+        return false;
     }
 
     TranslateAlien(deltaTime) {
