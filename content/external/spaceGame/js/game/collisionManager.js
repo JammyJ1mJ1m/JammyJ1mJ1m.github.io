@@ -64,6 +64,21 @@ class ColisionManager {
 
     CalculateCollisions() {
 
+        // alien bullets vs player
+        let enemyBullets = this.mEnemyManager.GetEnemyBullets();
+        if (enemyBullets.length != 0) {
+            enemyBullets.forEach(bullet => {
+                if (!bullet.GetActiveStat()) {
+                    if (this.CalculateCircleCircle(this.mPlayer, bullet)) {
+                        this.mPlayer.TakeLife();
+                        bullet.ProjectileHit();
+                    }
+                }
+            });
+        }
+
+
+        // player bullet vs aliens
         let projectile = this.mPlayer.GetProjectile();
         if (projectile != null) {
 

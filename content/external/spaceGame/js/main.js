@@ -57,6 +57,9 @@ function setupCanvas() {
     let barriers = [];
     
     let seperator = (canvasWidth / 8) / 2;
+
+    let gameWin = null;
+    
     
     barriers.push(new Barrier(new Vector(seperator  ,675)));
     barriers.push(new Barrier(new Vector(seperator * 4,675)));
@@ -155,7 +158,8 @@ function setupCanvas() {
         layout.fillStyle = '#111';
         layout.fillRect(0, 0, canvas.width, canvas.height);
         let fps = Math.round(1 / deltaTime);
-        drawText("FPS: " + fps, new Vector(60, 25),"30px Arial");
+        //drawText("FPS: " + fps, new Vector(60, 25),"30px Arial");
+        drawText("Lives: " + player.GetLife(), new Vector(60, 25),"30px Arial");
         // layout.beginPath();
         // layout.moveTo(0, canvas.clientHeight / 2);
         // layout.lineTo(canvas.clientWidth, canvas.clientHeight / 2);
@@ -166,13 +170,17 @@ function setupCanvas() {
         // layout.lineTo(canvas.clientWidth / 2, canvas.clientHeight);
         // layout.stroke();
 
-        enemyManager.DrawEnemies(layout, deltaTime);
-        player.Draw(layout, deltaTime);
-        debugManager.Draw(player, enemyManager);
+        if(gameWin == null)
+        {
 
-        barriers.forEach(element => {
-            element.Draw(layout);
-        });
+            enemyManager.DrawEnemies(layout, deltaTime);
+            player.Draw(layout, deltaTime);
+            debugManager.Draw(player, enemyManager);
+            
+            barriers.forEach(element => {
+                element.Draw(layout);
+            });
+        }
     }
 
     // handle physics updates
@@ -181,12 +189,14 @@ function setupCanvas() {
         colisionManager.CalculateCollisions();
         colisionManager.CalculateBarrierCollisions();
         // handles game win/lose state
-        if(enemyManager.GetGameState())
+        if(enemyManager.GetGameState() || player.GetLife() <= 0)
         {
+            gameWin = false;
             drawText("Game Over!",new Vector(canvas.width / 2, canvas.height / 2), 'italic 60pt Arial')
         }
-        if(player.GetEnemiesHit() == enemyManager.getTotalEnemies())
+        if(player.GetEnemiesHit() == enemyManager.getTotalEnemies() )
         {
+            gameWin = true;
             drawText("Game Won!",new Vector(canvas.width / 2, canvas.height / 2), 'italic 60pt Arial')
         }
     }

@@ -11,8 +11,12 @@ class Player {
         this.mProjectiles = [];
         this.mEnemiesHit = 0;
 
+        this.mLives = 3;
+        this.mRadius = 20;
+
     }
 
+    GetRadius() { return this.mRadius; }
     GetProjectile() { if(this.mProjectiles.length > 0) {return this.mProjectiles[0]} }
     getPosition() {
         return this.mPosition;
@@ -52,7 +56,8 @@ class Player {
 
     GetEnemiesHit() { return this.mEnemiesHit; }
     
-    
+    TakeLife(){ this.mLives--; }
+    GetLife() { return this.mLives; }
     PollInput()
     {
         let body = document.querySelector("body");
