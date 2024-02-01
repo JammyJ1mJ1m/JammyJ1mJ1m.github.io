@@ -41,6 +41,13 @@
         },
         {
             "Type": "link",
+            "Link": "/external/spaceGame",
+            "Icon": "/img/Alien_1.png",
+            "Content": "Space invaders clone",
+            "OpenNewTab": false
+        },
+        {
+            "Type": "link",
             "Link": "/external/CubedGame",
             "Icon": "/img/CubedLogo.png",
             "Content": "CUBED Game",
