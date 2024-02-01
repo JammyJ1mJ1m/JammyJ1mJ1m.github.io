@@ -52,7 +52,7 @@ function setupCanvas() {
     }
     //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
     let player = new Player(new Vector(canvas.clientWidth / 2, 800));
-    let debugManager = new DebugManager();
+    
     
     let barriers = [];
     
@@ -175,7 +175,7 @@ function setupCanvas() {
 
             enemyManager.DrawEnemies(layout, deltaTime);
             player.Draw(layout, deltaTime);
-            debugManager.Draw(player, enemyManager);
+            
             
             barriers.forEach(element => {
                 element.Draw(layout);
