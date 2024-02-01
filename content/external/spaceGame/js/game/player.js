@@ -14,10 +14,14 @@ class Player {
         this.mLives = 3;
         this.mRadius = 20;
 
+
+        this.mGoRight = false;
+        this.mGoLeft = false;
+
     }
 
     GetRadius() { return this.mRadius; }
-    GetProjectile() { if(this.mProjectiles.length > 0) {return this.mProjectiles[0]} }
+    GetProjectile() { if (this.mProjectiles.length > 0) { return this.mProjectiles[0] } }
     getPosition() {
         return this.mPosition;
     }
@@ -49,34 +53,33 @@ class Player {
         return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
 
-    ConfirmAlienHit()
-    {
+    ConfirmAlienHit() {
         this.mEnemiesHit++;
     }
 
     GetEnemiesHit() { return this.mEnemiesHit; }
-    
-    TakeLife(){ this.mLives--; }
+
+    TakeLife() { this.mLives--; }
     GetLife() { return this.mLives; }
-    PollInput()
-    {
+    PollInput() {
         let body = document.querySelector("body");
         body.addEventListener("keydown", (event) => {
-            if (IsClickUp && event.key === 'a') {
-                IsClickUp = false;
-                this.setVelocity(new Vector(-80, 0));
+            if (event.key === 'a') {
+                //  IsClickUp = false;
+                this.mGoLeft = true;
+                //this.setVelocity(new Vector(-80, 0));
                 // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
             }
-            if (IsRightUP && event.key === 'd') {
-                IsRightUP = false;
-                this.setVelocity(new Vector(80, 0));
+            if (event.key === 'd') {
+                //IsRightUP = false;
+                this.mGoRight = true;
+                //this.setVelocity(new Vector(80, 0));
                 // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
             }
             if (IsShootUp && event.key === ' ') {
-                if(this.mProjectiles.length ==0)
-                {
+                if (this.mProjectiles.length == 0) {
                     IsShootUp = false;
-                    this.mProjectiles.push(new Projectile(this.getPosition(),new Vector(0,-120)));
+                    this.mProjectiles.push(new Projectile(this.getPosition(), new Vector(0, -180)));
                     // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
                 }
             }
@@ -84,14 +87,17 @@ class Player {
 
         body.addEventListener("keyup", (event) => {
             if (event.key === 'a') {
-                IsClickUp = true;
+                //IsClickUp = true;
                 this.setVelocity(new Vector(0, 0));
+                this.mGoLeft = false;
 
                 return;
             }
             if (event.key === 'd') {
-                IsRightUP = true;
+                //IsRightUP = true;
                 this.setVelocity(new Vector(0, 0));
+                this.mGoRight = false;
+
 
                 return;
             }
@@ -104,9 +110,26 @@ class Player {
 
     Draw(layout, deltaTime) {
 
+        this.Update(deltaTime);
+        layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
+        this.mProjectiles.forEach(element => {
+            element.Draw(layout, deltaTime);
+        });
+    }
+
+    Update(deltaTime) {
         this.PollInput();
-        if(this.mProjectiles.length >0 && this.mProjectiles[0].GetActiveStat())
-        {
+        this.setVelocity(new Vector(0, 0));
+
+        if (this.mGoLeft) {
+            this.setVelocity(new Vector(-80, 0));
+        }
+        if (this.mGoRight) {
+            this.setVelocity(this.getVelocity().add(new Vector(80, 0)));
+        }
+
+
+        if (this.mProjectiles.length > 0 && this.mProjectiles[0].GetActiveStat()) {
             this.mProjectiles.pop(this.mProjectiles[0]);
         }
 
@@ -114,14 +137,10 @@ class Player {
         let newPosition = this.getPosition().add(currentVelocity);
         this.setPosition(newPosition);
 
-        if (this.mProjectiles.length >0) {
+        if (this.mProjectiles.length > 0) {
             if (this.mProjectiles[0].getPosition().getY() <= -20) {
                 this.mProjectiles.pop(this.mProjectiles[0]);
             }
         }
-        layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
-        this.mProjectiles.forEach(element => {
-            element.Draw(layout, deltaTime);
-        });
     }
 }

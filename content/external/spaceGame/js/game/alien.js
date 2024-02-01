@@ -1,6 +1,7 @@
 class Alien {
     constructor(pPosition, pIndex) {
         this.mPosition = pPosition;
+        this.mLastPosition = pPosition;
         this.mOriginalPosition = pPosition;
         this.mScale = 40;
         this.mVelocity = new Vector(30, 5);
@@ -109,7 +110,7 @@ class Alien {
         if( Date.now() >  this.mLastBulletShotTime +  this.mLastBulletShotInterval )
         {
             let rng = randomNum(0,2000)
-            if(rng == 1)
+            if(rng == 1 && !this.GetIsDead())
             {
                 return this.ShootBullet()
             }
@@ -118,20 +119,23 @@ class Alien {
     }
 
     TranslateAlien(deltaTime) {
+        
         if (this.getPosition().getX() >= this.mOriginalPosition.getX() + this.mMoveAmountX || this.getPosition().getX() <= this.mOriginalPosition.getX() - this.mMoveAmountX) {
             this.setVelocity(new Vector(this.getVelocity().getX() * -1, this.getVelocity().getY()));
+            this.setPosition(this.mLastPosition);
         }
-
+        
         if (this.getPosition().getY() > this.mGameOverBounds) {
             // console.log("GameOver");
             this.setVelocity(new Vector(0,0));
             return true;
-
+            
         }
-
+        
         let currentVelocity = this.getVelocity().multiply(deltaTime);
         let newPosition = this.getPosition().add(currentVelocity);
         this.setPosition(newPosition);
+        this.mLastPosition = this.mPosition;
         return false;
 
 
