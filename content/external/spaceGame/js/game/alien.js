@@ -104,7 +104,7 @@ class Alien {
         let gameState;
         if (!this.mIsDead) {
             gameState = this.TranslateAlien(deltaTime);
-            this.DrawRadius();
+            // this.DrawRadius();
             layout.drawImage(this.img, this.getCenteredPos().getX(), this.getCenteredPos().getY(), this.getScale(), this.getScale());
         }
         return gameState;

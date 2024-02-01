@@ -52,9 +52,18 @@ function setupCanvas() {
     }
     //let Alien1 = new Alien(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2));
     let player = new Player(new Vector(canvas.clientWidth / 2, 800));
-    let colisionManager = new ColisionManager(enemyManager, player);
     let debugManager = new DebugManager();
-
+    
+    let barriers = [];
+    
+    let seperator = (canvasWidth / 8) / 2;
+    
+    barriers.push(new Barrier(new Vector(seperator  ,675)));
+    barriers.push(new Barrier(new Vector(seperator * 4,675)));
+    barriers.push(new Barrier(new Vector(seperator * 8,675)));
+    barriers.push(new Barrier(new Vector(seperator * 11,675)));
+    
+    let colisionManager = new ColisionManager(enemyManager, player, barriers);
 
     //=======================================================
     //                    Events
@@ -147,27 +156,30 @@ function setupCanvas() {
         layout.fillRect(0, 0, canvas.width, canvas.height);
         let fps = Math.round(1 / deltaTime);
         //drawText("FPS: " + fps, new Vector(60, 25),"30px Arial");
-        layout.beginPath();
-        layout.moveTo(0, canvas.clientHeight / 2);
-        layout.lineTo(canvas.clientWidth, canvas.clientHeight / 2);
-        layout.stroke();
+        // layout.beginPath();
+        // layout.moveTo(0, canvas.clientHeight / 2);
+        // layout.lineTo(canvas.clientWidth, canvas.clientHeight / 2);
+        // layout.stroke();
 
-        layout.beginPath();
-        layout.moveTo(canvas.clientWidth / 2, 0);
-        layout.lineTo(canvas.clientWidth / 2, canvas.clientHeight);
-        layout.stroke();
+        // layout.beginPath();
+        // layout.moveTo(canvas.clientWidth / 2, 0);
+        // layout.lineTo(canvas.clientWidth / 2, canvas.clientHeight);
+        // layout.stroke();
 
         enemyManager.DrawEnemies(layout, deltaTime);
         player.Draw(layout, deltaTime);
         debugManager.Draw(player, enemyManager);
 
+        barriers.forEach(element => {
+            element.Draw(layout);
+        });
     }
 
     // handle physics updates
     function update() {
         //console.log(mousePos);
         colisionManager.CalculateCollisions();
-
+        colisionManager.CalculateBarrierCollisions();
         // handles game win/lose state
         if(enemyManager.GetGameState())
         {
@@ -191,8 +203,4 @@ function setupCanvas() {
         requestAnimationFrame(animationLoop);
         update();
     }
-
-    function getGlobalVar(bar) {
-        return window[bar];
-      }
 }
