@@ -36,15 +36,17 @@ class EnemyManager {
 
     DrawEnemies(pLayout, deltaTime) {
 
-        this.mEnemies.forEach(alien => {
-            this.mGameState = alien.Draw(pLayout, deltaTime);
-        });
-if(this.mGameState)
-{
-    this.mEnemies.forEach(alien => {
-            alien.setVelocity(new Vector(0,0));
-        });
-}
+        if(this.mGameState)
+        {
+            this.mEnemies.forEach(alien => {
+                alien.setVelocity(new Vector(0,0));
+            });
+        }
+        else{
+            this.mEnemies.forEach(alien => {
+                this.mGameState = alien.Draw(pLayout, deltaTime);
+            });
+        }
         
     }
 
