@@ -18,7 +18,8 @@ class QuantumGlass extends Autotapper{
     AddTapper()
     {
         this.mTappers.push(new Tap(1, 2900000000));
-        this.mAmount = this.mTappers.length;
+        this.IncrementTotalAmount();
+        //this.mAmount = this.GetTotalAmount();
         this.IncreasePrice();
         this.UpdateLabel();
     }

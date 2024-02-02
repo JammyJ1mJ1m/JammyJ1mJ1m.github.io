@@ -16,19 +16,28 @@ class Autotapper {
         this.mIsClicked = false;
         this.mIconX;
         this.mIconY;
+        this.mTotalAmount = 0;
     }
 
-    SetIconX(pX)
+    IncrementTotalAmount()
     {
+        this.mTotalAmount++;
+    }
+
+    GetTotalAmount()
+    {
+        return this.mTotalAmount;
+    }
+
+    SetIconX(pX) {
         this.mIconX = pX;
     }
-    
 
-    SetIconY(pY)
-    {    
+
+    SetIconY(pY) {
         this.mIconY = pY;
     }
-    
+
 
     formatCompactNumber(number) {
         const formatter = Intl.NumberFormat("en", { notation: "compact" });
@@ -43,7 +52,7 @@ class Autotapper {
         let t = this.mTiming;
         let cps = 0;
         this.mTappers.forEach(element => {
-            am += element.mClickAmount;
+            am = this.GetTotalAmount();
         });
         cps = am / t;
         return cps;
@@ -70,11 +79,11 @@ class Autotapper {
 
 
     IncreasePrice() {
-        this.mPrice = Math.ceil(this.mOriginalPrice * Math.pow(this.mExponent, this.mAmount));
+        this.mPrice = Math.ceil(this.mOriginalPrice * Math.pow(this.mExponent, this.mTotalAmount));
     }
 
     DeleteLabels() {
-        let element = document.getElementById('ProductDiv'+ this.mName);
+        let element = document.getElementById('ProductDiv' + this.mName);
         element.remove();
     }
 
