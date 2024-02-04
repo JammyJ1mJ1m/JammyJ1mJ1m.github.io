@@ -25,7 +25,7 @@ let titles = [
 
 let imgs = [
 
-    "assets/beans1.jpeg",
+    "assets/beans1.jpg",
     "assets/beans2.jpg",
     "assets/beans3.jpg",
     "assets/beans4.jpg",

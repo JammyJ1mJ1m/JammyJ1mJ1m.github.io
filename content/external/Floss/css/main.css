@@ -23,7 +23,7 @@ yes no buttons
   justify-content: center;
 
   top: 10%;
-  height: 50%;
+  height: 75%;
   width: 100%;
 
   flex-direction: column;
@@ -134,6 +134,8 @@ button {
   font-weight: bold;
   border: 0px solid #66524f;
 
+  color: #181818;
+  text-shadow: 2px 2px 4px #fc6e94;
 }
 
 
