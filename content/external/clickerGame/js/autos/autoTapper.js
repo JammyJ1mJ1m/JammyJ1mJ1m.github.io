@@ -54,7 +54,7 @@ class Autotapper {
         this.mTappers.forEach(element => {
             am = this.GetTotalAmount();
         });
-        cps = am / t;
+        cps = am * this.GetAmount() / t;
         return cps;
     }
 

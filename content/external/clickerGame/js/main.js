@@ -1,6 +1,13 @@
 let upgradeManager = new UpgradeManager();
 let MainShop = new Shop();
 
+function AddGoldenCookieClick(pCps)
+{
+
+    MainShop.AddCash(pCps *= 7);
+
+}
+
 function checkTapperClick() {
     upgradeManager.GetUpgrades().forEach(element => {
 
@@ -156,7 +163,7 @@ function setupCanvas() {
     let mousePos = new Vector(0, 0);
     let newDistance = -1;
 
-    let goldCookieLimit = 1500;
+    let goldCookieLimit = 2;
 
     let isClickable = false;
 
@@ -164,6 +171,7 @@ function setupCanvas() {
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
     let BigCookie = new Cookie(new Vector(canvas.clientWidth / 2, canvas.clientHeight / 2), cookieSize, new Vector(0, 0), false, layout);
+    BigCookie.SetClickable(true);
     let cheatCode = '';
     //let myTapper = new Tapper();
 
@@ -201,12 +209,20 @@ function setupCanvas() {
                 cookieList[index].setDonut(this.isDonut);
             }
             BigCookie.setDonut(this.isDonut);
+
+            tappedCookies.forEach(element => {
+                element.setDonut(this.isDonut);
+            });
         }
 
         if (event.key === "m") {
             cheatCode = 'm';
         }
 
+        if(event.key === "s")
+        {
+            AddGoldenCookieClick(upgradeManager.getCPS());
+        }
     });
 
     body.addEventListener("keyup", (event) => {
@@ -306,8 +322,6 @@ function setupCanvas() {
         layout.fillText(pFPS, pPos.getX() + 2, pPos.getY() + 2);
         layout.fillStyle = "#ffffff";
         layout.fillText(pFPS, pPos.getX(), pPos.getY());
-
-
     }
 
     function draw(deltaTime) {
@@ -347,11 +361,24 @@ function setupCanvas() {
         // console.log(mousePos);
 
 
-        if (calculateDistance(mousePos, BigCookie) < BigCookie.getScale() / 2)
+        if (BigCookie.calculateDistance(mousePos, BigCookie) < BigCookie.getScale() / 2)
             isClickable = true;
         else
             isClickable = false;
 
+
+            cookieList.forEach(element => {
+                if(element.GetIsClickable() && !element.IsClickUp)
+                {
+                    console.log(  mousePos );
+
+                    if (element.calculateDistance(mousePos, element) < element.getScale() / 2)
+                    {
+                        element.click();
+                        AddGoldenCookieClick(1000 + upgradeManager.getCPS() * 10);
+                    }
+                }
+            });
 
 
         upgradeManager.GetUpgrades().forEach(element => {
@@ -403,7 +430,10 @@ function setupCanvas() {
         let rng = randomNum(30, 70);
         let cookie = new Cookie(pos, rng, new Vector(0, rng), this.isDonut);
         if (randomNum(0, goldCookieLimit) == 1)
+        {
             cookie.setGoldcookie();
+            cookie.SetClickable(true);
+        }
 
         cookieList.push(cookie);
     }
@@ -418,7 +448,7 @@ function setupCanvas() {
 
         // console.log("MousePos: " + mousePos.getX() +","+ mousePos.getY() + " | " + "Pos: " + pos.getX() +","+ pos.getY());
 
-        let cookie = new TapCookie(pos, rng, new Vector(0, 70), false, 2);
+        let cookie = new TapCookie(pos, rng, new Vector(0, 70), this.isDonut, 2);
         tappedCookies.push(cookie);
     }
 

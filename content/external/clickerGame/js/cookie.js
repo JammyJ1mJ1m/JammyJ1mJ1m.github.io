@@ -1,8 +1,8 @@
 class Cookie {
-    constructor(pPosition, pScale, pVelocity,booly) {
+    constructor(pPosition, pScale, pVelocity, booly) {
         this.img = new Image();
 
-        
+
 
         this.mClickTime = -1;
 
@@ -27,9 +27,10 @@ class Cookie {
 
         this.setRootNode(new Group('Cookie'));
 
-}
+        this.SetClickable(false);
+    }
 
-    
+
     getPosition() {
         return this.mPosition;
     }
@@ -57,9 +58,8 @@ class Cookie {
         return this.mScale;
     }
 
-    getCenteredPos()
-    {
-        return new Vector( this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
+    getCenteredPos() {
+        return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
 
     //=======================================================
@@ -97,11 +97,10 @@ class Cookie {
     //=======================================================
     //                    end of nodes
     //=======================================================
-setGoldcookie()
-{
-    this.img.src = "assets/goldCookie.png";
+    setGoldcookie() {
+        this.img.src = "assets/goldCookie.png";
 
-}
+    }
     getShrinkRate() {
         return this.mShrinkRate = 0.01;
     }
@@ -113,8 +112,14 @@ setGoldcookie()
             this.img.src = "assets/cookie.png";
     }
 
+    GetIsClickable() { return this.mIsclikable;}
+    SetClickable(pClickable) {
+        this.mIsclikable = pClickable;
+    }
+
     click() {
-        if (!this.mIsClicked) {
+        
+        if (!this.mIsClicked && this.mIsclikable) {
             this.mIsClicked = true;
             // console.log("Clicked");
             this.setScale(this.getScale() - 10);
@@ -124,7 +129,14 @@ setGoldcookie()
         }
     }
 
-
+    // returns the distance between a point and a circle
+    calculateDistance(pMousePos, pBigCookieCenter) {
+        let distX = pMousePos.getX() - this.getPosition().getX() - this.getScale() / 2;
+        let distY = pMousePos.getY() - this.getPosition().getY() - this.getScale() / 2;
+        let distance = Math.sqrt((distX * distX) + (distY * distY));
+        // newDistance = distance;
+        return distance;
+    }
 
     drawCookie(layout, pDeltaTime) {
         if (this.mVelocity.getY() > 0) {
@@ -139,8 +151,8 @@ setGoldcookie()
             this.setScale(this.getScale() + 10);
             this.setPosition(new Vector(this.mOriginalPosition.getX() - this.getScale() / 2, this.mOriginalPosition.getY() - this.getScale() / 2))
         }
-        
+
         layout.drawImage(this.img, this.getPosition().getX(), this.getPosition().getY(), this.getScale(), this.getScale());
-        
+
     }
 }
