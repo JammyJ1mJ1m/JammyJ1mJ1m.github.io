@@ -1,8 +1,7 @@
 let upgradeManager = new UpgradeManager();
 let MainShop = new Shop();
 
-function AddGoldenCookieClick(pCps)
-{
+function AddGoldenCookieClick(pCps) {
 
     MainShop.AddCash(pCps *= 7);
 
@@ -29,7 +28,7 @@ function Test(p) {
     }
 }
 function Save() {
-    let saveContent = 'cash:' + MainShop.GetCash() + ';';
+    let saveContent = 'Cookies:' + MainShop.GetCash() + ';';
     saveContent = upgradeManager.Save(saveContent);
 
     var fileName = "CookieSave.txt";
@@ -52,9 +51,14 @@ function Load() {
     }
 
     const argsArr = inputData.split(";");
-    const cash = argsArr[0].split(":")[1];
+    let cash = null;
+    let cashSplit = argsArr[0].split(":");
+    if(cashSplit[0] == 'Cookies')
+    {
+        cash = cashSplit[1];
+    }
     if (cash != null) {
-        MainShop.SetCash(+cash);
+        MainShop.SetCash(cash);
     }
 
     upgradeManager.Load(argsArr)
@@ -163,7 +167,8 @@ function setupCanvas() {
     let mousePos = new Vector(0, 0);
     let newDistance = -1;
 
-    let goldCookieLimit = 2;
+    // golden cookie spawn rate
+    let goldCookieLimit = 800;
 
     let isClickable = false;
 
@@ -218,11 +223,6 @@ function setupCanvas() {
         if (event.key === "m") {
             cheatCode = 'm';
         }
-
-        if(event.key === "s")
-        {
-            AddGoldenCookieClick(upgradeManager.getCPS());
-        }
     });
 
     body.addEventListener("keyup", (event) => {
@@ -239,6 +239,15 @@ function setupCanvas() {
             BigCookie.click();
             createTapCookie();
         }
+
+        cookieList.forEach(element => {
+            if (element.GetIsClickable() && element.GetISGolden()) {
+                AddGoldenCookieClick(100 + upgradeManager.getCPS());
+                element.SetOffScreen();
+                console.log("clicked");
+            }
+        });
+
     });
 
     initialiseSceneGraph();
@@ -367,19 +376,18 @@ function setupCanvas() {
             isClickable = false;
 
 
-            cookieList.forEach(element => {
-                if(element.GetIsClickable() && !element.IsClickUp)
-                {
-                    console.log(  mousePos );
 
-                    if (element.calculateDistance(mousePos, element) < element.getScale() / 2)
-                    {
-                        element.click();
-                        AddGoldenCookieClick(1000 + upgradeManager.getCPS() * 10);
-                    }
-                }
-            });
 
+        console.log(mousePos);
+
+        cookieList.forEach(element => {
+            if (element.calculateDistance(mousePos, element) < element.getScale() / 2) {
+                element.SetClickable(true);
+                console.log("clickable");
+            }
+            else
+                element.SetClickable(false);
+        });
 
         upgradeManager.GetUpgrades().forEach(element => {
             let val = element.Run(MainShop);
@@ -429,10 +437,9 @@ function setupCanvas() {
         let pos = new Vector(randomNum(0, canvas.clientWidth), -50);
         let rng = randomNum(30, 70);
         let cookie = new Cookie(pos, rng, new Vector(0, rng), this.isDonut);
-        if (randomNum(0, goldCookieLimit) == 1)
-        {
+        if (randomNum(0, goldCookieLimit) == 1) {
             cookie.setGoldcookie();
-            cookie.SetClickable(true);
+            cookie.SetClickable(false);
         }
 
         cookieList.push(cookie);

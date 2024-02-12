@@ -26,10 +26,15 @@ class Cookie {
         this.mShrinkAmount = 10;
 
         this.setRootNode(new Group('Cookie'));
+        this.mIsGoldCookie = false;
 
         this.SetClickable(false);
     }
 
+
+    SetOffScreen(){
+        this.setPosition(new Vector(-9000,-9000));
+    }
 
     getPosition() {
         return this.mPosition;
@@ -97,8 +102,13 @@ class Cookie {
     //=======================================================
     //                    end of nodes
     //=======================================================
+
+    GetISGolden() {
+        return this.mIsGoldCookie;
+    }
     setGoldcookie() {
         this.img.src = "assets/goldCookie.png";
+        this.mIsGoldCookie = true;
 
     }
     getShrinkRate() {
