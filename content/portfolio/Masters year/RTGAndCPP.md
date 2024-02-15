@@ -17,11 +17,12 @@ published = true
 
 
 #### Reason and technologies used
-| Language    | Technologies|
-| ----------- | ----------- |
-| C++          |DirectX11   |
+| Language    | Technologies|Grade
+| ----------- | ----------- | ----------- |
+| C++          |DirectX11   | 1st
 
 A joint assessment project between my C++ and real time rendering module.
+Marking was based on C++ desgin and implementation.The graphical side was marked on features developed in DX11 such as phong vs gourad shading, cube mapping, normal mapping.
 
 A final showcase video can be found here:
 {{< youtube BeZAlWUrvjw >}}

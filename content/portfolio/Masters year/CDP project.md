@@ -22,4 +22,4 @@ portfolioCover = "img/ORE.png"
   
 Commercial development practice module.  
 This module is aimed at introducing students to the "real" world of software development. As such I am in a team working with a real world client to deliver a piece of software.  
-In this case my team and I are using agile principles to develop a offshore wind turbine virtual reality training software.
+In this case my team and I are using agile principles to develop an offshore wind turbine virtual reality training software.
