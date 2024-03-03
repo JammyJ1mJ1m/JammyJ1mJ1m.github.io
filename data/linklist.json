@@ -27,7 +27,7 @@
         },
         {
             "Type": "link",
-            "Link": "/portfolio/masters-year/rtgandcpp/",
+            "Link": "/posts/opengl-engine/",
             "Icon": "/img/DX.png",
             "Content": "Current project",
             "OpenNewTab": false
