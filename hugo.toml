@@ -18,6 +18,10 @@ olderPosts = "Older posts"
 missingContentMessage = "Page not found..."
 missingBackButtonLabel = "Back to home page"
 
+
+enableGitInfo = true
+
+
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
@@ -25,7 +29,6 @@ publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
 [params]
 
-enableGitInfo = true
 
 # dir name of your main content (default is `content/posts`).
 # the list of set content will show up on your index page (baseurl).
@@ -59,21 +62,21 @@ showLastUpdated = true
 favicon = "favicon.ico"
 
 # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
- updatedDatePrefix = "Updated"
+updatedDatePrefix = "Updated"
 
 # set all headings to their default size (depending on browser settings)
 # oneHeadingSize = true # default
 
 # whether to show a page's estimated reading time
- readingTime = true # default
+readingTime = true # default
 
 # whether to show a table of contents
 # can be overridden in a page's front-matter
- Toc = false # default
+Toc = false # default
 
 # set title for the table of contents
 # can be overridden in a page's front-matter
- TocTitle = "Contents" # default
+TocTitle = "Contents" # default
 
 
 HideDefaultCredit = false
