@@ -21,7 +21,7 @@ missingBackButtonLabel = "Back to home page"
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
-lastmod = ["lastmod", ":git", "date", "publishDate"]
+lastmod = [":git", "lastmod", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
 

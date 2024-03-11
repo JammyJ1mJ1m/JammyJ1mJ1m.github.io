@@ -2,5 +2,5 @@
 {{ $lastmod := .Lastmod.Format "02-01-2006" }}
 
 {{ if ne $lastmod $date }}
-    <span class="date-info italic"> {{ $.Site.Params.updatedDatePrefix }} {{ .Lastmod.Format "02-01-2006" }}</span>
+    <span class="date-info italic"> :: [{{ $.Site.Params.updatedDatePrefix }} {{ .Lastmod.Format "02-01-2006" }}]</span>
 {{ end }}
