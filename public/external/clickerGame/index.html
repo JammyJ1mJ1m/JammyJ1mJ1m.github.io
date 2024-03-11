@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clicker Clone</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+</head>
+
+<body class="noSelect" onload="setupCanvas();"> <!-- style="background-color:#138eaa;" -->
+
+    <header id="Header">
+        <div class="Title">Hello Cookie!</div>
+        <div class="Description">WIP cookie clicker clone!</div>
+
+        <div class="saveStuff">
+            
+            <a onclick="Save()" href="#" id="download">
+                <button onclick="Save()">save</button>
+            </a>
+            <button onclick="Load()">load</button>
+            <input id="loadInput" type="text" placeholder="Please paste the contents of your save file!"></input>
+        </div>
+    </header>
+
+    <div class="Game">
+
+        <div class="leftSection">
+            <div class="canvas" id="mainGame">
+                <canvas id="canvas" width="720" height="1080">
+                    Your browser does not support the canvas tag
+                </canvas>
+            </div>
+            
+            
+        </div>
+        <div class="middleSection">
+            
+            <div>
+                
+            </div>
+        </div>
+        <div class="rightSection">
+            
+            <div class="shop" id="buttons">
+                
+            </div>
+        </div>
+    </div>
+        
+        
+        
+        
+    </body>
+    <footer>
+        Made by JammyJimJim, inspiration from
+        <a href="https://orteil.dashnet.org/cookieclicker/">Orteil</a>
+        <script type="text/javascript" src="js/cookie.js"></script>
+        <script type="text/javascript" src="js/tapCookie.js"></script>
+        
+        <script type="text/javascript" src="js/autos/autoClicker.js"></script>
+        <script type="text/javascript" src="js/autos/tap.js"></script>
+        <script type="text/javascript" src="js/upgradeManager.js"></script>
+        <script type="text/javascript" src="js/shop.js"></script>
+        <script type="text/javascript" src="js/dictionary.js"></script>
+        <script type="text/javascript" src="js/kvp.js"></script>
+        
+        
+        <script type="text/javascript" src="js/autos/autoTapper.js"></script>
+    <script type="text/javascript" src="js/autos/tapper.js"></script>
+    <script type="text/javascript" src="js/autos/grandad.js"></script>
+    <script type="text/javascript" src="js/autos/farm.js"></script>
+    <script type="text/javascript" src="js/autos/mine.js"></script>
+    <script type="text/javascript" src="js/autos/factory.js"></script>
+    <script type="text/javascript" src="js/autos/bank.js"></script>
+    <script type="text/javascript" src="js/autos/Pyramid.js"></script>
+    <script type="text/javascript" src="js/autos/WitchTower.js"></script>
+    <script type="text/javascript" src="js/autos/rocket.js"></script>
+    <script type="text/javascript" src="js/autos/potionsLab.js"></script>
+    <script type="text/javascript" src="js/autos/portal.js"></script>
+    <script type="text/javascript" src="js/autos/timeTravel.js"></script>
+    <script type="text/javascript" src="js/autos/condenser.js"></script>
+    <script type="text/javascript" src="js/autos/quantumGlass.js"></script>
+    <script type="text/javascript" src="js/autos/Clover.js"></script>
+    <script type="text/javascript" src="js/autos/fractal.js"></script>
+    <script type="text/javascript" src="js/autos/code.js"></script>
+    <script type="text/javascript" src="js/autos/universe.js"></script>
+    <script type="text/javascript" src="js/autos/thirdEye.js"></script>
+    <script type="text/javascript" src="js/autos/player.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/javascript" src="js/vector.js"></script>
+    <script type="text/javascript" src="js/matrix.js"></script>
+
+    <script type="text/javascript" src="js/graphNodes/graphNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/geometryNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/groupNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/transformNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/renderVisitor.js"></script>
+</footer>
+
+</html>

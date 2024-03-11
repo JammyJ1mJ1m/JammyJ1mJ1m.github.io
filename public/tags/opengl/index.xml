@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenGL on Portfolio</title>
+    <link>Jammyj1mj1m.github.io/tags/opengl/</link>
+    <description>Recent content in OpenGL on Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Feb 2024 03:08:13 +0100</lastBuildDate><atom:link href="Jammyj1mj1m.github.io/tags/opengl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Callisto Engine</title>
+      <link>Jammyj1mj1m.github.io/posts/opengl-engine/</link>
+      <pubDate>Wed, 28 Feb 2024 03:08:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/opengl-engine/</guid>
+      <description>Background This engine is designed with abstraction in mind and will follow an ECS architecture.
+While most engines you see people devloping are with OpenGL OR DirectX, Callisto will be made with both.
+This is something that has always fascinated me and shall be accomplished with some cool abstraction and inheritance tricks.
+February 28th &amp;lsquo;24 - Inception of Callisto engine The aim of this blog is to produce weekly* devlogs on the progress of the engine.</description>
+      <content>&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
+&lt;p&gt;This engine is designed with abstraction in mind and will follow an ECS architecture.&lt;br&gt;
+While most engines you see people devloping are with OpenGL &lt;strong&gt;OR&lt;/strong&gt; DirectX, Callisto will be made with both.&lt;br&gt;
+This is something that has always fascinated me and shall be accomplished with some cool abstraction and inheritance tricks.&lt;/p&gt;
+&lt;h3 id=&#34;february-28th-24---inception-of-callisto-engine&#34;&gt;February 28th &amp;lsquo;24 - Inception of Callisto engine&lt;/h3&gt;
+&lt;p&gt;The aim of this blog is to produce weekly* devlogs on the progress of the engine.&lt;br&gt;
+*&lt;em&gt;(This providing University doesn&amp;rsquo;t get in the way).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I spent the first few day setting up the basic project and implementing the window creation on the OpenGl side of things.&lt;br&gt;
+The design of the window and rendering relationship is listed below:
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/qJAN2ZR.png&#34;  alt=&#34;Windowing relationships&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+Classes in yellow are abstract, blue are related to DirectX11 and red is OpenGL related. A pre-processor is set in &amp;ldquo;main&amp;rdquo; to allow the program to run in either OpenGL or DirectX11.
+After I had a window system in place it was time to draw my first triangle.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/xvrFvGb.png&#34;  alt=&#34;orange triangle&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+As well as drawing I also allowed input to be deteced in the window class and &amp;ldquo;offload&amp;rdquo; that into the game where I can do specific logic, such as the escape key closing the window and exiting the game.&lt;/p&gt;
+&lt;h3 id=&#34;march-10th-24---slow-but-steady-progress&#34;&gt;March 10th &amp;lsquo;24 - Slow but steady progress&lt;/h3&gt;
+&lt;p&gt;The first half of this week was painful and slow. I split my project in half, the engine and the game. The engine is now a standalone static library that I can plug into a game project and use its functions. This however, was not easy to set up. I kept running into error after error even testing on multiple computers to which I was receiving different errors. Long story short, linking errors and file pathing was all wrong.&lt;br&gt;
+Anyway, progress.
+Additions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Entities&lt;/li&gt;
+&lt;li&gt;Model component&lt;/li&gt;
+&lt;li&gt;VBO object&lt;/li&gt;
+&lt;li&gt;Shader component&lt;/li&gt;
+&lt;li&gt;Shader object&lt;/li&gt;
+&lt;li&gt;Resource manager&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;An entity is essentially just a holder of components, such as in this instance an entity can currently contain model components and shader components.&lt;br&gt;
+The model component holds the mesh and the relevant VBO depending on if GL or DX is being used.&lt;br&gt;
+A shader component holds and configures the shader to be used for that object, again this is relating to whether GL or DX is in use. The shader is loaded by calling the &lt;code&gt;LoadShader&lt;/code&gt; method from the resource manager.&lt;/p&gt;
+&lt;p&gt;An updated UMl design is listed below. This, I hope clarifies the relationships between some of the classes. Shooter game can hold multiple entities. Transform and rigidbody are yet to be implemented.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/spPQGTQ.png&#34;  alt=&#34;UML&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+&lt;/p&gt;
+&lt;p&gt;As well as the above, this is the current output. This output is two entities with different model components/meshes showing different vertex colours.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/8rj7Etw.png&#34;  alt=&#34;coloured shapes&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

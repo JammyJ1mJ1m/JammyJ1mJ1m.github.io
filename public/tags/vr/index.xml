@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VR on Portfolio</title>
+    <link>Jammyj1mj1m.github.io/tags/vr/</link>
+    <description>Recent content in VR on Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 22 Aug 2023 15:17:12 +0100</lastBuildDate><atom:link href="Jammyj1mj1m.github.io/tags/vr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Third Year Final Project</title>
+      <link>Jammyj1mj1m.github.io/portfolio/games/third-year-project/</link>
+      <pubDate>Tue, 22 Aug 2023 15:17:12 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/games/third-year-project/</guid>
+      <description>VeRy Troublesome tanks Reason and technologies used Language Technologies C# Unity, VR This project was the final software piece that went alongside my dissertation.
+The game is a VR port of the original game called: Troublesome tanks. The idea was to provide a more immersive and fun take on the original game.
+Game brief: There are 4 teams consisting of 3 players. One player will take on the driver role who is responsible for driving the tank across the terrain.</description>
+      <content>&lt;h1 id=&#34;very-troublesome-tanks&#34;&gt;VeRy Troublesome tanks&lt;/h1&gt;
+&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C#&lt;/td&gt;
+&lt;td&gt;Unity, VR&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This project was the final software piece that went alongside my dissertation.&lt;br&gt;
+The game is a VR port of the original game called: &lt;a href=&#34;https://www.youtube.com/watch?v=GafLNMRZxGI&#34;&gt;Troublesome tanks&lt;/a&gt;.
+The idea was to provide a more immersive and fun take on the original game.&lt;/p&gt;
+&lt;h4 id=&#34;game-brief&#34;&gt;Game brief:&lt;/h4&gt;
+&lt;p&gt;There are 4 teams consisting of 3 players. One player will take on the driver role who is responsible for driving the tank across the terrain. Another player will take the engineer role who is responsible for keeping the tanks energy systems topped up so that the tank as a whole can operate. The final player has the gunner role, which arguably is the most fun. The gunner is able to move the gun left, right, up and down to its set limits as well as to fire the gun itself.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/tzYgDqSjCMI&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</content>
+    </item>
+    
+  </channel>
+</rss>

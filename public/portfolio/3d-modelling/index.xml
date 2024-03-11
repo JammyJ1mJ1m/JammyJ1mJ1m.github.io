@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3D modelling on Portfolio</title>
+    <link>Jammyj1mj1m.github.io/portfolio/3d-modelling/</link>
+    <description>Recent content in 3D modelling on Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="Jammyj1mj1m.github.io/portfolio/3d-modelling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Donut</title>
+      <link>Jammyj1mj1m.github.io/portfolio/3d-modelling/donut/</link>
+      <pubDate>Thu, 16 Nov 2023 09:02:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/3d-modelling/donut/</guid>
+      <description>Blender render of the doughnut tutorial
+Everyone has one of these lying around somewhere </description>
+      <content>&lt;p&gt;Blender render of the doughnut tutorial&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;Jammyj1mj1m.github.io/img/DonutFinal.png&#34;  alt=&#34;Donut&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Everyone has one of these lying around somewhere&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>Robo Spider </title>
+      <link>Jammyj1mj1m.github.io/portfolio/3d-modelling/robospider/</link>
+      <pubDate>Thu, 16 Nov 2023 09:02:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/3d-modelling/robospider/</guid>
+      <description>Blender render of a Robo spider</description>
+      <content>&lt;p&gt;Blender render of a Robo spider&lt;/p&gt;
+
+&lt;img src=&#34;Jammyj1mj1m.github.io/img/RoboSpider.png&#34;  alt=&#34;RoboSpider&#34;  class=&#34;center&#34;  style=&#34;border-radius: 10px;&#34;    /&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>MkV tank</title>
+      <link>Jammyj1mj1m.github.io/portfolio/3d-modelling/markvtank/</link>
+      <pubDate>Wed, 13 Sep 2023 03:08:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/3d-modelling/markvtank/</guid>
+      <description>Blender render of a MkV tank I made during the summer of 2022</description>
+      <content>&lt;p&gt;Blender render of a MkV tank I made during the summer of 2022&lt;/p&gt;
+
+&lt;img src=&#34;Jammyj1mj1m.github.io/img/mkv.jpg&#34;  alt=&#34;MkV tank&#34;  class=&#34;center&#34;  style=&#34;border-radius: 10px;&#34;    /&gt;
+
+
+</content>
+    </item>
+    
+  </channel>
+</rss>

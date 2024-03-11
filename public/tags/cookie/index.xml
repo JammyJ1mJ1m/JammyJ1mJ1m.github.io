@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cookie on Portfolio</title>
+    <link>Jammyj1mj1m.github.io/tags/cookie/</link>
+    <description>Recent content in Cookie on Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 05 Dec 2023 16:58:03 +0000</lastBuildDate><atom:link href="Jammyj1mj1m.github.io/tags/cookie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cookie Clicker Clone</title>
+      <link>Jammyj1mj1m.github.io/posts/cookieclone/</link>
+      <pubDate>Tue, 05 Dec 2023 16:58:03 +0000</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/cookieclone/</guid>
+      <description>When designing the costing for the building I stumbled upon the official cookie clicker building cost wiki page and copied the formula from there. Or so I thought.
+Here is the original formula: cookieclicker.fandom.com/wiki/Building The formula is fairly straightforward. I was able to completely omit the need for &amp;ldquo;F&amp;rdquo; as I don&amp;rsquo;t currently have any options for free buildings. Here is my formula: js costing formula price = Math.ceil(originalPrice * exponent * buildingAmount)); Notice any issues?</description>
+      <content>&lt;p&gt;When designing the costing for the building I stumbled upon the official cookie clicker building cost wiki page and copied the formula from there. Or so I thought.&lt;br&gt;
+Here is the original formula:
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/otJ2dnv.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;cookieclicker.fandom.com/wiki/Building&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+The formula is fairly straightforward. I was able to completely omit the need for &lt;em&gt;&amp;ldquo;F&amp;rdquo;&lt;/em&gt; as I don&amp;rsquo;t currently have any options for free buildings.
+Here is my formula:
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;1&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;1&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;js&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;costing formula&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-js&#34; &gt;&lt;code&gt;
+price = Math.ceil(originalPrice * exponent * buildingAmount));
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+Notice any issues?&lt;/p&gt;
+&lt;p&gt;In hindsight, this was a silly error as I completely read the formula wrong. I should have multiplied the &lt;strong&gt;exponent&lt;/strong&gt; by the &lt;strong&gt;buildingAmount&lt;/strong&gt;.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/mbGECUt.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Fig 1&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Figure 1 shows the error in my formula compared to the official game. As you can see, mine is very linear with a more expensive start up but leading to easier prices later in the game.&lt;/p&gt;
+&lt;p&gt;But this is a simple fix with:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;1&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;1&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;js&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;Corrected formula&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-js&#34; &gt;&lt;code&gt;
+price = Math.ceil(originalPrice * Math.pow(exponent, buildingAmount));
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/eEpQFcJ.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Fig 2&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Figure 2 shows the original pricing along with the new pricing. They are now identical, which is cool.&lt;/p&gt;
+&lt;p&gt;I then changed the exponential value to 1.2. Figure 3 shows the result of this. The new pricing is &lt;strong&gt;a lot&lt;/strong&gt; more costly.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/az1IOuL.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Fig 3&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+</content>
+    </item>
+    
+  </channel>
+</rss>

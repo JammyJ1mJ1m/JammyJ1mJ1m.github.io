@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on Portfolio</title>
+    <link>Jammyj1mj1m.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Feb 2024 03:08:13 +0100</lastBuildDate><atom:link href="Jammyj1mj1m.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Callisto Engine</title>
+      <link>Jammyj1mj1m.github.io/posts/opengl-engine/</link>
+      <pubDate>Wed, 28 Feb 2024 03:08:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/opengl-engine/</guid>
+      <description>Background This engine is designed with abstraction in mind and will follow an ECS architecture.
+While most engines you see people devloping are with OpenGL OR DirectX, Callisto will be made with both.
+This is something that has always fascinated me and shall be accomplished with some cool abstraction and inheritance tricks.
+February 28th &amp;lsquo;24 - Inception of Callisto engine The aim of this blog is to produce weekly* devlogs on the progress of the engine.</description>
+      <content>&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
+&lt;p&gt;This engine is designed with abstraction in mind and will follow an ECS architecture.&lt;br&gt;
+While most engines you see people devloping are with OpenGL &lt;strong&gt;OR&lt;/strong&gt; DirectX, Callisto will be made with both.&lt;br&gt;
+This is something that has always fascinated me and shall be accomplished with some cool abstraction and inheritance tricks.&lt;/p&gt;
+&lt;h3 id=&#34;february-28th-24---inception-of-callisto-engine&#34;&gt;February 28th &amp;lsquo;24 - Inception of Callisto engine&lt;/h3&gt;
+&lt;p&gt;The aim of this blog is to produce weekly* devlogs on the progress of the engine.&lt;br&gt;
+*&lt;em&gt;(This providing University doesn&amp;rsquo;t get in the way).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I spent the first few day setting up the basic project and implementing the window creation on the OpenGl side of things.&lt;br&gt;
+The design of the window and rendering relationship is listed below:
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/qJAN2ZR.png&#34;  alt=&#34;Windowing relationships&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+Classes in yellow are abstract, blue are related to DirectX11 and red is OpenGL related. A pre-processor is set in &amp;ldquo;main&amp;rdquo; to allow the program to run in either OpenGL or DirectX11.
+After I had a window system in place it was time to draw my first triangle.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/xvrFvGb.png&#34;  alt=&#34;orange triangle&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+As well as drawing I also allowed input to be deteced in the window class and &amp;ldquo;offload&amp;rdquo; that into the game where I can do specific logic, such as the escape key closing the window and exiting the game.&lt;/p&gt;
+&lt;h3 id=&#34;march-10th-24---slow-but-steady-progress&#34;&gt;March 10th &amp;lsquo;24 - Slow but steady progress&lt;/h3&gt;
+&lt;p&gt;The first half of this week was painful and slow. I split my project in half, the engine and the game. The engine is now a standalone static library that I can plug into a game project and use its functions. This however, was not easy to set up. I kept running into error after error even testing on multiple computers to which I was receiving different errors. Long story short, linking errors and file pathing was all wrong.&lt;br&gt;
+Anyway, progress.
+Additions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Entities&lt;/li&gt;
+&lt;li&gt;Model component&lt;/li&gt;
+&lt;li&gt;VBO object&lt;/li&gt;
+&lt;li&gt;Shader component&lt;/li&gt;
+&lt;li&gt;Shader object&lt;/li&gt;
+&lt;li&gt;Resource manager&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;An entity is essentially just a holder of components, such as in this instance an entity can currently contain model components and shader components.&lt;br&gt;
+The model component holds the mesh and the relevant VBO depending on if GL or DX is being used.&lt;br&gt;
+A shader component holds and configures the shader to be used for that object, again this is relating to whether GL or DX is in use. The shader is loaded by calling the &lt;code&gt;LoadShader&lt;/code&gt; method from the resource manager.&lt;/p&gt;
+&lt;p&gt;An updated UMl design is listed below. This, I hope clarifies the relationships between some of the classes. Shooter game can hold multiple entities. Transform and rigidbody are yet to be implemented.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/spPQGTQ.png&#34;  alt=&#34;UML&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+&lt;/p&gt;
+&lt;p&gt;As well as the above, this is the current output. This output is two entities with different model components/meshes showing different vertex colours.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/8rj7Etw.png&#34;  alt=&#34;coloured shapes&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>DirectX11 ACW</title>
+      <link>Jammyj1mj1m.github.io/posts/dx11assessment/</link>
+      <pubDate>Fri, 24 Nov 2023 10:43:59 +0000</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/dx11assessment/</guid>
+      <description>Brief Computer graphics gallery consisting of 4 rooms each with a different exhibit
+Each room is to contain an exhibit that demonstrates one or more of the shading, animation and lighting effects listed below. Advanced effects (see below for a full description) are marked with a (*)
+The exhibits can consist of one or more 3D objects.
+The specific 3D objects that make up the exhibit are not defined, although they should be different in every room, and selected to clearly enhance the chosen shading, lighting, animation effects.</description>
+      <content>&lt;h1 id=&#34;brief&#34;&gt;Brief&lt;/h1&gt;
+&lt;p&gt;Computer graphics gallery consisting of 4 rooms each with a different exhibit&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Each room is to contain an exhibit that demonstrates one or more of the shading, animation and lighting effects listed below. Advanced effects (see below for a full description) are marked with a (*)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The exhibits can consist of one or more 3D objects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The specific 3D objects that make up the exhibit are not defined, although they should be different in every room, and selected to clearly enhance the chosen shading, lighting, animation effects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;At least one of the 3D objects should consist of a high definition mesh containing 1000&amp;rsquo;s of polygons and be irregular (e.g. teapot, dragon, etc)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;At least one of the exhibits should consist of 1000&amp;rsquo;s of dynamic 3D objects (e.g. a stream of spheres appearing in the ceiling and falling to the floor)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;At least one of the exhibits should consist of multiple dynamic 3D objects where the various animation effects can be demonstrated&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;13122023&#34;&gt;&lt;strong&gt;13/12/2023&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;gallery-rooms&#34;&gt;Gallery rooms&lt;/h3&gt;
+&lt;p&gt;Started the day off in Blender creating some models to use as the gallery rooms.
+My initial thoughts were to have each of the rooms connected via a small corridoor:&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/cUphB2A.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;After thinking about the layout for a little while I deciced that i&amp;rsquo;ll keep it a lot simpler and just have 4 rooms next to each other with a door way.&lt;/p&gt;
+&lt;p&gt;
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/oU5hYwx.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+Each room has its own area, floor, walls and celing. This allows me to create the one room, duplicate it and rotate it for the other 3 rooms.
+The texture design of the walls and floor aren&amp;rsquo;t finalised yet, however something fairly monotone is my general idea as it won&amp;rsquo;t take the attention away from whatever will eventually be showcased in the room.&lt;/p&gt;
+&lt;h3 id=&#34;uml&#34;&gt;UML&lt;/h3&gt;
+&lt;p&gt;Shown below is the first diagram I have created relating to the light setup that I would like to implement.
+Light is an abstract class that contains some common data members that all light types will use as well as a virtual run method. All the other light types will ovveride the run method with their own logic.&lt;/p&gt;
+&lt;p&gt;
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/GFbBO49.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;strong&gt;Directional light&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Directional lights are like the sun where all rays coming from the light are more or less parallel to each other and far away. In this case a position isnt neccesary, only a direction is needed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Point light&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Point lights are omnidirectional emitting, for example a lightbulb hanging from a ceiling. The light source needs a position but does not need a direction. Constant, linear and quadratic data members are used in the calculations for the light attenuation, this refers to how far the light can reach objects. Another name for this is light falloff.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Spot light&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Spot lights are like a flashlight, coming from a single position but only in a given direction.
+Spotlights are almost the same as a pointlight with the difference being that there are a few other parameters that control the output into a cone shape.&lt;/p&gt;
+&lt;h6 id=&#34;models&#34;&gt;Models&lt;/h6&gt;
+&lt;p&gt;Below is the diagram I am working on for a model class and its relationships. The main class, model will store the relevant data members for a model, this can include the vertex and index lists, for later rendering.
+As well as this it can also contain position, scale and rotation values.
+Each model will have a material that will be used for the drawing stage. This class is essentially just a data container. The material class will have four Texture classes, one for each of the texture types that will be used, diffuse map, normal map, height map and specular map.&lt;/p&gt;
+&lt;p&gt;There is also a seperate class that contains a sampler state, this is its own entity as it should be called by multiple material classes.
+The reason for this being that the majority, if not all of my textures will be sampled in the same way.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/8Eh5u2I.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;20122023&#34;&gt;&lt;strong&gt;20/12/2023&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Today I created a quick mock up of what I would like my four gallery rooms to look like.&lt;/p&gt;
+&lt;p&gt;Starting in the far left, the teapot room. One teapot will have gourad lighting appplied (vertex lighting) and the other teapot will have phong lighting applied(per pixel).&lt;br&gt;
+Next is the room with lots of dynamic spheres, these will fall from the ceiling into the floor all while being illumiated by three point lights of different colours.&lt;br&gt;
+The nect room is animated, I will have three suzanne models with different transformation animations applied, translation, scale and rotation.&lt;br&gt;
+The final room is empty as it is left to whatever I want to add to it, I haven&amp;rsquo;t decided on what to add yet.&lt;br&gt;
+Although it&amp;rsquo;s not shown here, the actual scene will have a ceiling.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/mr7bm5C.gif&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;11012024&#34;&gt;&lt;strong&gt;11/01/2024&lt;/strong&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;submission-day&#34;&gt;Submission day&lt;/h1&gt;
+&lt;p&gt;Shown below is what I produced for my final assignment for the two modules, &amp;ldquo;C++ programming and design&amp;rdquo; and &amp;ldquo;real-time graphics&amp;rdquo;. Unlike as previously mentioned this scene does not have a ceiling.
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/BeZAlWUrvjw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Real time graphics and C&#43;&#43;</title>
+      <link>Jammyj1mj1m.github.io/portfolio/masters-year/rtgandcpp/</link>
+      <pubDate>Sat, 16 Sep 2023 03:08:34 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/masters-year/rtgandcpp/</guid>
+      <description>Reason and technologies used Language Technologies Grade C++ DirectX11 1st A joint assessment project between my C++ and real time rendering module. Marking was based on C++ desgin and implementation.The graphical side was marked on features developed in DX11 such as phong vs gourad shading, cube mapping, normal mapping.
+A final showcase video can be found here: More information can be found Here</description>
+      <content>&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;th&gt;Grade&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C++&lt;/td&gt;
+&lt;td&gt;DirectX11&lt;/td&gt;
+&lt;td&gt;1st&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A joint assessment project between my C++ and real time rendering module.
+Marking was based on C++ desgin and implementation.The graphical side was marked on features developed in DX11 such as phong vs gourad shading, cube mapping, normal mapping.&lt;/p&gt;
+&lt;p&gt;A final showcase video can be found here:
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/BeZAlWUrvjw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;p&gt;More information can be found &lt;a href=&#34;Jammyj1mj1m.github.io/posts/dx11assessment/&#34;&gt;Here&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

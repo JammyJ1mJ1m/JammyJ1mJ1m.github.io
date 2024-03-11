@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Contact on Portfolio</title>
+    <link>Jammyj1mj1m.github.io/</link>
+    <description>Recent content in Contact on Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="Jammyj1mj1m.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Callisto Engine</title>
+      <link>Jammyj1mj1m.github.io/posts/opengl-engine/</link>
+      <pubDate>Wed, 28 Feb 2024 03:08:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/opengl-engine/</guid>
+      <description>Background This engine is designed with abstraction in mind and will follow an ECS architecture.
+While most engines you see people devloping are with OpenGL OR DirectX, Callisto will be made with both.
+This is something that has always fascinated me and shall be accomplished with some cool abstraction and inheritance tricks.
+February 28th &amp;lsquo;24 - Inception of Callisto engine The aim of this blog is to produce weekly* devlogs on the progress of the engine.</description>
+      <content>&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
+&lt;p&gt;This engine is designed with abstraction in mind and will follow an ECS architecture.&lt;br&gt;
+While most engines you see people devloping are with OpenGL &lt;strong&gt;OR&lt;/strong&gt; DirectX, Callisto will be made with both.&lt;br&gt;
+This is something that has always fascinated me and shall be accomplished with some cool abstraction and inheritance tricks.&lt;/p&gt;
+&lt;h3 id=&#34;february-28th-24---inception-of-callisto-engine&#34;&gt;February 28th &amp;lsquo;24 - Inception of Callisto engine&lt;/h3&gt;
+&lt;p&gt;The aim of this blog is to produce weekly* devlogs on the progress of the engine.&lt;br&gt;
+*&lt;em&gt;(This providing University doesn&amp;rsquo;t get in the way).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I spent the first few day setting up the basic project and implementing the window creation on the OpenGl side of things.&lt;br&gt;
+The design of the window and rendering relationship is listed below:
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/qJAN2ZR.png&#34;  alt=&#34;Windowing relationships&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+Classes in yellow are abstract, blue are related to DirectX11 and red is OpenGL related. A pre-processor is set in &amp;ldquo;main&amp;rdquo; to allow the program to run in either OpenGL or DirectX11.
+After I had a window system in place it was time to draw my first triangle.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/xvrFvGb.png&#34;  alt=&#34;orange triangle&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+As well as drawing I also allowed input to be deteced in the window class and &amp;ldquo;offload&amp;rdquo; that into the game where I can do specific logic, such as the escape key closing the window and exiting the game.&lt;/p&gt;
+&lt;h3 id=&#34;march-10th-24---slow-but-steady-progress&#34;&gt;March 10th &amp;lsquo;24 - Slow but steady progress&lt;/h3&gt;
+&lt;p&gt;The first half of this week was painful and slow. I split my project in half, the engine and the game. The engine is now a standalone static library that I can plug into a game project and use its functions. This however, was not easy to set up. I kept running into error after error even testing on multiple computers to which I was receiving different errors. Long story short, linking errors and file pathing was all wrong.&lt;br&gt;
+Anyway, progress.
+Additions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Entities&lt;/li&gt;
+&lt;li&gt;Model component&lt;/li&gt;
+&lt;li&gt;VBO object&lt;/li&gt;
+&lt;li&gt;Shader component&lt;/li&gt;
+&lt;li&gt;Shader object&lt;/li&gt;
+&lt;li&gt;Resource manager&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;An entity is essentially just a holder of components, such as in this instance an entity can currently contain model components and shader components.&lt;br&gt;
+The model component holds the mesh and the relevant VBO depending on if GL or DX is being used.&lt;br&gt;
+A shader component holds and configures the shader to be used for that object, again this is relating to whether GL or DX is in use. The shader is loaded by calling the &lt;code&gt;LoadShader&lt;/code&gt; method from the resource manager.&lt;/p&gt;
+&lt;p&gt;An updated UMl design is listed below. This, I hope clarifies the relationships between some of the classes. Shooter game can hold multiple entities. Transform and rigidbody are yet to be implemented.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/spPQGTQ.png&#34;  alt=&#34;UML&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+&lt;/p&gt;
+&lt;p&gt;As well as the above, this is the current output. This output is two entities with different model components/meshes showing different vertex colours.
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/8rj7Etw.png&#34;  alt=&#34;coloured shapes&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Cookie Clicker Clone</title>
+      <link>Jammyj1mj1m.github.io/posts/cookieclone/</link>
+      <pubDate>Tue, 05 Dec 2023 16:58:03 +0000</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/cookieclone/</guid>
+      <description>When designing the costing for the building I stumbled upon the official cookie clicker building cost wiki page and copied the formula from there. Or so I thought.
+Here is the original formula: cookieclicker.fandom.com/wiki/Building The formula is fairly straightforward. I was able to completely omit the need for &amp;ldquo;F&amp;rdquo; as I don&amp;rsquo;t currently have any options for free buildings. Here is my formula: js costing formula price = Math.ceil(originalPrice * exponent * buildingAmount)); Notice any issues?</description>
+      <content>&lt;p&gt;When designing the costing for the building I stumbled upon the official cookie clicker building cost wiki page and copied the formula from there. Or so I thought.&lt;br&gt;
+Here is the original formula:
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/otJ2dnv.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;cookieclicker.fandom.com/wiki/Building&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+The formula is fairly straightforward. I was able to completely omit the need for &lt;em&gt;&amp;ldquo;F&amp;rdquo;&lt;/em&gt; as I don&amp;rsquo;t currently have any options for free buildings.
+Here is my formula:
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;1&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;1&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;js&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;costing formula&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-js&#34; &gt;&lt;code&gt;
+price = Math.ceil(originalPrice * exponent * buildingAmount));
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+Notice any issues?&lt;/p&gt;
+&lt;p&gt;In hindsight, this was a silly error as I completely read the formula wrong. I should have multiplied the &lt;strong&gt;exponent&lt;/strong&gt; by the &lt;strong&gt;buildingAmount&lt;/strong&gt;.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/mbGECUt.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Fig 1&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Figure 1 shows the error in my formula compared to the official game. As you can see, mine is very linear with a more expensive start up but leading to easier prices later in the game.&lt;/p&gt;
+&lt;p&gt;But this is a simple fix with:&lt;/p&gt;
+
+
+
+  &lt;div class=&#34;collapsable-code&#34;&gt;
+    &lt;input id=&#34;1&#34; type=&#34;checkbox&#34;  /&gt;
+    &lt;label for=&#34;1&#34;&gt;
+      &lt;span class=&#34;collapsable-code__language&#34;&gt;js&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__title&#34;&gt;Corrected formula&lt;/span&gt;
+      &lt;span class=&#34;collapsable-code__toggle&#34; data-label-expand=&#34;Show&#34; data-label-collapse=&#34;Hide&#34;&gt;&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;pre class=&#34;language-js&#34; &gt;&lt;code&gt;
+price = Math.ceil(originalPrice * Math.pow(exponent, buildingAmount));
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+
+
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/eEpQFcJ.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Fig 2&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Figure 2 shows the original pricing along with the new pricing. They are now identical, which is cool.&lt;/p&gt;
+&lt;p&gt;I then changed the exponential value to 1.2. Figure 3 shows the result of this. The new pricing is &lt;strong&gt;a lot&lt;/strong&gt; more costly.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/az1IOuL.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Fig 3&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>DirectX11 ACW</title>
+      <link>Jammyj1mj1m.github.io/posts/dx11assessment/</link>
+      <pubDate>Fri, 24 Nov 2023 10:43:59 +0000</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/dx11assessment/</guid>
+      <description>Brief Computer graphics gallery consisting of 4 rooms each with a different exhibit
+Each room is to contain an exhibit that demonstrates one or more of the shading, animation and lighting effects listed below. Advanced effects (see below for a full description) are marked with a (*)
+The exhibits can consist of one or more 3D objects.
+The specific 3D objects that make up the exhibit are not defined, although they should be different in every room, and selected to clearly enhance the chosen shading, lighting, animation effects.</description>
+      <content>&lt;h1 id=&#34;brief&#34;&gt;Brief&lt;/h1&gt;
+&lt;p&gt;Computer graphics gallery consisting of 4 rooms each with a different exhibit&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Each room is to contain an exhibit that demonstrates one or more of the shading, animation and lighting effects listed below. Advanced effects (see below for a full description) are marked with a (*)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The exhibits can consist of one or more 3D objects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The specific 3D objects that make up the exhibit are not defined, although they should be different in every room, and selected to clearly enhance the chosen shading, lighting, animation effects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;At least one of the 3D objects should consist of a high definition mesh containing 1000&amp;rsquo;s of polygons and be irregular (e.g. teapot, dragon, etc)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;At least one of the exhibits should consist of 1000&amp;rsquo;s of dynamic 3D objects (e.g. a stream of spheres appearing in the ceiling and falling to the floor)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;At least one of the exhibits should consist of multiple dynamic 3D objects where the various animation effects can be demonstrated&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;13122023&#34;&gt;&lt;strong&gt;13/12/2023&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;gallery-rooms&#34;&gt;Gallery rooms&lt;/h3&gt;
+&lt;p&gt;Started the day off in Blender creating some models to use as the gallery rooms.
+My initial thoughts were to have each of the rooms connected via a small corridoor:&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/cUphB2A.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;After thinking about the layout for a little while I deciced that i&amp;rsquo;ll keep it a lot simpler and just have 4 rooms next to each other with a door way.&lt;/p&gt;
+&lt;p&gt;
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/oU5hYwx.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+Each room has its own area, floor, walls and celing. This allows me to create the one room, duplicate it and rotate it for the other 3 rooms.
+The texture design of the walls and floor aren&amp;rsquo;t finalised yet, however something fairly monotone is my general idea as it won&amp;rsquo;t take the attention away from whatever will eventually be showcased in the room.&lt;/p&gt;
+&lt;h3 id=&#34;uml&#34;&gt;UML&lt;/h3&gt;
+&lt;p&gt;Shown below is the first diagram I have created relating to the light setup that I would like to implement.
+Light is an abstract class that contains some common data members that all light types will use as well as a virtual run method. All the other light types will ovveride the run method with their own logic.&lt;/p&gt;
+&lt;p&gt;
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/GFbBO49.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;strong&gt;Directional light&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Directional lights are like the sun where all rays coming from the light are more or less parallel to each other and far away. In this case a position isnt neccesary, only a direction is needed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Point light&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Point lights are omnidirectional emitting, for example a lightbulb hanging from a ceiling. The light source needs a position but does not need a direction. Constant, linear and quadratic data members are used in the calculations for the light attenuation, this refers to how far the light can reach objects. Another name for this is light falloff.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Spot light&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Spot lights are like a flashlight, coming from a single position but only in a given direction.
+Spotlights are almost the same as a pointlight with the difference being that there are a few other parameters that control the output into a cone shape.&lt;/p&gt;
+&lt;h6 id=&#34;models&#34;&gt;Models&lt;/h6&gt;
+&lt;p&gt;Below is the diagram I am working on for a model class and its relationships. The main class, model will store the relevant data members for a model, this can include the vertex and index lists, for later rendering.
+As well as this it can also contain position, scale and rotation values.
+Each model will have a material that will be used for the drawing stage. This class is essentially just a data container. The material class will have four Texture classes, one for each of the texture types that will be used, diffuse map, normal map, height map and specular map.&lt;/p&gt;
+&lt;p&gt;There is also a seperate class that contains a sampler state, this is its own entity as it should be called by multiple material classes.
+The reason for this being that the majority, if not all of my textures will be sampled in the same way.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/8Eh5u2I.png&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;20122023&#34;&gt;&lt;strong&gt;20/12/2023&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Today I created a quick mock up of what I would like my four gallery rooms to look like.&lt;/p&gt;
+&lt;p&gt;Starting in the far left, the teapot room. One teapot will have gourad lighting appplied (vertex lighting) and the other teapot will have phong lighting applied(per pixel).&lt;br&gt;
+Next is the room with lots of dynamic spheres, these will fall from the ceiling into the floor all while being illumiated by three point lights of different colours.&lt;br&gt;
+The nect room is animated, I will have three suzanne models with different transformation animations applied, translation, scale and rotation.&lt;br&gt;
+The final room is empty as it is left to whatever I want to add to it, I haven&amp;rsquo;t decided on what to add yet.&lt;br&gt;
+Although it&amp;rsquo;s not shown here, the actual scene will have a ceiling.&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;https://i.imgur.com/mr7bm5C.gif&#34;  alt=&#34;Fig1&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;11012024&#34;&gt;&lt;strong&gt;11/01/2024&lt;/strong&gt;&lt;/h2&gt;
+&lt;h1 id=&#34;submission-day&#34;&gt;Submission day&lt;/h1&gt;
+&lt;p&gt;Shown below is what I produced for my final assignment for the two modules, &amp;ldquo;C++ programming and design&amp;rdquo; and &amp;ldquo;real-time graphics&amp;rdquo;. Unlike as previously mentioned this scene does not have a ceiling.
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/BeZAlWUrvjw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Donut</title>
+      <link>Jammyj1mj1m.github.io/portfolio/3d-modelling/donut/</link>
+      <pubDate>Thu, 16 Nov 2023 09:02:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/3d-modelling/donut/</guid>
+      <description>Blender render of the doughnut tutorial
+Everyone has one of these lying around somewhere </description>
+      <content>&lt;p&gt;Blender render of the doughnut tutorial&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;Jammyj1mj1m.github.io/img/DonutFinal.png&#34;  alt=&#34;Donut&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+      &lt;figcaption class=&#34;center&#34;  style=&#34;color: white;&#34; &gt;Everyone has one of these lying around somewhere&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>Robo Spider </title>
+      <link>Jammyj1mj1m.github.io/portfolio/3d-modelling/robospider/</link>
+      <pubDate>Thu, 16 Nov 2023 09:02:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/3d-modelling/robospider/</guid>
+      <description>Blender render of a Robo spider</description>
+      <content>&lt;p&gt;Blender render of a Robo spider&lt;/p&gt;
+
+&lt;img src=&#34;Jammyj1mj1m.github.io/img/RoboSpider.png&#34;  alt=&#34;RoboSpider&#34;  class=&#34;center&#34;  style=&#34;border-radius: 10px;&#34;    /&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>Real time graphics and C&#43;&#43;</title>
+      <link>Jammyj1mj1m.github.io/portfolio/masters-year/rtgandcpp/</link>
+      <pubDate>Sat, 16 Sep 2023 03:08:34 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/masters-year/rtgandcpp/</guid>
+      <description>Reason and technologies used Language Technologies Grade C++ DirectX11 1st A joint assessment project between my C++ and real time rendering module. Marking was based on C++ desgin and implementation.The graphical side was marked on features developed in DX11 such as phong vs gourad shading, cube mapping, normal mapping.
+A final showcase video can be found here: More information can be found Here</description>
+      <content>&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;th&gt;Grade&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C++&lt;/td&gt;
+&lt;td&gt;DirectX11&lt;/td&gt;
+&lt;td&gt;1st&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A joint assessment project between my C++ and real time rendering module.
+Marking was based on C++ desgin and implementation.The graphical side was marked on features developed in DX11 such as phong vs gourad shading, cube mapping, normal mapping.&lt;/p&gt;
+&lt;p&gt;A final showcase video can be found here:
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/BeZAlWUrvjw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;p&gt;More information can be found &lt;a href=&#34;Jammyj1mj1m.github.io/posts/dx11assessment/&#34;&gt;Here&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Commercial development practice</title>
+      <link>Jammyj1mj1m.github.io/portfolio/masters-year/cdp-project/</link>
+      <pubDate>Sat, 16 Sep 2023 03:08:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/masters-year/cdp-project/</guid>
+      <description>Reason and technologies used Language Technologies C# Agile, Unity Commercial development practice module.
+This module is aimed at introducing students to the &amp;ldquo;real&amp;rdquo; world of software development. As such I am in a team working with a real world client to deliver a piece of software.
+In this case my team and I are using agile principles to develop an offshore wind turbine virtual reality training software.</description>
+      <content>&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C#&lt;/td&gt;
+&lt;td&gt;Agile, Unity&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Commercial development practice module.&lt;br&gt;
+This module is aimed at introducing students to the &amp;ldquo;real&amp;rdquo; world of software development. As such I am in a team working with a real world client to deliver a piece of software.&lt;br&gt;
+In this case my team and I are using agile principles to develop an offshore wind turbine virtual reality training software.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>MkV tank</title>
+      <link>Jammyj1mj1m.github.io/portfolio/3d-modelling/markvtank/</link>
+      <pubDate>Wed, 13 Sep 2023 03:08:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/3d-modelling/markvtank/</guid>
+      <description>Blender render of a MkV tank I made during the summer of 2022</description>
+      <content>&lt;p&gt;Blender render of a MkV tank I made during the summer of 2022&lt;/p&gt;
+
+&lt;img src=&#34;Jammyj1mj1m.github.io/img/mkv.jpg&#34;  alt=&#34;MkV tank&#34;  class=&#34;center&#34;  style=&#34;border-radius: 10px;&#34;    /&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>OpenTK Game Engine</title>
+      <link>Jammyj1mj1m.github.io/portfolio/games/opentk-game-engine/</link>
+      <pubDate>Tue, 22 Aug 2023 15:18:17 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/games/opentk-game-engine/</guid>
+      <description>Reason and technologies used Language Technologies C# OpenTK A custom game engine being written in C# and OpenTK.
+The engine initially started as part of first semester in my third year(september 2022), I worked on this fairly regularly until around august 2023. The main technologies used are C# and OpenTk which is an OpenGl framework.
+This project allowed me to further expand into a C++ engine using OpenGl as well as to look into DX11.</description>
+      <content>&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C#&lt;/td&gt;
+&lt;td&gt;OpenTK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A custom game engine being written in C# and OpenTK.&lt;br&gt;
+The engine initially started as part of first semester in my third year(september 2022), I worked on this fairly   regularly until around august 2023. The main technologies used are C# and OpenTk which is an OpenGl framework.&lt;/p&gt;
+&lt;p&gt;This project allowed me to further expand into a C++ engine using OpenGl as well as to look into DX11.&lt;br&gt;
+The engine is an ECS design which allowed for easy integration of new features.&lt;/p&gt;
+&lt;p&gt;A more detailed look at the engine can be found &lt;a href=&#34;https://jammyjimjim.co.uk/posts/opentk-game-engine/&#34;&gt;Here&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>OpenTK Game Engine</title>
+      <link>Jammyj1mj1m.github.io/posts/opentk-game-engine/</link>
+      <pubDate>Tue, 22 Aug 2023 15:18:17 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/posts/opentk-game-engine/</guid>
+      <description>A custom game engine being written in C# and OpenTK. The engine initially started as part of first semester in my third year and I have been adding and developing it since.
+August 18th &amp;lsquo;23 - Specular Specular highlights!!
+Specular maps are now a feature for models, a simple yet visually pleasing feature.
+Shout out to the axolotl cards 😎
+August 15th &amp;lsquo;23 - Collisions At this stage better collision responses had been implemented between Sphere-Sphere and Sphere-AABB.</description>
+      <content>&lt;p&gt;A custom game engine being written in C# and OpenTK.
+The engine initially started as part of first semester in my third year and I have been adding and developing it since.&lt;/p&gt;
+&lt;h3 id=&#34;august-18th-23---specular&#34;&gt;August 18th &amp;lsquo;23 - Specular&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Specular highlights!!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Specular maps are now a feature for models, a simple yet visually pleasing feature.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/5ERTlKTcgrQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Shout out to the axolotl cards 😎&lt;/p&gt;
+&lt;h3 id=&#34;august-15th-23---collisions&#34;&gt;August 15th &amp;lsquo;23 - Collisions&lt;/h3&gt;
+&lt;p&gt;At this stage better collision responses had been implemented between Sphere-Sphere and Sphere-AABB.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/tQ900XtZkK4&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;december-15th-22---spotlights&#34;&gt;December 15th &amp;lsquo;22 - Spotlights&lt;/h3&gt;
+&lt;p&gt;Spotlights had just been introduced and I was fascinated by the effect shown.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/0PmWyh0bnwU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;december-11th-22---phong&#34;&gt;December 11th &amp;lsquo;22 - Phong&lt;/h3&gt;
+&lt;p&gt;A brief look at state of the engine.
+Basic phong lighting with attenuation was introduced.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/SYJy9BMxpA4&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</content>
+    </item>
+    
+    <item>
+      <title>Third Year Final Project</title>
+      <link>Jammyj1mj1m.github.io/portfolio/games/third-year-project/</link>
+      <pubDate>Tue, 22 Aug 2023 15:17:12 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/games/third-year-project/</guid>
+      <description>VeRy Troublesome tanks Reason and technologies used Language Technologies C# Unity, VR This project was the final software piece that went alongside my dissertation.
+The game is a VR port of the original game called: Troublesome tanks. The idea was to provide a more immersive and fun take on the original game.
+Game brief: There are 4 teams consisting of 3 players. One player will take on the driver role who is responsible for driving the tank across the terrain.</description>
+      <content>&lt;h1 id=&#34;very-troublesome-tanks&#34;&gt;VeRy Troublesome tanks&lt;/h1&gt;
+&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C#&lt;/td&gt;
+&lt;td&gt;Unity, VR&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This project was the final software piece that went alongside my dissertation.&lt;br&gt;
+The game is a VR port of the original game called: &lt;a href=&#34;https://www.youtube.com/watch?v=GafLNMRZxGI&#34;&gt;Troublesome tanks&lt;/a&gt;.
+The idea was to provide a more immersive and fun take on the original game.&lt;/p&gt;
+&lt;h4 id=&#34;game-brief&#34;&gt;Game brief:&lt;/h4&gt;
+&lt;p&gt;There are 4 teams consisting of 3 players. One player will take on the driver role who is responsible for driving the tank across the terrain. Another player will take the engineer role who is responsible for keeping the tanks energy systems topped up so that the tank as a whole can operate. The final player has the gunner role, which arguably is the most fun. The gunner is able to move the gun left, right, up and down to its set limits as well as to fire the gun itself.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/tzYgDqSjCMI&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</content>
+    </item>
+    
+    <item>
+      <title>Path Finding ACW</title>
+      <link>Jammyj1mj1m.github.io/portfolio/games/pathfinding/</link>
+      <pubDate>Tue, 22 Aug 2023 15:17:12 +0200</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/games/pathfinding/</guid>
+      <description>Reason and technologies used Language Technologies C# A* Completed as the final assignment for my Game AI module in second year.
+The project has a bot (green circle) and a goal(red circle), the bot will calculate an A* route from bot position to goal position on the 2D grid.
+The blue patch is the closed path and the green area open path. Finally the red line is the path the bot has taken</description>
+      <content>&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C#&lt;/td&gt;
+&lt;td&gt;A*&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Completed as the final assignment for my Game AI module in second year.&lt;/p&gt;
+&lt;p&gt;The project has a bot (green circle) and a goal(red circle), the bot will calculate an A* route from bot position to goal position on the 2D grid.&lt;/p&gt;
+&lt;p&gt;The blue patch is the closed path and the green area open path. Finally the red line is the path the bot has taken&lt;/p&gt;
+
+  &lt;figure class=&#34;center&#34; &gt;
+    &lt;img src=&#34;Jammyj1mj1m.github.io/img/pathfinding.png&#34;  alt=&#34;path&#34;   style=&#34;border-radius: 8px;&#34;  /&gt;
+    
+  &lt;/figure&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>Showcase</title>
+      <link>Jammyj1mj1m.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/contact/</guid>
+      <description>Hi there You can reach me here:
+GitHub YouTube Twitter </description>
+      <content>&lt;h1 id=&#34;hi-there&#34;&gt;Hi there&lt;/h1&gt;
+&lt;p&gt;You can reach me here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JammyJ1mJ1m&#34;&gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCfo2Z4a95BT5C0AozPfIviw&#34;&gt;&lt;strong&gt;YouTube&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/JammyJ1mJ1m&#34;&gt;&lt;strong&gt;Twitter&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Showcase</title>
+      <link>Jammyj1mj1m.github.io/showcase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/showcase/</guid>
+      <description>🏗️ Under construction🏗️ During second year I completed a 2D graphics module using the html canvas API
+This was a first practical introduction to linear algebra as well as a scenegraph for handling multiple renderable objects
+The site can be found: Here</description>
+      <content>&lt;h1 id=&#34;-under-construction&#34;&gt;🏗️ &lt;strong&gt;Under construction&lt;/strong&gt;🏗️&lt;/h1&gt;
+&lt;p&gt;During second year I completed a 2D graphics module using the html canvas API&lt;br&gt;
+This was a first practical introduction to linear algebra as well as a scenegraph for handling multiple renderable objects&lt;/p&gt;
+&lt;p&gt;The site can be found: &lt;a href=&#34;Jammyj1mj1m.github.io/external/TwoDGraphics/graphics.html&#34;&gt;Here&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

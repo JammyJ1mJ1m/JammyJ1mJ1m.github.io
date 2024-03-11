@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clicker Clone</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+</head>
+
+<body class="noSelect" onload="setupCanvas();"> <!-- style="background-color:#138eaa;" -->
+
+    <header id="Header">
+        <div class="Title">Hello Alien!</div>
+    </header>
+
+    <div class="Game">
+
+        <div class="centerSection">
+                <canvas id="canvas" width="720" height="720">
+                    Your browser does not support the canvas tag
+                </canvas>
+                <p>Press "A" to go left, "D" to go right and "spacebar" to shoot</p>
+            
+        </div>
+
+    </div>
+
+
+
+
+</body>
+<footer>
+    Made by JammyJimJim, inspiration from the original space invaders
+    <script type="text/javascript" src="js/dictionary.js"></script>
+    <script type="text/javascript" src="js/kvp.js"></script>
+    
+    <script type="text/javascript" src="js/vector.js"></script>
+    <script type="text/javascript" src="js/matrix.js"></script>
+    
+    <script type="text/javascript" src="js/graphNodes/graphNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/geometryNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/groupNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/transformNode.js"></script>
+    <script type="text/javascript" src="js/graphNodes/renderVisitor.js"></script>
+    
+    <script type="text/javascript" src="js/game/debugManager.js"></script>  
+        <script type="text/javascript" src="js/game/alien.js"></script>
+        <script type="text/javascript" src="js/game/enemyManager.js"></script>  
+        <script type="text/javascript" src="js/game/collisionManager.js"></script>  
+        <script type="text/javascript" src="js/game/player.js"></script>  
+        <script type="text/javascript" src="js/game/projectile.js"></script>  
+        <script type="text/javascript" src="js/game/barrier.js"></script>  
+        <script type="text/javascript" src="js/game/barrierPiece.js"></script>  
+    
+        <script type="text/javascript" src="js/main.js"></script>
+
+    
+  
+</footer>
+
+</html>

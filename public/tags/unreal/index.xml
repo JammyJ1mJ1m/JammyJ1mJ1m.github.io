@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unreal on Portfolio</title>
+    <link>Jammyj1mj1m.github.io/tags/unreal/</link>
+    <description>Recent content in Unreal on Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 16 Sep 2023 03:08:13 +0100</lastBuildDate><atom:link href="Jammyj1mj1m.github.io/tags/unreal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Commercial development practice</title>
+      <link>Jammyj1mj1m.github.io/portfolio/masters-year/cdp-project/</link>
+      <pubDate>Sat, 16 Sep 2023 03:08:13 +0100</pubDate>
+      
+      <guid>Jammyj1mj1m.github.io/portfolio/masters-year/cdp-project/</guid>
+      <description>Reason and technologies used Language Technologies C# Agile, Unity Commercial development practice module.
+This module is aimed at introducing students to the &amp;ldquo;real&amp;rdquo; world of software development. As such I am in a team working with a real world client to deliver a piece of software.
+In this case my team and I are using agile principles to develop an offshore wind turbine virtual reality training software.</description>
+      <content>&lt;h4 id=&#34;reason-and-technologies-used&#34;&gt;Reason and technologies used&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Language&lt;/th&gt;
+&lt;th&gt;Technologies&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C#&lt;/td&gt;
+&lt;td&gt;Agile, Unity&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Commercial development practice module.&lt;br&gt;
+This module is aimed at introducing students to the &amp;ldquo;real&amp;rdquo; world of software development. As such I am in a team working with a real world client to deliver a piece of software.&lt;br&gt;
+In this case my team and I are using agile principles to develop an offshore wind turbine virtual reality training software.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
