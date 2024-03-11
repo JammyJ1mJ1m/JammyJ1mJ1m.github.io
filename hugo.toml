@@ -26,7 +26,6 @@ publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
 
 [params]
-enableGitInfo = true
 
 # dir name of your main content (default is `content/posts`).
 # the list of set content will show up on your index page (baseurl).
@@ -54,6 +53,8 @@ autoCover = true
 
 # set post to show the last updated
 # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
+enableGitInfo = true
+
 showLastUpdated = true
 
 # set a custom favicon (default is a `themeColor` square)

@@ -1,11 +1,6 @@
-{{ $date := .Date.Format "02.01.2006" }}
-{{ $lastmod := .Lastmod.Format "02.01.2006" }}
+{{ $date := .Date.Format "02-01-2006" }}
+{{ $lastmod := .Lastmod.Format "02-01-2006" }}
 
-<!-- <p>Last Modified: {{ .Lastmod.Format "2 January 2006" }}</p>
-<p> hello hugo world</p> -->
-
-<!-- <span class="date-info italic">published on {{ $date }}</span> -->
 {{ if ne $lastmod $date }}
-    <span class="date-info italic"> :: edited on {{ .Lastmod.Format "02.01.2006" }}</span>
+    <span class="date-info italic"> {{ $.Site.Params.updatedDatePrefix }} {{ .Lastmod.Format "02-01-2006" }}</span>
 {{ end }}
-
