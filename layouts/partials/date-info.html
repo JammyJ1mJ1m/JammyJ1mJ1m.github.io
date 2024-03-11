@@ -3,4 +3,6 @@
 
 {{ if ne $lastmod $date }}
     <span class="date-info italic"> :: [{{ $.Site.Params.updatedDatePrefix }} {{ .Lastmod.Format "02-01-2006" }}]</span>
+    <p>Last updated: {{ .GitInfo.AuthorDate.Format "January 2, 2006" }}</p>
+
 {{ end }}

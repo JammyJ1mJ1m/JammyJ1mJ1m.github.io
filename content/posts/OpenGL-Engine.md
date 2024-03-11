@@ -1,6 +1,5 @@
 +++
 title = "Callisto Engine"
-lastmod = "2024-02-29T03:08:13+01:00"
 
 date = "2024-02-28T03:08:13+01:00"
 author = "James"
