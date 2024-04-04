@@ -17,9 +17,11 @@ portfolioCover = "img/ORE.png"
 #### Reason and technologies used  
 | Language    | Technologies|
 | ----------- | ----------- |
-| C#          |Agile, Unity |
+| C#          | Agile,Prince2, Unity|
   
   
-Commercial development practice module.  
+ 
 This module is aimed at introducing students to the "real" world of software development. As such I am in a team working with a real world client to deliver a piece of software.  
-In this case my team and I are using agile principles to develop an offshore wind turbine virtual reality training software.
+In this case my team and I are using agile and prince2 principles to develop an offshore wind turbine virtual reality training software.  
+Specifically with a focus on safety training, before, during and transitioning from the crew transfer vehicle(CTV) onto the wind turbine.  
+Daily tasks for this include standup meetings and working through the current sprint tasks.
