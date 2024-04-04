@@ -1,12 +1,12 @@
 +++
-title = "OpenGL Engine"
+title = "Callisto engine"
 date = "2023-09-13T03:08:13+01:00"
 author = "James"
 authorTwitter = "JammyJ1mJ1m" #do not include @
 cover = ""
 tags = ["C++", "Engine","Personal"]
 keywords = ["", ""]
-description = "A OpenGL game engine being written in C++. Uses GLFW"
+description = "A game engine being written in C++ for OpenGL and DirectX11"
 showFullContent = false
 readingTime = true
 hideComments = false
@@ -21,6 +21,6 @@ published = false
 
 | Language    | Technologies|
 | ----------- | ----------- |
-| C++          |OpenGL    |
+| C++          |OpenGL, DirectX11   |
 
 A more detailed look can be found [Here](https://jammyjimjim.co.uk/posts/opengl-engine/)

@@ -18,14 +18,15 @@ portfolioCover = "img/dinky.png"
 
 #### Reason and technologies used
 
-| Language    | Technologies|
-| ----------- | ----------- |
-| C#          |OpenTK       |
+| Language    | Technologies| grade
+| ----------- | ----------- | ----------- |
+| C#          |OpenTK       | 1st
+
 
 A custom game engine being written in C# and OpenTK.  
 The engine initially started as part of first semester in my third year(september 2022), I worked on this fairly   regularly until around august 2023. The main technologies used are C# and OpenTk which is an OpenGl framework.  
+A finished game can be seen here:
+{{< youtube 6LaIRs2iC6c >}}
 
-This project allowed me to further expand into a C++ engine using OpenGl as well as to look into DX11.  
- The engine is an ECS design which allowed for easy integration of new features.
 
 A more detailed look at the engine can be found [Here](https://jammyjimjim.co.uk/posts/opentk-game-engine/)
