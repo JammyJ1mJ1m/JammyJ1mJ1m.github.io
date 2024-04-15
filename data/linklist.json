@@ -28,7 +28,7 @@
         {
             "Type": "link",
             "Link": "/posts/opengl-engine/",
-            "Icon": "/img/DX.png",
+            "Icon": "/icon/envelope2.png",
             "Content": "Current project",
             "OpenNewTab": false
         },
@@ -37,7 +37,7 @@
             "Link": "/external/clickerGame",
             "Icon": "/img/cookie.png",
             "Content": "WIP - Cookie clicker game",
-            "OpenNewTab": false
+            "OpenNewTab": true
         },
         
         {
@@ -45,14 +45,7 @@
             "Link": "/external/CubedGame",
             "Icon": "/img/CubedLogo.png",
             "Content": "CUBED Game",
-            "OpenNewTab": false
-        },
-        {
-            "Type": "link",
-            "Link": "/posts/cookieclone/",
-            "Icon": "/icon/envelope2.png",
-            "Content": "Latest blog post",
-            "OpenNewTab": false
+            "OpenNewTab": true
         }
     ]
 }
