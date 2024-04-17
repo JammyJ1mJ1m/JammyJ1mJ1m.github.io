@@ -53,7 +53,7 @@ As well as the above, this is the current output. This output is two entities wi
 {{< figure src="https://i.imgur.com/8rj7Etw.png" alt="coloured shapes" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" size="100px;" >}}
 
 
-### April 17th '24 - Assimp, materials and a camera
+### April 17th '24 - Assimp, materials, camera and a library
 Big delay in this update, but some cool updates. The engine is now using Assimp to load models and it is also now capable of reading materials from a file to apply to the newly lodaded models.
 
 
@@ -61,4 +61,5 @@ Big delay in this update, but some cool updates. The engine is now using Assimp 
 
 As you can see things are looking a little less like a triangle. I have a spaceship model with a wooden box texture applied. The black and purple box in the backgorund shows that if a material can't be found the default texture will load instead. Very cool.  
 loading the models and materials is handled by the resource manager, the same one used for loading shaders. 
-As well as the models and materials it is now possible to navigate around the scene with WASD. The cool part is that this feature is a standalone camera with its own values that can tweaked later on. 
+As well as the models and materials it is now possible to navigate around the scene with WASD. The cool part is that this feature is a standalone camera with its own values that can tweaked later on.  
+This was a pain to setup correctly and a steep learning curve, but the engine is now a true library. This means that to develop a game using it you simply need to copy the .lib and its headers into the game project.  
