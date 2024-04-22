@@ -10,7 +10,7 @@ description = "Render"
 showFullContent = false
 readingTime = true
 hideComments = false
-color = "red" #color from the theme settings
+color = "" #color from the theme settings
 portfolioCover = "img/Dx11.png"
 published = true
 +++

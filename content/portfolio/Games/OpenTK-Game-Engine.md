@@ -10,7 +10,7 @@ description = "A custom game engine being written in C# and OpenTK"
 showFullContent = false
 readingTime = true
 hideComments = false
-color = "pink" #color from the theme settings
+color = "" #color from the theme settings
 portfolioCover = "img/dinky.png"
 +++
 

@@ -10,7 +10,7 @@ description = "A game engine being written in C++ for OpenGL and DirectX11"
 showFullContent = false
 readingTime = true
 hideComments = false
-color = "pink" #color from the theme settings
+color = "" #color from the theme settings
 portfolioCover = "img/openglEngine.png"
 published = false
 +++

@@ -10,7 +10,7 @@ description = "A* pathfinding assignment in second year"
 showFullContent = false
 readingTime = true
 hideComments = false
-color = "red" #color from the theme settings
+color = "" #color from the theme settings
 portfolioCover = "img/pathfinding.png"
 
 +++

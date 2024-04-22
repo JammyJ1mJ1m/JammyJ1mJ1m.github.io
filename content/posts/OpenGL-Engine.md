@@ -11,7 +11,7 @@ description = "A game engine being written in C++ designed to render with OpenGl
 showFullContent = false
 readingTime = true
 hideComments = false
-color = "orange" #color from the theme settings
+color = "" #color from the theme settings
 +++
 
 ### Background
