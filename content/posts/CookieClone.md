@@ -20,6 +20,8 @@ Here is my formula:
 {{< code language="js" title="costing formula" id="1" expand="Show" collapse="Hide" isCollapsed="false" >}}
 price = Math.ceil(originalPrice * exponent * buildingAmount));
 {{< /code >}}
+
+
 Notice any issues?
 
 In hindsight, this was a silly error as I completely read the formula wrong. I should have multiplied the **exponent** by the **buildingAmount**.
