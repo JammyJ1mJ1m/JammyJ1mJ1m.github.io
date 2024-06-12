@@ -15,15 +15,16 @@ color = "" #color from the theme settings
 +++
 
 ### Background
-I've always been fascinated with game engines and creating my own has been something that i have wanted to do for a long time. PRimarily this engine is being developed in OpenGL but it *could* have DirectX11 thrown at it.   
+I've always been fascinated with game engines and creating my own has been something that i have wanted to do for a long time. Primarily this engine is being developed in OpenGL but it *could* have DirectX11 thrown at it.   
 
 ### June 12th '24 - Cubemaps and physics
 Another big delay between updates but at least I have now finished with University.  
-I have made the decision to focus more on a single graphics API rather than try and implement multiple at the same time, I have decided to stick with OpenGL for the time being. This is primarily due to wanting to actually accomplish something rather than being stuck in development hell.
+I have made the decision to focus more on a single graphics API rather than try and implement multiple at the same time. I have decided to stick with OpenGL for the time being. This is primarily due to wanting to actually accomplish something rather than being stuck in development hell.
 This aside, the engine now supports cubemaps as well as physics based objects. 
 
 {{< youtube 670SCI6BVuQ >}}  
-Callisto now makes use of the Bullet physics [engine](https://pybullet.org/wordpress/), this is a brilliant library and is relatively easy to setup. To make use of this I implemented a rigidbody and collider component as well as a physics manager that handles the bullet initialisation and management. So far I can create static mesh colliders and dynamic primitive colliders, which for now is perfectly adequate for the intended use case of Callisto.  
+
+Callisto now makes use of the Bullet physics [engine](https://pybullet.org/wordpress/), this is a brilliant library and is relatively easy to setup. To make use of this, I implemented a rigidbody, collider component and a physics manager. The physics manager handles the bullet initialisation and management. So far I can create static mesh colliders and dynamic primitive colliders, which for now is perfectly adequate for the intended use case of Callisto.  
 Cubemaps can also be loaded from disk using a config file, similar to how my materials for objects work. 
 
 
