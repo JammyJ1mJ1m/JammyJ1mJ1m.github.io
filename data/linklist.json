@@ -1,7 +1,7 @@
 {
     "Name": "James",
     "Description": "find me here:",
-    "Image": "/img/me.jpeg",
+    "Image": "/img/gradMe.jpeg",
     "Socials": [
         {
             "Link": "https://www.linkedin.com/in/james-winnett-75bb361b7/",
@@ -22,7 +22,7 @@
     "List": [
         {
             "Type": "text",
-            "Content": "I'm a Games Developer and all round nerd. \n I am currently a masters year student at The University of Hull  \n\nSkills include: Agile, C#, C++, OpenGL, DirectX 11",
+            "Content": "I am a Games Developer and all round nerd. \n I am a recent master's graduate from The University of Hull  \n\nSkills include: Agile, C#, C++, OpenGL, DirectX 11",
             "HtmlClasses": "desktopOnly"
         },
         {
