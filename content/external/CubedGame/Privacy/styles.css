@@ -1,0 +1,58 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #faefe4; /* App background color */
+    color: #fc6e20; /* Primary text color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fcfcfc; /* Button color for a clean look */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    color: #fc6e20; /* Primary text color */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #fc6e20; /* Primary text color */
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #fc6e20; /* Primary text color */
+    margin-top: 15px;
+}
+
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+a {
+    color: #ffd700; /* Secondary text color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
