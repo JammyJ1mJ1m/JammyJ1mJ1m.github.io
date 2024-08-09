@@ -137,11 +137,9 @@ class UpgradeManager {
             if (amount != 0) {
 
                 for (let index = 0; index < amount; index++) {
-                    this.AddAuto(name)
-
+                    this.AddAuto(name);
                 }
             }
-
         }
     }
 }
