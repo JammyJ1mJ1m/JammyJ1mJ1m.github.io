@@ -5,16 +5,13 @@ class Projectile {
         this.mVelocity = new Vector(0, 0);
 
         this.img = new Image();
-        
+
         this.img.src = "assets/projectile.png";
-this.mVelocity = pVelocity;
-this.mHitRadius = 5;
-this.mIsDead = false;
-
-
-        
-          
-        
+        this.mVelocity = pVelocity;
+        this.mHitRadius = 5;
+        this.mIsDead = false;
+        // this.mShootSound = new Audio('sounds/shoot.wav');
+        this.mShootSound = new AudioSource('sounds/shoot.wav');
     }
 
     GetRadius() { return this.mHitRadius; }
@@ -50,6 +47,11 @@ this.mIsDead = false;
         return new Vector(this.getPosition().getX() - this.getScale() / 2, this.getPosition().getY() - this.getScale() / 2);
     }
 
+    playAudio()
+    {
+        this.mShootSound.play();
+    }
+
     DrawRadius() {
         const canvas = document.getElementById("canvas");
         if (canvas.getContext) {
@@ -61,18 +63,15 @@ this.mIsDead = false;
         }
     }
 
-    ProjectileHit()
-    {
+    ProjectileHit() {
         this.mIsDead = true;
     }
-    GetActiveStat()
-    {
+    GetActiveStat() {
         return this.mIsDead;
     }
 
     Draw(layout, deltaTime) {
-        if( !this.mIsDead)
-        {   
+        if (!this.mIsDead) {
             let currentVelocity = this.getVelocity().multiply(deltaTime);
             let newPosition = this.getPosition().add(currentVelocity);
             this.setPosition(newPosition);

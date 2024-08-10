@@ -71,6 +71,4 @@ class EnemyManager {
     GetRootNode() {
         return this.mEnemiesParentNode;
     }
-
-
 }

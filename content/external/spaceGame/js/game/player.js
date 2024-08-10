@@ -80,6 +80,7 @@ class Player {
                 if (this.mProjectiles.length == 0) {
                     IsShootUp = false;
                     this.mProjectiles.push(new Projectile(this.getPosition(), new Vector(0, -180)));
+                    this.mProjectiles[0].playAudio();
                     // this.setPosition(new Vector(this.getPosition().getX() + (1 * deltaTime),this.getPosition().getY
                 }
             }

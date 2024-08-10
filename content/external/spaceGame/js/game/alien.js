@@ -18,6 +18,9 @@ class Alien {
         // time interval in milliseconds
         this.mLastBulletShotInterval = 2000;
 
+        // this.mDeathSound = new Audio('sounds/death.wav');
+        this.mDeathSound = new AudioSource('sounds/death.wav');
+
         switch (pIndex) {
             case 0:
                 this.img.src = "assets/Alien_1.png";
@@ -35,6 +38,11 @@ class Alien {
     }
 
     GetRadius() { return this.mHitRadius; }
+
+    playAudio()
+    {
+        this.mDeathSound.play();
+    }
 
     getPosition() {
         return this.mPosition;
@@ -81,6 +89,7 @@ class Alien {
 
     KillAlien() {
         this.mIsDead = true;
+        this.playAudio();
     }
     GetIsDead() {
         return this.mIsDead;
