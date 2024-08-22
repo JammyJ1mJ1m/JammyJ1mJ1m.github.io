@@ -17,6 +17,11 @@
             "Link": "https://www.youtube.com/channel/UCfo2Z4a95BT5C0AozPfIviw",
             "Icon": "/icon/youtube-color.svg",
             "AltText": "Youtube"
+        },
+        {
+            "Link": "https://jammyjimjim.itch.io/",
+            "Icon": "/icon/itchdotio-color.svg",
+            "AltText": "itchdotio"
         }
     ],
     "List": [
