@@ -1,0 +1,126 @@
+html {
+  width: 100%;
+  height: 100%;
+  background-color: #138eaa;
+
+  /* shadedEdges.png was taken from https://orteil.dashnet.org Thank you orteil for all the cool stuff you make <3 */
+  background-image: url(shadedEdges.png);
+  background-size: 100% 100%, auto;
+
+  font-family: 'Century Gothic', sans-serif;
+}
+
+
+
+
+
+br,
+.noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+
+/* main game stuff */
+.centerSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  left: 30%;
+  right: 30%;
+  height: 100%;
+}
+
+.Game{
+  top: 32px;
+  position: absolute;
+  left: 0px;
+  
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas {
+  position: absolute;
+
+  outline: black 3px solid;
+  
+  
+}
+
+
+.body {
+  font-size: large;
+}
+
+
+* {
+  /*
+   border: solid 1px rgb(161, 0, 161);
+*/
+}
+
+
+#Header {
+  left: 0%;
+  right: 0%;
+  height: 32px;
+  top: 0;
+  width: 100%;
+  background-image: url("noiseBG.png");
+  background-size: contain;
+  background-color: #333;
+  color: #fff;
+  margin-top: 0%;
+  text-align: center;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.Title {
+  display: inline-block;
+  position: relative;
+}
+
+
+a {
+  color: #138eaa;
+  text-shadow: rgb(255, 0, 255);
+}
+
+footer {
+  left: 0%;
+  right: 0%;
+  height: 32px;
+  bottom: 0;
+  width: 100%;
+  background-image: url("noiseBG.png")  ;
+  background-size: contain;
+
+  background-color: #333;
+  color: #fff;
+  margin-top: 0%;
+  text-align: center;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
