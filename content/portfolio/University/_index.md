@@ -1,7 +1,7 @@
 +++
-title = "Personal projects"
+title = "University"
 date = "2020-02-23"
 author = ""
-weight = 1
+weight = 3
 type = "portfolio"
 +++
