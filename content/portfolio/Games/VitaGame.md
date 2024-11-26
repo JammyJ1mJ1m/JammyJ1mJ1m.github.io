@@ -23,11 +23,16 @@ published = true
 | ----------- | ----------- |
 | C++         | SDL2, Cmake, VitaSDK        |
 
-An asteroids clone that I made for the PS Vita using SDL2 and the VitaSDK library
+An Asteroids clone that I made for the PS Vita using SDL2 and the VitaSDK library
 
-
+<!-- 
 {{< figure src="https://i.imgur.com/DgErFfB.png" alt="path" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}  
 
 {{< figure src="https://i.imgur.com/P7FbJrX.png" alt="path" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}  
 
 {{< figure src="https://i.imgur.com/A81NzjU.png" alt="path" position="center" style="border-radius: 8px;" caption="" captionPosition="center" captionStyle="color: white;" >}}
+ -->
+
+
+{{< carousel src="https://i.imgur.com/DgErFfB.png,https://i.imgur.com/P7FbJrX.png,https://i.imgur.com/A81NzjU.png"  style="border-radius: 8px;" caption="In Game screenshots"  captionPosition="center" captionStyle="color: white;">}}
+

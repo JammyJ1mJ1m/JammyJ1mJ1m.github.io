@@ -14,12 +14,24 @@
   </div>
 </footer>
 
-{{ $menu := resources.Get "js/menu.js" | js.Build }}
+<!-- {{ $menu := resources.Get "js/menu.js" | js.Build }}
 {{ $prism := resources.Get "js/prism.js" | js.Build }}
+{{ $carousel := resources.Get "js/carousel.js" | js.Build }}
 
-{{ $bundle := slice $menu $prism | resources.Concat "bundle.js" | resources.Minify }}
+{{ $bundle := slice $menu $prism $carousel | resources.Concat "bundle.js" | resources.Minify }}
 
-<script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script> -->
+
+
+ <!-- Include your JavaScript bundle (including carousel.js) -->
+ {{ $menu := resources.Get "js/menu.js" | js.Build }}
+ {{ $prism := resources.Get "js/prism.js" | js.Build }}
+ {{ $carousel := resources.Get "js/carousel.js" | js.Build }}
+ 
+ {{ $bundle := slice $menu $prism $carousel | resources.Concat "bundle.js" | resources.Minify }}
+
+ <!-- Add defer to ensure scripts are executed after DOM parsing -->
+ <script type="text/javascript" src="{{ $bundle.RelPermalink }}" defer></script>
 
 <!-- Extended footer section-->
 {{ partial "extended_footer.html" . }}
